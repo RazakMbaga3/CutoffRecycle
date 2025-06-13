@@ -315,9 +315,8 @@ export default function About() {
               
               {/* Decorative element */}
               <div className="absolute -right-10 -top-6 w-8 h-8 bg-brand-green/40 rounded-full blur-sm"></div>
-            </h2>
-            <p className="max-w-xl mx-auto text-brand-black/70 text-lg mt-6">
-              The passionate individuals behind CutOff Recycle's mission and vision
+            </h2>            <p className="max-w-xl mx-auto text-brand-black/70 text-lg mt-6">
+              The passionate individuals behind CutOff Recycle&apos;s mission and vision
             </p>
           </div>
           

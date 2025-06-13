@@ -249,7 +249,7 @@ export default function Contact() {
                     </span>
                   </h2>
                   <p className="text-brand-black/70">
-                    Fill out the form below and we'll get back to you as soon as possible.
+                    Fill out the form below and we&apos;ll get back to you as soon as possible.
                   </p>
                 </div>
                 
@@ -351,7 +351,7 @@ export default function Contact() {
               <div className="absolute -right-8 -top-6 w-8 h-8 bg-brand-green/25 rounded-full blur-sm"></div>
             </h2>
             <p className="text-lg text-brand-black/70 max-w-2xl mx-auto leading-relaxed">
-              Find us at our office in Arusha, Tanzania where we're transforming hair waste into sustainable solutions
+              Find us at our office in Arusha, Tanzania where we&apos;re transforming hair waste into sustainable solutions
             </p>
           </div>
             <div className="bg-white p-5 rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition-all duration-500 relative group">
