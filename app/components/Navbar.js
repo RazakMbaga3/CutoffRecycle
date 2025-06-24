@@ -46,12 +46,12 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex justify-between items-center h-20">          {/* Logo */}
           <Link href="/" className="flex items-center space-x-1">
-            <div className="relative w-10 h-10">
+            <div className="relative w-30 h-4 0">
               <Image
                 src="/Brand Assets/CutOff-Icon.png"
                 alt="CutOff Recycle"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
                 className="object-contain"
                 priority
               />
