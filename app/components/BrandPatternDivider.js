@@ -17,9 +17,9 @@ export default function BrandPatternDivider({
   });
   
   // Create parallax effect based on scroll
-  const x = direction === "left-to-right" 
-    ? useTransform(scrollYProgress, [0, 1], ["-20%", "0%"])
-    : useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const xLeftToRight = useTransform(scrollYProgress, [0, 1], ["-20%", "0%"]);
+  const xRightToLeft = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const x = direction === "left-to-right" ? xLeftToRight : xRightToLeft;
   
   // Add subtle scale effect while scrolling
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
