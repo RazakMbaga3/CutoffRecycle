@@ -13,7 +13,7 @@ export default function FarmerTestimonials() {
       location: 'Morogoro',
       crop: 'Maize',
       quote: 'Since I started using CutOff\'s fertilizer, my maize crops have grown stronger and healthier. The yields have increased by almost 40% compared to last season.',
-      image: '/Images/Photos/BNK_0688.jpg'
+      image: '/Images/Photos/Test1.jpg'
     },
     {
       name: 'Ibrahim Hassan',

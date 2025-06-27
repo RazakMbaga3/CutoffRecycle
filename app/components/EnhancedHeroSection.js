@@ -107,9 +107,9 @@ export default function EnhancedHeroSection() {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <span className="block text-brand-green drop-shadow-glow mb-2">From Waste to Worth</span>
+            <span className="block text-brand-green drop-shadow-glow mb-2">We Make Hair Rubbish</span>
             <span className="relative">
-              Hair Today, Soil Tomorrow.
+            Flourish
               <motion.span
                 className="absolute -bottom-3 left-0 w-full h-1 bg-brand-green/60"
                 initial={{ scaleX: 0 }}
