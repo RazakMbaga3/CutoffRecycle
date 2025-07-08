@@ -1,5 +1,6 @@
 import { Mulish } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "./context/history";
 
 const mulish = Mulish({
   subsets: ["latin"],
@@ -20,14 +21,14 @@ import Footer from './components/Footer';
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${mulish.variable} antialiased font-mulish`}
-      >
+      <body className={`${mulish.variable} antialiased font-mulish`}>
+        <AuthProvider>
         <Navbar />
         <main className="overflow-x-hidden">
           {children}
         </main>
         <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

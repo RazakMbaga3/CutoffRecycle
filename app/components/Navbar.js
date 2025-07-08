@@ -31,6 +31,8 @@ export default function Navbar() {
     { href: '/products', label: 'Products' },
     { href: '/awards', label: 'Awards & Recognition' },
     { href: '/media', label: 'Media' },
+    { href: '/send', label: 'Barbers' },
+    { href: '/employee', label: 'Employees' }
   ];
 
   const toggleMenu = () => {

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Tanzania from "./tanzania";
 
 export default function DonateHairCTA() {
   const steps = [
@@ -23,12 +24,16 @@ export default function DonateHairCTA() {
     {
       name: "Main Collection Center",
       address: "123 Green Street, Dar es Salaam",
-      hours: "Open Tue-Sat, 9am-4pm"
+      hours: "Open Tue-Sat, 9am-4pm",
+      city: 'Dar es Salaam',
+      coordinates: { lat: -6.7924, lng: 39.2083 }
     },
     {
       name: "Partner Salon",
       address: "456 Hair Avenue, Arusha",
-      hours: "Open Mon-Fri, 10am-6pm"
+      hours: "Open Mon-Fri, 10am-6pm",
+      city: 'Arusha',
+      coordinates: { lat: -3.3869, lng: 36.6822 }
     }
   ];
 
@@ -72,15 +77,7 @@ export default function DonateHairCTA() {
 
         <div className="bg-gray-50 rounded-2xl p-8 mb-8">
           <h3 className="text-2xl font-bold mb-6">Collection Points</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {locations.map((location, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-md">
-                <h4 className="font-bold text-lg mb-2">{location.name}</h4>
-                <p className="text-gray-600 mb-2">{location.address}</p>
-                <p className="text-sm text-brand-green">{location.hours}</p>
-              </div>
-            ))}
-          </div>
+          <Tanzania />
           <p className="text-brand-black/70 mt-6">
             Don&apos;t see a location near you? Contact us to arrange pickup or discuss becoming a collection point.
           </p>
