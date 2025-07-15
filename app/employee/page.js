@@ -99,10 +99,7 @@ export default function Home() {
                 }}
               >
                 <div 
-                  style={{
-                    position: 'fixed', top: 0, left: 0, height: '100vh', width: '40vw',
-                    backgroundColor: '#fff', padding: '20px', boxShadow: '2px 0px 10px rgba(0,0,0,0.2)'
-                  }} 
+                  style={{position:'fixed',top:0,left:0,height:'100vh',width:'40vw',backgroundColor:'#fff',padding:'20px',boxShadow:'2px 0px 10px rgba(0,0,0,0.2)',marginTop:'5rem',overflowY:'scroll'}} 
                   onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside sidebar
                 >
                   <div>{orders.map((o, ind) => (

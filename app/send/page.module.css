@@ -1,8 +1,16 @@
 .top {
     flex-direction: row;
 }
+.payment {
+    flex-direction: row;
+}
 @media (max-width: 620px) {
   .top {
+    flex-direction: column;
+  }
+}
+@media (max-width: 310px) {
+  .payment {
     flex-direction: column;
   }
 }

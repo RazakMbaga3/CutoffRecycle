@@ -6,8 +6,6 @@ import { useRouter } from 'next/navigation'
 import {useAuth} from '../context/history'
 import styles from "./page.module.css";
 
-const locations = ['Cape town, South africa', 'Nairobi, Kenya', 'Arusha, Tanzania', 'Dar es salam, Tanzania']
-
 export default function Home() {
   const {users, activeUser, cart, signUp, login, logout, updateUser, updateCustomerData, updateBarberData, addOrder, addPickupOrder, pickupOrders} = useAuth()
   const [selected, setSelected] = useState(0)
@@ -23,6 +21,7 @@ export default function Home() {
   const [subPayment, setSubPayment] = useState(null)
   const [newOrder, setNewOrder] = useState({boxes: 0,name:'',address:'',email:'',payment:'',info:'', location:'Cape town, south africa'})
   const [newSub, setNewSub] = useState({sub:'weekly',boxes: 0,name:'',address:'',email:'',payment:'',info:'',location:'Cape town, south africa'})
+  const [orders, confirm] = useState([]);
   const router = useRouter()
   useEffect(() => {
     if (!activeUser) {
@@ -60,6 +59,11 @@ export default function Home() {
       setNewOrder({...newOrder, info:info})
     }
   }, [info])
+  useEffect(() => {
+    if (pickupOrders && pickupOrders.length > 0) {
+      confirm(pickupOrders);
+    }
+  }, [pickupOrders]);
   return (
       activeUser && <main style={{ display: 'flex',flexDirection: 'column',width:'100vw',alignItems:'center',marginTop:'5rem'}}>
         <h1>Manage your orders/subscriptions</h1>
@@ -68,7 +72,7 @@ export default function Home() {
             <h1 style={{flex:1,margin:'10px',display:'flex',justifyContent:'center',alignItems:'center',textAlign:'center',borderBottom: display == 'sub' ? 'solid 1px #4fad33' : 'none'}} onClick={()=>setDisplay('sub')}>Subscriptions</h1>
             <h1 style={{flex:1,margin:'10px',display:'flex',justifyContent:'center',alignItems:'center',textAlign:'center',borderBottom: display == 'account' ? 'solid 1px #4fad33' : 'none'}} onClick={()=>setDisplay('account')}>Account info</h1>
           </div>
-          <section>
+          <section style={{padding:'20px 0'}}>
           {display == 'order' && <div style={{marginBottom:'50px'}}>
             {column1 == 'list' && activeUser.barberData.orders.length ? 
             <div>
@@ -98,14 +102,14 @@ export default function Home() {
           </div>
           <div>
             <h2>Pickup location</h2>
-            <div style={{display:'flex',flexWrap:'wrap'}}>{locations.map((l, ind) => <p key={l} onClick={p=>{
-              setNewOrder({boxes:newOrder.boxes,name:newOrder.name,address:address,email:newOrder.email,payment:newOrder.payment,info:newOrder.info,location:l,user:newOrder.user})
+            <div style={{display:'flex',flexWrap:'wrap'}}>{orders.map((l, ind) => <p key={l} onClick={p=>{
+              setNewOrder({boxes:newOrder.boxes,name:newOrder.name,address:address,email:newOrder.email,payment:newOrder.payment,info:newOrder.info,location:l.location,user:newOrder.user})
               setSelected(ind)
-              }}  style={{margin:'10px',padding:'10px',borderRadius:'50px',border:ind == selected ? '1px solid black' : 'none'}}>{l}</p>)}</div>
+              }}  style={{margin:'10px',padding:'10px',borderRadius:'50px',border:ind == selected ? '1px solid black' : 'none'}}>{l.location}</p>)}</div>
           </div>
           <div style={{ display: 'flex',flexDirection: 'column',alignItems:'center'}}>
           <h2>How do you want to get paid</h2>
-          <div style={{ display: 'flex'}}>
+          <div className={styles.payment} style={{ display: 'flex'}}>
           <button onClick={()=>{
             setPayment('paypal')
             setNewOrder({...newOrder, payment:payment})
@@ -207,14 +211,14 @@ export default function Home() {
           </div>
           <div>
             <h2>Pickup location</h2>
-            <div style={{display:'flex'}}>{locations.map((l, ind) => <p key={l} onClick={p=>{
-              setNewSub({boxes:newOrder.boxes,name:newOrder.name,address:address,email:newOrder.email,payment:newOrder.payment,info:newOrder.info,location:l})
+            <div style={{display:'flex',flexWrap:'wrap'}}>{orders.map((l, ind) => <p key={l} onClick={p=>{
+              setNewSub({boxes:newOrder.boxes,name:newOrder.name,address:address,email:newOrder.email,payment:newOrder.payment,info:newOrder.info,location:l.location})
               setSelected(ind)
-              }}  style={{margin:'10px',padding:'10px',borderRadius:'50px',border:ind == selected ? '1px solid black' : 'none'}}>{l}</p>)}</div>
+              }}  style={{margin:'10px',padding:'10px',borderRadius:'50px',border:ind == selected ? '1px solid black' : 'none'}}>{l.location}</p>)}</div>
           </div>
           <div style={{ display: 'flex',flexDirection: 'column',alignItems:'center'}}>
           <h2>How do you want to get paid</h2>
-          <div style={{ display: 'flex'}}>
+          <div className={styles.payment} style={{ display: 'flex'}}>
           <button onClick={()=>setNewSub({sub:newSub.sub,boxes:newSub.boxes,name:name,address:address,email:email,payment:'paypal',info:newSub.info,location:newSub.location})} style={{backgroundColor:newSub.payment=='paypal'?'#4fad33':'white',border:'1px solid black',padding:'5px 10px', borderRadius:'50px',fontSize:'1.5em'}}>Paypal</button>
           <button onClick={()=>setNewSub({sub:newSub.sub,boxes:newSub.boxes,name:name,address:address,email:email,payment:'zelle',info:newSub.info,location:newSub.location})} style={{backgroundColor:newSub.payment=='zelle'?'#4fad33':'white', border:'1px solid black',padding:'5px 10px', borderRadius:'50px',fontSize:'1.5em'}}>Zelle</button>
           <button onClick={()=>setNewSub({sub:newSub.sub,boxes:newSub.boxes,name:name,address:address,email:email,payment:'bit',info:newSub.info,location:newSub.location})} style={{backgroundColor:newSub.payment=='bit'?'#4fad33':'white', border:'1px solid black',padding:'5px 10px', borderRadius:'50px',fontSize:'1.5em'}}>Bitcoin</button>
@@ -271,14 +275,14 @@ export default function Home() {
           </div>
           <div>
             <h2>Pickup location</h2>
-            <div style={{display:'flex'}}>{locations.map((l, ind) => <p key={l} onClick={p=>{
-              setNewOrder({boxes:newOrder.boxes,name:newOrder.name,address:address,email:newOrder.email,payment:newOrder.payment,info:newOrder.info,location:l,user:newOrder.user})
+            <div style={{display:'flex'}}>{orders.map((l, ind) => <p key={l} onClick={p=>{
+              setNewOrder({boxes:newOrder.boxes,name:newOrder.name,address:address,email:newOrder.email,payment:newOrder.payment,info:newOrder.info,location:l.location,user:newOrder.user})
               setSelected(ind)
-              }}  style={{margin:'10px',padding:'10px',borderRadius:'50px',border:ind == selected ? '1px solid black' : 'none'}}>{l}</p>)}</div>
+              }}  style={{margin:'10px',padding:'10px',borderRadius:'50px',border:ind == selected ? '1px solid black' : 'none'}}>{l.location}</p>)}</div>
           </div>
           <div style={{ display: 'flex',flexDirection: 'column',alignItems:'center'}}>
           <h2>How do you want to get paid</h2>
-          <div style={{ display: 'flex'}}>
+          <div className={styles.payment} style={{ display: 'flex'}}>
           <button onClick={()=>setNewSub({sub:newSub.sub,boxes:newSub.boxes,name:name,address:address,email:email,payment:'paypal',info:newSub.info,location:newSub.location})} style={{backgroundColor:newSub.payment=='paypal'?'#4fad33':'white',border:'1px solid black',padding:'5px 10px', borderRadius:'50px',fontSize:'1.5em'}}>Paypal</button>
           <button onClick={()=>setNewSub({sub:newSub.sub,boxes:newSub.boxes,name:name,address:address,email:email,payment:'zelle',info:newSub.info,location:newSub.location})} style={{backgroundColor:newSub.payment=='zelle'?'#4fad33':'white', border:'1px solid black',padding:'5px 10px', borderRadius:'50px',fontSize:'1.5em'}}>Zelle</button>
           <button onClick={()=>setNewSub({sub:newSub.sub,boxes:newSub.boxes,name:name,address:address,email:email,payment:'bit',info:newSub.info,location:newSub.location})} style={{backgroundColor:newSub.payment=='bit'?'#4fad33':'white', border:'1px solid black',padding:'5px 10px', borderRadius:'50px',fontSize:'1.5em'}}>Bitcoin</button>
