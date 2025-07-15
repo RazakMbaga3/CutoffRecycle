@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
 import {useAuth} from '../context/history'
+import styles from "./page.module.css";
 
 const locations = ['Cape town, South africa', 'Nairobi, Kenya', 'Arusha, Tanzania', 'Dar es salam, Tanzania']
 
@@ -62,7 +63,7 @@ export default function Home() {
   return (
       activeUser && <main style={{ display: 'flex',flexDirection: 'column',width:'100vw',alignItems:'center',marginTop:'5rem'}}>
         <h1>Manage your orders/subscriptions</h1>
-          <div style={{width:'100%',display:'flex',marginBottom:'50px',flexWrap:'wrap'}}>
+          <div style={{width:'100%',display:'flex',marginBottom:'50px'}} className={styles.top}>
             <h1 style={{flex:1,margin:'10px',display:'flex',justifyContent:'center',alignItems:'center',textAlign:'center',borderBottom: display == 'order' ? 'solid 1px #4fad33' : 'none'}} onClick={()=>setDisplay('order')}>Orders</h1>
             <h1 style={{flex:1,margin:'10px',display:'flex',justifyContent:'center',alignItems:'center',textAlign:'center',borderBottom: display == 'sub' ? 'solid 1px #4fad33' : 'none'}} onClick={()=>setDisplay('sub')}>Subscriptions</h1>
             <h1 style={{flex:1,margin:'10px',display:'flex',justifyContent:'center',alignItems:'center',textAlign:'center',borderBottom: display == 'account' ? 'solid 1px #4fad33' : 'none'}} onClick={()=>setDisplay('account')}>Account info</h1>

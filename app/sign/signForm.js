@@ -26,17 +26,20 @@ export default function Home() {
       <main style={{display:'flex',flexDirection:'column',alignItems:'center',marginTop:'5rem'}}>
       <div style={{ padding: "20px" }}>
       <h1>Sign Up</h1>
+      <div style={{display:'flex'}} className={styles.inputs}>
       <input type="text"
         name="name"
         placeholder="name"
         value={name}
         onChange={e => setName(e.target.value)}
+        style={{border:'1px solid black',borderRadius:'10px'}}
       />
       <input type="email"
         name="email"
         placeholder="Email"
         value={email}
         onChange={e => setEmail(e.target.value)}
+        style={{border:'1px solid black',borderRadius:'10px'}}
       />
       <input
         type="password"
@@ -44,9 +47,10 @@ export default function Home() {
         placeholder="Password"
         value={password}
         onChange={e => setPassword(e.target.value)}
+        style={{border:'1px solid black',borderRadius:'10px'}}
       />
-      
-      <button onClick={handleSignUp}>Sign Up</button>
+      </div>
+      <button onClick={handleSignUp} className="px-8 py-4 bg-brand-green text-white font-semibold rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-500 transform hover:-translate-y-1 inline-flex items-center text-lg">Sign Up</button>
     </div>
     <p>Already have an account <Link href={from ? `/login?from=${from}` : "/login"}>Login</Link></p>
       </main>
