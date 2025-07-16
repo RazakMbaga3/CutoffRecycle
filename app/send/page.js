@@ -27,7 +27,7 @@ export default function Home() {
     if (!activeUser) {
       router.replace("/sign?from=/send")
     }
-  })
+  }, [activeUser, router])
   useEffect(() => {
     if (activeUser) {
       setNewOrder({boxes: 0,name:activeUser.name,address:address,email:activeUser.email,
@@ -56,9 +56,9 @@ export default function Home() {
   }, [display, users])
   useEffect(() => {
     if (newOrder.payment !== '') {
-      setNewOrder({...newOrder, info:info})
+      setNewOrder(p => ({ ...p, info }));
     }
-  }, [info])
+  }, [info, newOrder.payment])
   useEffect(() => {
     if (pickupOrders && pickupOrders.length > 0) {
       confirm(pickupOrders);
