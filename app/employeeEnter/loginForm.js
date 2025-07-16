@@ -26,15 +26,16 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main style={{display:'flex',flexDirection:'column',alignItems:'center',marginTop:'5rem'}}>
-      <div style={{ padding: "20px" }}>
+      <div style={{padding: "20px",display:'flex',flexDirection:'column',alignItems:'center' }}>
       <h1>Employee Login</h1>
-      <div style={{display:'flex'}} className={styles.inputs}>
+      <div style={{display:'flex', margin:'20px 0'}} className={styles.inputs}>
       <input
         type="email"
         name="email"
         placeholder="Email"
         value={email}
         onChange={e => setEmail(e.target.value)}
+        className={styles.first}
         style={{border:'1px solid black',borderRadius:'10px'}}
       />
       <input
