@@ -7,8 +7,14 @@
   .inputs {
     flex-direction: row;
   }
+  .middle {
+    margin:0 20px;
+  }
   @media (max-width: 700px) {
   .inputs {
     flex-direction: column;
+  }
+  .middle {
+    margin:20px 0;
   }
 }
