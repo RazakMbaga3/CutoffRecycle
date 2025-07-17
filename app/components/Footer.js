@@ -178,8 +178,8 @@ export default function Footer() {
                   </svg>
                 </div>
                 <address className="not-italic text-brand-black/70">
-                  PAPU Tower 10th Floor,<br />
-                  Arusha, Tanzania
+                  SIDO, Azimio Industrial Estate,<br />
+                  Unga Limited, Arusha, Tanzania
                 </address>
               </li>
             </ul>
