@@ -35,7 +35,7 @@ export default function Contact() {
         </svg>
       ),
       title: "Address",
-      content: "PAPU Tower 10th Floor, Arusha, Tanzania",
+      content: "SIDO, Azimio Industrial Estate, Unga Limited, Arusha, Tanzania",
       link: "https://maps.google.com/?q=PAPU+Tower+Arusha+Tanzania"
     }
   ];
