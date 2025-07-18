@@ -47,22 +47,20 @@ export default function Navbar() {
     }`}>
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex justify-between items-center h-20">          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-1">
-            <div className="relative w-30 h-4 0">
+          <Link href="/" className="flex items-center space-x-0 group">
+            <div className="relative w-40 h-40 flex-shrink-0 flex items-center justify-end">
               <Image
                 src="/Brand Assets/CutOff-Icon.png"
                 alt="CutOff Recycle"
-                width={30}
-                height={30}
-                className="object-contain"
+                width={75}
+                height={75}
+                className="object-contain drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
                 priority
               />
             </div>
-            <div className="text-2xl font-bold transition-colors text-brand-black flex items-center">
-              <span className="text-brand-green mr-1">CutOff</span>
-              <span className="relative ml-2">
-                <span className="relative z-10">Recycle</span>
-                <span className="absolute bottom-0.5 left-0 w-full h-2 bg-brand-green/20 rounded-full -z-10"></span>
+            <div className="flex flex-col justify-center">
+              <span className="text-2xl md:text-4xl font-extrabold text-brand-black leading-tight tracking-tight">
+                <span className="text-brand-green">CutOff</span> <span className="text-brand-black">Recycle</span>
               </span>
             </div>
           </Link>
