@@ -49,12 +49,12 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo - Far left */}
           <Link href="/" className="flex items-center space-x-3 group flex-shrink-0">
-            <div className="relative w-10 h-10 flex-shrink-0">
+            <div className="relative w-20 h-20 flex-shrink-0">
               <Image
                 src="/Brand Assets/CutOff-Icon.png"
                 alt="CutOff Recycle"
-                width={40}
-                height={40}
+                width={80}
+                height={80}
                 className="object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
                 priority
               />
