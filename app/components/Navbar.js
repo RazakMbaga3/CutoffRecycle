@@ -4,11 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import {useAuth} from '../context/history'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const {addItemToCart, updateCart, cart} = useAuth()
+  const [isOpen, setIsOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +48,42 @@ export default function Navbar() {
         ? 'bg-white/95 backdrop-blur-md shadow-lg' 
         : 'bg-white/80 backdrop-blur-sm'
     }`}>
+      <div className={`side-popup ${isOpen ? "open" : ""}`} style={{zIndex:50, display:'flex',flexDirection:'column',alignItems:'center'}}>
+          <button onClick={()=>setIsOpen(false)} style={{position:'absolute',top:0,left:0,padding:'5px',width:'fit-content',fontSize:'1.5em'}}>X</button>
+          <p>Cart</p>
+        {cart.map(c => <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}} key={c.product.id}>
+          <Image src={c.product.image} width={100}height={100}/>
+          <div>
+            <p>{c.product.name}</p>
+            <p>{c.product.price}$</p>
+          </div>
+          <div>
+            <p style={{display:'flex',alignItems:'center'}}>
+                    <button onClick={()=>updateCart(c.product.id,1,'add')} style={{width: '2.6rem', height: '2.6rem'}}>+</button>
+                    <span>{c.amount}</span>
+                    <button onClick={()=>updateCart(c.product.id,1,'sub')} style={{width: '2.6rem', height: '2.6rem'}}>-</button>
+                  </p>
+            <p style={{width:'fit-content'}}>{parseFloat((c.product.price * c.amount).toFixed(2))}</p>
+          </div>
+        </div>)}
+        <p>Total: {parseFloat((((cart[0]?.amount || 0) * cart[0]?.product.price) + ((cart[1]?.amount || 0) * cart[0]?.product.price)).toFixed(2))}</p>
+        <button className="ml-3 btn btn-md btn-primary btn-icon-right">Checkout</button>
+      </div>
+      <style jsx>{`.side-popup {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Hidden by default */
+  width: 300px;
+  background-color: #f4f4f4;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  padding: 20px;
+}
+
+.side-popup.open {
+width:auto;
+  right: 0; /* Slide in when open */
+}`}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo - Far left */}
@@ -95,6 +134,14 @@ export default function Navbar() {
               </svg>
             </Link>
           </div>
+          <button onClick={() => (cart.length > 0 && cart[0].amount) && setIsOpen(!isOpen)} style={{display:'flex',alignItems:'center'}}>
+              <svg width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="black"strokeWidth="2"strokeLinecap="round"strokeLinejoin="round">
+                <circle cx="8" cy="21" r="1"></circle>
+                <circle cx="19" cy="21" r="1"></circle>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+              </svg>
+              <span style={{borderRadius:'50px',backgroundColor:'white',color:'black',padding:'2px'}}>{cart.length > 0 ? (cart[0]?.amount || 0) + (cart[1]?.amount || 0): 0}</span>
+            </button>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">

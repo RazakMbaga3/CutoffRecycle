@@ -1,6 +1,7 @@
 import { Mulish } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./context/history";
+import StyledJsxRegistry from './registry'
 
 const mulish = Mulish({
   subsets: ["latin"],
@@ -23,11 +24,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${mulish.variable} antialiased font-mulish`}>
         <AuthProvider>
+          <StyledJsxRegistry>
         <Navbar />
         <main className="overflow-x-hidden">
           {children}
         </main>
         <Footer />
+        </StyledJsxRegistry>
         </AuthProvider>
       </body>
     </html>

@@ -11,22 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [pickupOrders, setPickupOrders] = useState([])
   const [activeUser, setActiveUser] = useState(null);
   const [activeEmployee, setActiveEmployee] = useState(null);
-  const [cart, setCart] = useState({
-    one: {
-        hair: 0,
-        liquid: 0
-    },
-    sub: {
-        weekly: {
-        hair: 0,
-        liquid: 0
-    },
-    monthly: {
-        hair: 0,
-        liquid: 0
-    }
-    }
-});
+  const [cart, setCart] = useState([]);
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -311,52 +296,24 @@ const addPickupOrder = async (location, order) => {
   }
 };
 
-const addItemToCart = (type, item, quantity, sub) => {
-  if (typeof quantity !== 'number' || !['one', 'sub'].includes(type) || !['hair', 'liquid'].includes(item)) return;
+const addItemToCart = (item, quantity) => setCart(cart.concat({product:item, amount:quantity}));
+const updateCart = (id, quantity, operation) => {
+  setCart(prevCart => {
+    return prevCart.map(item => {
+      if (item.product.id === id) {
+        const updatedAmount =
+          operation === 'add'
+            ? item.amount + quantity
+            : item.amount - quantity;
 
-  // Deep clone to avoid state mutation
-  const updatedCart = JSON.parse(JSON.stringify(cart || {
-    sub: { weekly: { hair: 0, liquid: 0 }, monthly: { hair: 0, liquid: 0 } },
-    one: { hair: 0, liquid: 0 }
-  }));
-
-  if (type === 'sub') {
-    if (!['weekly', 'monthly'].includes(sub)) {
-      console.error("Invalid sub plan");
-      return;
-    }
-
-    updatedCart.sub[sub][item] = (updatedCart.sub[sub][item] || 0) + quantity;
-  } else if (type === 'one') {
-    updatedCart.one[item] = (updatedCart.one[item] || 0) + quantity;
-  }
-
-  // Save changes to backend
-  setCart(updatedCart);
+        return updatedAmount > 0
+          ? { ...item, amount: updatedAmount }
+          : null; // Mark for removal
+      }
+      return item;
+    }).filter(Boolean); // Remove any nulls (items with amount <= 0)
+  });
 };
-const removeItemFromCart = () => {
-  if (typeof quantity !== 'number' || !['one', 'sub'].includes(type) || !['hair', 'liquid'].includes(item)) return;
-
-  // Deep clone to avoid state mutation
-  const updatedCart = JSON.parse(JSON.stringify(cart || {
-    sub: { weekly: { hair: 0, liquid: 0 }, monthly: { hair: 0, liquid: 0 } },
-    one: { hair: 0, liquid: 0 }
-  }));
-
-  if (type === 'sub') {
-    if (!['weekly', 'monthly'].includes(sub)) {
-      console.error("Invalid sub plan");
-      return;
-    }
-
-    updatedCart.sub[sub][item] = Math.max(0, (updatedCart.sub[sub][item] || 0) - quantity);
-  } else if (type === 'one') {
-    updatedCart.one[item] = Math.max(0, (updatedCart.one[item] || 0) + quantity);
-  }
-
-  // Save changes to backend
-  setCart(updatedCart);
-}
 
 const changeOrderStatus = async (location, orderId, status, amount = undefined) => {
   try {
@@ -393,7 +350,7 @@ const changeOrderStatus = async (location, orderId, status, amount = undefined) 
 };
 
   return (
-    <AuthContext.Provider value={{ users, cart, activeUser, activeEmployee, signUp, login, logout, updateUser, updateCustomerData, updateBarberData, addOrder, addPickupOrder, pickupOrders, addItemToCart, changeOrderStatus, removeItemFromCart, employeeLogin, employees}}>
+    <AuthContext.Provider value={{ users, cart, activeUser, activeEmployee, signUp, login, logout, updateUser, updateCustomerData, updateBarberData, addOrder, addPickupOrder, pickupOrders, addItemToCart, changeOrderStatus, updateCart, employeeLogin, employees}}>
       {children}
     </AuthContext.Provider>
   );
