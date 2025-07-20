@@ -37,9 +37,7 @@ export default function Products() {
       orderLink: "https://wa.link/9cd4j0"
     }
   ];
-  useEffect(() => setAmounts(prev => prev.map(p => {
-    return {id:p.id,amount:0}
-  })),[cart])
+  useEffect(() => setAmounts([{id:1,amount:0},{id:2,amount:0}]),[cart])
   return (
     <div className="min-h-screen bg-brand-white font-mulish">        {/* Hero Section */}
       <section className="relative h-[70vh] bg-gradient-to-r from-brand-green-ultra-light to-white text-brand-black overflow-hidden">
