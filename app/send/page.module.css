@@ -4,7 +4,7 @@
 .payment {
     flex-direction: row;
 }
-@media (max-width: 620px) {
+@media (max-width: 500px) {
   .top {
     flex-direction: column;
   }

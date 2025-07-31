@@ -45,6 +45,11 @@ export const AuthProvider = ({ children }) => {
     if (storedCart) setCart(JSON.parse(storedCart));
   }, []);
 
+  useEffect(() => {
+    const storedActive = localStorage.getItem("activeUser");
+    if (storedActive) setActiveUser(JSON.parse(storedActive));
+  }, []);
+
   // Save to localStorage on users or activeUser change
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -98,6 +103,11 @@ export const AuthProvider = ({ children }) => {
         subPayment: '',
         subInfo: '',
         }
+        },
+        newBarber: {
+          orders: [],
+          paymentType: '',
+          paymentInfo:''
         }
       };
   
@@ -237,15 +247,15 @@ const employeeLogin = async (email, password) => {
     try {
       const updatedUser = {
         ...activeUser,
-        barberData: {
-          ...activeUser.barberData,
+        newBaerber:{
+          ...activeUser.newBarber,
           ...barberUpdates
         },
       };
   
       const res = await fetch("/api/barber", {
         method: "PUT",
-        body: JSON.stringify({ _id: activeUser._id, barberData: updatedUser.barberData }),
+        body: JSON.stringify({ _id: activeUser._id, newBarber: updatedUser.newBarber }),
       });
   
       if (!res.ok) throw new Error("Failed to update barber data");
@@ -264,7 +274,7 @@ const employeeLogin = async (email, password) => {
   
 const addOrder = async (order) => {
   if (!activeUser) return;
-  const updatedOrders = [...(activeUser.barberData.orders || []), order];
+  const updatedOrders = [...(activeUser.newBarber.orders || []), order];
   await updateBarberData({ orders: updatedOrders });
   const res = await fetch("/api/order", {
     method: "POST",
@@ -274,6 +284,7 @@ const addOrder = async (order) => {
 };
 
 const addPickupOrder = async (location, order) => {
+  console.log(order)
   try {
     const res = await fetch("/api/pickup", {
       method: "PUT",
@@ -291,6 +302,36 @@ const addPickupOrder = async (location, order) => {
           : pickup
       )
     );
+
+      const barberFunc = async () => {
+        const updatedOrders = [...(order.user.newBarber.orders || []), {date:order.date,address:location,amount:order.amount,payment:'',paymentMethod:'',status:order.status,name:order.name}];
+  const updatedUser = {
+        ...order.user,
+        newBarber:{
+          ...order.user.newBarber,
+          orders: updatedOrders
+        },
+      };
+      console.log(updatedUser)
+      const res = await fetch("/api/barber", {
+        method: "PUT",
+        body: JSON.stringify({ _id: order.user._id, newBarber: updatedUser.newBarber }),
+      });
+      const savedUser = await res.json();
+      console.log(savedUser)
+      const updatedUsers = users.map((user) =>
+        user._id === savedUser._id ? savedUser : user
+      );
+      setUsers(updatedUsers);
+      }
+const func = async () => {
+  const newRes = await fetch("/api/order", {
+    method: "POST",
+    body: JSON.stringify(order),
+  });
+}
+barberFunc()
+func()
   } catch (err) {
     console.error("Add Pickup Order Error:", err);
   }
@@ -315,7 +356,7 @@ const updateCart = (id, quantity, operation) => {
   });
 };
 
-const changeOrderStatus = async (location, orderId, status, amount = undefined) => {
+const changePickupOrderStatus = async (location, orderId, status, amount = undefined) => {
   try {
     if (!location || !orderId || !status) {
       throw new Error("Missing location, orderId, or status");
@@ -350,7 +391,7 @@ const changeOrderStatus = async (location, orderId, status, amount = undefined) 
 };
 
   return (
-    <AuthContext.Provider value={{ users, cart, activeUser, activeEmployee, signUp, login, logout, updateUser, updateCustomerData, updateBarberData, addOrder, addPickupOrder, pickupOrders, addItemToCart, changeOrderStatus, updateCart, employeeLogin, employees}}>
+    <AuthContext.Provider value={{ users, setUsers, cart, activeUser, activeEmployee, signUp, login, logout, updateUser, updateCustomerData, updateBarberData, addOrder, addPickupOrder, pickupOrders, addItemToCart, changePickupOrderStatus, updateCart, employeeLogin, employees}}>
       {children}
     </AuthContext.Provider>
   );

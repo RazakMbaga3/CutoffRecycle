@@ -7,15 +7,15 @@ import {ActiveUserType, CartItemType, CartSubType, CartType, OrderType, SubType,
     try {
       await connectDB();
       const body = await req.json();
-      const { _id, barberData } = body;
+      const { _id, newBarber } = body;
   
-      if (!_id || !barberData) {
+      if (!_id || !newBarber) {
         return Response.json({ error: "Missing _id or barberData for update" }, { status: 400 });
       }
   
       const updatedUser = await UserType.findByIdAndUpdate(
         _id,
-        { $set: { barberData } },
+        { $set: { newBarber } },
         { new: true, runValidators: true }
       );
   
