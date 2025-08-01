@@ -31,6 +31,14 @@ const [name, setName] = useState('')
         setOrders(activeUser.newBarber.orders)
       }
     }, [activeUser])
+    useEffect(() => {
+      if (activeUser) {
+        setName(activeUser.name)
+        setEmail(activeUser.email)
+        setPayment(activeUser.newBarber.paymentInfo)
+        setPaymentMethod(activeUser.newBarber.paymentType)
+      }
+    }, [])
   return (
     <div style={{marginTop:'5rem'}}>
     <div style={{width:'100%',display:'flex',marginBottom:'50px'}} className={styles.top}>

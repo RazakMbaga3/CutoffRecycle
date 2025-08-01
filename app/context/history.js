@@ -247,7 +247,7 @@ const employeeLogin = async (email, password) => {
     try {
       const updatedUser = {
         ...activeUser,
-        newBaerber:{
+        newBarber:{
           ...activeUser.newBarber,
           ...barberUpdates
         },
