@@ -284,7 +284,6 @@ const addOrder = async (order) => {
 };
 
 const addPickupOrder = async (location, order) => {
-  console.log(order)
   try {
     const res = await fetch("/api/pickup", {
       method: "PUT",
@@ -304,7 +303,8 @@ const addPickupOrder = async (location, order) => {
     );
 
       const barberFunc = async () => {
-        const updatedOrders = [...(order.user.newBarber.orders || []), {date:order.date,address:location,amount:order.amount,payment:'',paymentMethod:'',status:order.status,name:order.name}];
+        console.log(order.user)
+        const updatedOrders = [...(order.user.newBarber.orders || []), {date:order.date,address:location,amount:order.amount,payment:order.payment,paymentMethod:order.paymentMethod,status:order.status,name:order.name}];
   const updatedUser = {
         ...order.user,
         newBarber:{
@@ -312,13 +312,12 @@ const addPickupOrder = async (location, order) => {
           orders: updatedOrders
         },
       };
-      console.log(updatedUser)
       const res = await fetch("/api/barber", {
         method: "PUT",
         body: JSON.stringify({ _id: order.user._id, newBarber: updatedUser.newBarber }),
       });
       const savedUser = await res.json();
-      console.log(savedUser)
+      setActiveUser(savedUser);
       const updatedUsers = users.map((user) =>
         user._id === savedUser._id ? savedUser : user
       );

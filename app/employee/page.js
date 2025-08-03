@@ -233,6 +233,8 @@ export default function Home() {
       date: finalDate,
       status: 'pending',
       amount: '',
+      payment: newName.newBarber.paymentInfo,
+      paymentMethod: newName.newBarber.paymentType
     });
     addInput(false)
                     }}}

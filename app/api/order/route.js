@@ -1,6 +1,6 @@
 import connectDB from "../../../lib/mongodb";
 import mongoose from "mongoose";
-import {ActiveUserType, CartItemType, CartSubType, CartType, OrderType, SubType, OtherOrderType,UserType,NewBarberOrderType} from '../../models'
+import {ActiveUserType, CartItemType, CartSubType, CartType, UserType,NewBarberOrderType} from '../../models'
 
 export async function GET(req, res) {
   try {

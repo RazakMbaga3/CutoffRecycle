@@ -1,6 +1,6 @@
 import connectDB from "../../../lib/mongodb";
 import mongoose from "mongoose";
-import {OtherOrderType, PickupOrderType} from '../../models'
+import {NewBarberOrderType, PickupOrderType} from '../../models'
 
 export async function GET(req) {
   try {
@@ -36,7 +36,7 @@ export async function PUT(req) {
     }
 
     // Create and save the order in the 'otherordertypes' collection
-    const newOrder = new OtherOrderType(order);
+    const newOrder = new NewBarberOrderType(order);
     await newOrder.save();
 
     // Push it into the matching PickupOrderType document

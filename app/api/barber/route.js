@@ -1,6 +1,6 @@
 import connectDB from "../../../lib/mongodb";
 import mongoose from "mongoose";
-import {ActiveUserType, CartItemType, CartSubType, CartType, OrderType, SubType, OtherOrderType,UserType} from '../../models'
+import {ActiveUserType, CartItemType, CartSubType, CartType, UserType} from '../../models'
   
   // 🔁 PUT: Update an existing user by _id
   export async function PUT(req) {
