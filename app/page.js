@@ -34,7 +34,7 @@ export default function Home() {
       )
     },
     {
-      title: "Community Impact",
+      title: "eitan",
       description: "Creating positive environmental and economic impact in local communities through sustainable practices.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
