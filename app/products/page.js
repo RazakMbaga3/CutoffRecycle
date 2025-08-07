@@ -41,13 +41,13 @@ export default function Products() {
   useEffect(() => setAmounts([{id:1,amount:0},{id:2,amount:0}]),[cart])
   return (
     <div className="min-h-screen bg-brand-white font-mulish">        {/* Hero Section */}
-    {isVisible == <div style={{position: 'fixed',top: '20px',right: '20px',zIndex: 9999}}>
+    {isVisible && <div style={{position: 'fixed',top: '20px',right: '20px',zIndex: 9999}}>
   <div style={{background:'#735b27',color:'#ffffff',padding:'20px 20px 30px 20px',borderRadius:'10px',boxShadow:'0 8px 16px rgba(0,0,0,0.3)',width:'350px',animation: 'fadeInUp 0.5s ease-out',position: 'relative',overflow: 'hidden'}}>
     <button onClick={()=>setVisible(false)} style={{position:'absolute',top:'8px',right:'8px',background:'transparent',border:'none',color:'#ffffff',fontSize: '22px',cursor: 'pointer',lineHeight: 1}}>×</button>
     <div style={{fontSize: '40px',textAlign: 'center',marginBottom: '10px'}}>🛒</div>
     <h2 style={{margin: '0 0 10px',fontSize: '22px',textAlign: 'center'}}>Order Faster on WhatsApp</h2>
     <p style={{margin: '0 0 20px',fontSize: '16px',lineHeight: 1.4,textAlign: 'center'}}>Pata oda yako haraka kwa WhatsApp</p>
-    <button style={{background:'#50AD32',color:'#ffffff',border:'none',padding:'12px 20px',fontSize:'18px',borderRadius: '5px',cursor: 'pointer',transition: 'background 0.3s, transform 0.3s',display: 'block',margin:' 0 auto'}}>Order Now</button>
+    <Link href="https://wa.link/egyvo1"><button style={{background:'#50AD32',color:'#ffffff',border:'none',padding:'12px 20px',fontSize:'18px',borderRadius:'5px',cursor:'pointer',transition:'background 0.3s, transform 0.3s',display:'block',margin:' 0 auto'}}>Order Now</button></Link>
   </div>
 </div>}
       <section className="relative h-[70vh] bg-gradient-to-r from-brand-green-ultra-light to-white text-brand-black overflow-hidden">
