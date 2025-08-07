@@ -35,7 +35,7 @@ export default function Navbar() {
     { href: '/awards', label: 'Awards & Recognition' },
     { href: '/media', label: 'Media' },
     { href: '/send', label: 'Barbers' },
-    { href: '/employee', label: 'Employees' }
+    { href: '/employee', label: 'Collection Hub' }
   ];
 
   const toggleMenu = () => {

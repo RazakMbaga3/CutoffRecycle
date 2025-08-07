@@ -79,15 +79,29 @@ export default function ImpactCounter() {
             Tracking our journey to create sustainable change in Tanzania
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="text-4xl font-bold mb-4 text-brand-black" style={{textAlign:'center'}}>Hair Recycled</h2>
           <AnimatedCounter 
             value="15,250" 
             suffix="kg" 
-            title="Hair Recycled" 
-            description="Total amount of hair waste diverted from landfills"
-            delay={0}
+            title="Total amount"
+            description="Total amount of hair waste diverted from landfills" 
+            delay={300}
           />
+          <div style={{display:'flex',justifyContent:'space-evenly'}}>
+          <AnimatedCounter 
+            value="7,625" 
+            suffix="kg" 
+            title="Arusha, Tanzania" 
+            delay={300}
+          />
+          <AnimatedCounter 
+            value="7,625" 
+            suffix="kg" 
+            title="Dar es salaam, Tanzania" 
+            delay={300}
+          />
+        </div>
+        <div style={{display:'flex',justifyContent:'space-evenly'}}>
           <AnimatedCounter 
             value="4,800" 
             suffix="kg" 
