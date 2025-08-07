@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#ghala-config {
+  width:100vw;
+}
+
 :root {
   /* Brand Colors */
   --brand-green: #50ad32;

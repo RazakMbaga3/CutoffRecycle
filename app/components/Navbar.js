@@ -67,7 +67,7 @@ export default function Navbar() {
           </div>
         </div>)}
         <p>Total: {parseFloat((((cart[0]?.amount || 0) * cart[0]?.product.price) + ((cart[1]?.amount || 0) * cart[0]?.product.price)).toFixed(2))}</p>
-        <button className="ml-3 btn btn-md btn-primary btn-icon-right">Checkout</button>
+        <Link target="_blank" href="https://wa.me/c/255742290884"><button className="ml-3 btn btn-md btn-primary btn-icon-right">Checkout</button></Link>
       </div>
       <style jsx>{`.side-popup {
   position: fixed;
