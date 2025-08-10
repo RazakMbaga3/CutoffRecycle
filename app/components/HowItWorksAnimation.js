@@ -1,17 +1,44 @@
 "use client";
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence, useTransform, useScroll } from 'framer-motion';
 import Image from 'next/image';
 import { PatternBackground } from './BrandAnimate';
 
 export default function HowItWorksAnimation() {
-  const ref = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
+  const { scrollYProgress } = useScroll();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Memoize the paginate function
+  const paginate = useCallback((newDirection) => {
+    setDirection(newDirection);
+    setIsAutoPlaying(false); // Pause autoplay when manually navigating
+    setCurrentIndex((prevIndex) => {
+      let newIndex = prevIndex + newDirection;
+      if (newIndex < 0) newIndex = processSteps.length - 1;
+      if (newIndex >= processSteps.length) newIndex = 0;
+      return newIndex;
+    });
+    // Resume autoplay after manual navigation
+    setTimeout(() => setIsAutoPlaying(true), 5000);
+  }, []);
+
+  // Auto-rotation effect
+  useEffect(() => {
+    let interval;
+    if (isAutoPlaying && !isHovered) {
+      interval = setInterval(() => {
+        setDirection(1);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % processSteps.length);
+      }, 5000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isAutoPlaying, isHovered]);
 
   const processSteps = [
     {
@@ -67,29 +94,148 @@ export default function HowItWorksAnimation() {
     }
   ];
 
+  return (
+    <div className="w-full min-h-screen overflow-hidden bg-[#F9F9F9]">
+      <div className="relative h-auto w-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center h-full py-12">
+            <div className="flex flex-col space-y-8">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900"
+              >
+                How Our{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#000000] to-[#be8b4d]">
+                  Process
+                </span>{" "}
+                Works
+              </motion.h2>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl p-8 shadow-xl relative"
+              >
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={currentIndex}
+                    custom={direction}
+                    initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
+                    transition={{ type: "tween", duration: 0.5 }}
+                    className="flex flex-col space-y-4"
+                  >
+                    <h3 className="text-2xl font-semibold text-gray-900">
+                      {processSteps[currentIndex].title}
+                    </h3>
+                    <p className="text-lg text-gray-600">
+                      {processSteps[currentIndex].description}
+                    </p>
+                    <div className="w-12 h-12 text-primary-600">
+                      {processSteps[currentIndex].icon}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                <div className="flex justify-between mt-8">
+                  <button
+                    onClick={() => paginate(-1)}
+                    className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                    aria-label="Previous step"
+                  >
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => paginate(1)}
+                    className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                    aria-label="Next step"
+                  >
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </motion.div>
+            </div>
+
+            <div className="flex justify-center items-center">
+              <div className="relative w-full h-[500px]">
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={currentIndex}
+                    custom={direction}
+                    initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
+                    transition={{ type: "tween", duration: 0.5 }}
+                    className="absolute inset-0"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                  >
+                    <Image
+                      src={processSteps[currentIndex].image}
+                      alt={processSteps[currentIndex].title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover rounded-2xl shadow-2xl"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <PatternBackground className="absolute inset-0 -z-10" />
+      </div>
+    </div>
+  );
+
   // Create animation for horizontal progress
   const translateX = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="how-it-works" className="py-24 bg-white relative overflow-hidden" ref={ref}>
+    <section id="how-it-works" className="py-16 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <PatternBackground 
         position="right-0 top-0" 
         size="w-full h-full" 
-        opacity={[0.03, 0.07, 0.03]} 
-        animation="rotate" 
+        opacity={[0.02, 0.04, 0.02]}
       />
       
-      {/* Top Curve */}
-      <div className="absolute -top-1 left-0 w-full h-16 overflow-hidden">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
-          <path d="M0,0 C150,100 350,0 500,100 L500,150 L0,150 Z" fill="white"></path>
-        </svg>
-      </div>
-      
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <span className="inline-block py-1.5 px-6 bg-brand-green/10 rounded-full text-brand-green font-medium text-sm mb-4 shadow-sm">Our Process</span>
+        <div className="text-center mb-12">
+          <span className="inline-block py-2 px-6 bg-brand-green/10 rounded-full text-brand-green font-medium text-sm mb-4">
+            Our Process
+          </span>
           <h2 className="text-4xl font-bold mb-4 text-brand-black">
             How We <span className="text-brand-green relative inline-block">
               Transform
@@ -98,65 +244,106 @@ export default function HowItWorksAnimation() {
               </svg>
             </span> Hair Waste
           </h2>
-          <p className="max-w-xl mx-auto text-brand-black/70 text-lg mb-12">
+          <p className="max-w-xl mx-auto text-brand-black/70 text-lg">
             From collecting hair to growing crops, see how our innovative process works
           </p>
         </div>
-        
-        {/* Progress Line */}
-        <div className="relative h-2 bg-gray-100 rounded-full mb-12 max-w-4xl mx-auto">
-          <motion.div 
-            className="absolute top-0 left-0 h-full bg-brand-green rounded-full"
-            style={{ width: translateX }}
-          />
-        </div>
-        
-        {/* Process Steps */}
-        <div className="space-y-24">
-          {processSteps.map((step, index) => (
-            <motion.div 
-              key={index}
-              className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="md:w-1/2">
-                <div className={`relative rounded-3xl overflow-hidden shadow-xl h-[350px] ${index % 2 === 0 ? 'transform md:translate-x-8' : 'transform md:-translate-x-8'}`}>
-                  <Image
-                    src={step.image}
-                    alt={step.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 inline-block">
-                      <span className="text-brand-green font-bold flex items-center">
-                        <span className="bg-brand-green text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">
-                          {index + 1}
+
+        {/* Carousel Container */}
+        <div className="max-w-6xl mx-auto relative">
+          {/* Progress Steps */}
+          <div className="flex justify-center mb-8">
+            {processSteps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setDirection(index > currentIndex ? 1 : -1);
+                  setCurrentIndex(index);
+                }}
+                className={`w-3 h-3 rounded-full mx-2 transition-all duration-300 ${
+                  index === currentIndex ? 'bg-brand-green scale-125' : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to step ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Main Carousel */}
+          <div className="relative h-[500px] bg-white rounded-2xl shadow-lg overflow-hidden">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                initial={{ x: direction > 0 ? '100%' : '-100%', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: direction > 0 ? '-100%' : '100%', opacity: 0 }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 300, 
+                  damping: 30,
+                  duration: 0.5
+                }}
+                className="absolute inset-0 w-full h-full"
+                onHoverStart={() => setIsHovered(true)}
+                onHoverEnd={() => setIsHovered(false)}
+                onTouchStart={() => setIsHovered(true)}
+                onTouchEnd={() => setIsHovered(false)}
+              >
+                <div className="grid md:grid-cols-2 h-full">
+                  {/* Image Side */}
+                  <div className="relative h-60 md:h-full">
+                    <Image
+                      src={processSteps[currentIndex].image}
+                      alt={processSteps[currentIndex].title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
+
+                  {/* Content Side */}
+                  <div className="p-8 flex flex-col justify-center">
+                    <div className="mb-6">
+                      <div className="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green mb-4">
+                        {processSteps[currentIndex].icon}
+                      </div>
+                      <div className="flex items-center mb-4">
+                        <span className="bg-brand-green text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">
+                          {currentIndex + 1}
                         </span>
-                        {step.title}
-                      </span>
+                        <h3 className="text-2xl font-bold text-brand-black">
+                          {processSteps[currentIndex].title}
+                        </h3>
+                      </div>
+                      <p className="text-lg text-brand-black/70">
+                        {processSteps[currentIndex].description}
+                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="md:w-1/2">
-                <div className={`pl-6 border-l-2 border-brand-green/30 ${index % 2 === 0 ? 'text-left' : 'text-right pr-6 md:border-l-0 md:border-r-2'}`}>
-                  <div className="flex items-center mb-4 gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green">
-                      {step.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-brand-black">{step.title}</h3>
-                  </div>
-                  <p className="text-lg text-brand-black/70">{step.description}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Navigation Buttons */}
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-brand-green hover:bg-white transition-all duration-200"
+              onClick={() => paginate(-1)}
+              aria-label="Previous step"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-brand-green hover:bg-white transition-all duration-200"
+              onClick={() => paginate(1)}
+              aria-label="Next step"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>

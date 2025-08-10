@@ -31,7 +31,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-brand-white font-mulish overflow-x-hidden">
       {/* Hero Section with Enhanced Parallax */}
-      <section className="relative h-[70vh] bg-gradient-to-r from-brand-green-ultra-light to-white text-brand-black overflow-hidden">
+      <section className="relative min-h-[80vh] bg-gradient-to-r from-brand-green-ultra-light via-white/90 to-white text-brand-black overflow-hidden flex items-center">
         <motion.div 
           className="absolute inset-0 overflow-hidden"
           style={{ y: backgroundY }}
@@ -40,44 +40,62 @@ export default function About() {
             src="/Images/Photos/BNK_0715.jpg"
             alt="About CutOff Recycle"
             fill
-            className="object-cover opacity-20 scale-105 animate-slow-zoom"
+            className="object-cover opacity-10 scale-105 animate-slow-zoom filter saturate-50"
             priority
+            quality={100}
           />
           <motion.div 
-            className="absolute inset-0 bg-gradient-to-b from-white/50 to-brand-green-ultra-light/70"
+            className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-brand-green-ultra-light/80"
             style={{ opacity }}
           ></motion.div>
         </motion.div>
         
         {/* Enhanced Background Pattern */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        <div className="absolute inset-0 bg-dot-pattern bg-[length:30px_30px] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/Brand Assets/CutOff Pattern.svg')] opacity-[0.03] bg-repeat bg-[length:500px_500px]"></div>
+        <div className="absolute inset-0 bg-dot-pattern bg-[length:20px_20px] opacity-5"></div>
         
         {/* Animated Elements with improved positioning and effects */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-brand-green/30 blur-3xl"
+          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-brand-green/20 blur-[100px]"
           animate={{ 
-            y: [0, -20, 0],
-            opacity: [0.3, 0.5, 0.3]
+            y: [0, -30, 0],
+            opacity: [0.2, 0.4, 0.2],
+            scale: [1, 1.1, 1]
           }}
           transition={{
-            duration: 8,
+            duration: 12,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         ></motion.div>
         
         <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-32 h-32 rounded-full bg-brand-green/40 blur-2xl"
+          className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-brand-green/25 blur-[80px]"
           animate={{ 
-            y: [0, -15, 0],
-            opacity: [0.4, 0.6, 0.4]
+            y: [0, -20, 0],
+            opacity: [0.3, 0.5, 0.3],
+            scale: [1, 1.05, 1]
           }}
           transition={{
-            duration: 7,
+            duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 1
+          }}
+        ></motion.div>
+        
+        <motion.div 
+          className="absolute top-1/3 right-1/3 w-[250px] h-[250px] rounded-full bg-brand-green/15 blur-[60px]"
+          animate={{ 
+            y: [0, -15, 0],
+            opacity: [0.15, 0.3, 0.15],
+            scale: [1, 1.08, 1]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
           }}
         ></motion.div>
         
@@ -99,37 +117,46 @@ export default function About() {
           </svg>
         </div>
         
-        <div className="container mx-auto px-4 md:px-8 h-full flex flex-col justify-center items-center relative z-10">
+        <div className="container mx-auto px-4 md:px-8 h-full flex flex-col justify-center items-center relative z-10 py-20">
           <motion.span 
-            className="inline-block py-1.5 px-6 bg-white/60 backdrop-blur-sm text-brand-green rounded-full text-sm font-medium mb-5 shadow-sm transform hover:scale-105 transition-all duration-300 border border-brand-green/10"
+            className="inline-block py-2 px-8 bg-white/70 backdrop-blur-md text-brand-green rounded-full text-sm font-semibold mb-8 shadow-lg transform hover:scale-105 transition-all duration-300 border border-brand-green/20"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            whileHover={{ y: -2 }}
           >
             Our Story
           </motion.span>
           
           <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-center text-brand-black"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-center text-brand-black tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             About <span className="text-brand-green relative inline-block">
               Us
-              <svg className="absolute -bottom-2 left-0 w-full h-3 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
-                <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
-              </svg>
+              <motion.svg 
+                className="absolute -bottom-2 left-0 w-full h-3 text-brand-green/60" 
+                viewBox="0 0 200 8" 
+                preserveAspectRatio="none"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor" />
+              </motion.svg>
             </span>
           </motion.h1>
           
           <motion.p 
-            className="text-lg md:text-xl max-w-2xl text-center mb-10 text-brand-black/80"
+            className="text-xl md:text-2xl max-w-3xl text-center mb-12 text-brand-black/80 leading-relaxed font-light"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            We collect and recycle human hair waste into organic fertilizers for sustainable agriculture
+            We collect and recycle human hair waste into organic fertilizers for sustainable agriculture, 
+            pioneering a greener future through innovative waste management solutions.
           </motion.p>
           
           {/* Enhanced Scroll Indicator */}
@@ -155,48 +182,92 @@ export default function About() {
         </div>
       </section>
       
-      {/* Brand Pattern Divider */}
-      <BrandPatternDivider height="h-40" opacity={0.07} rotate={-2} direction="left-to-right" />
-      
       {/* Our Story Section with enhanced organic shapes and animation */}
-      <section className="py-24 bg-white relative overflow-hidden">        {/* Enhanced Background Elements */}
-        <div className="absolute top-0 left-0 w-80 h-80 bg-brand-green/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-float-slow"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-green/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 animate-float-delay"></div>
-        <div className="absolute inset-0 bg-pattern-waves opacity-10"></div>
+      <section className="py-12 bg-white relative overflow-hidden">
+        {/* Enhanced Background Elements */}
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-brand-green/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 animate-float-slow opacity-75"></div>
+        <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-brand-green/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 animate-float-delay opacity-75"></div>
+        <div className="absolute inset-0 bg-[url('/Brand Assets/CutOff Pattern.svg')] opacity-[0.03] bg-repeat bg-[length:500px_500px]"></div>
         
         {/* Leaf-shaped decorative elements */}
-        <div className="absolute top-40 left-10 w-24 h-24 bg-brand-green/25 rounded-tl-full rounded-bl-full rotate-45"></div>
-        <div className="absolute bottom-40 right-10 w-16 h-16 bg-brand-green/25 rounded-tr-full rounded-br-full -rotate-45"></div>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+          animate={{ opacity: 1, scale: 1, rotate: 45 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="absolute top-40 left-10 w-32 h-32 bg-brand-green/15 rounded-tl-full rounded-bl-full"
+        ></motion.div>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+          animate={{ opacity: 1, scale: 1, rotate: -45 }}
+          transition={{ duration: 1, delay: 0.7 }}
+          className="absolute bottom-40 right-10 w-24 h-24 bg-brand-green/15 rounded-tr-full rounded-br-full"
+        ></motion.div>
         
         <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex flex-col md:flex-row gap-16 lg:gap-24 items-center">
             <div className="md:w-1/2">
-              <div className="relative">                {/* Enhanced Image Decoration with organic shapes */}
-                <div className="absolute -top-8 -left-8 w-32 h-32 border-2 border-brand-green/40 rounded-full transform rotate-12 animate-float-slow"></div>
-                <div className="absolute -bottom-8 -right-8 w-40 h-40 border-2 border-brand-green/40 rounded-full transform -rotate-12 animate-float-delay"></div>
-                <div className="absolute top-1/2 -left-4 w-16 h-16 bg-brand-green/30 rounded-full blur-xl"></div>
+              <motion.div 
+                className="relative"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                {/* Enhanced Image Decoration with organic shapes */}
+                <motion.div 
+                  className="absolute -top-8 -left-8 w-40 h-40 border-2 border-brand-green/30 rounded-full"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                ></motion.div>
+                <motion.div 
+                  className="absolute -bottom-8 -right-8 w-48 h-48 border-2 border-brand-green/30 rounded-full"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                ></motion.div>
+                <div className="absolute top-1/2 -left-4 w-20 h-20 bg-brand-green/20 rounded-full blur-xl"></div>
                 
-                <div className="relative h-[450px] rounded-3xl overflow-hidden shadow-custom transform hover:rotate-1 transition-transform duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-black/40 to-transparent z-10"></div>
+                <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl transform hover:rotate-1 transition-transform duration-500 group">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10 opacity-70 group-hover:opacity-40 transition-opacity duration-500"></div>
                   
                   {/* Decorative leaf shape overlay */}
-                  <div className="absolute bottom-0 right-0 w-40 h-40 bg-brand-green/30 rounded-tl-full z-0 blur-xl"></div>
+                  <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-green/30 rounded-tl-full z-0 blur-xl opacity-60"></div>
                   
                   <Image
                     src="/Images/Photos/BNK_0542.jpg"
                     alt="Our story"
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    quality={100}
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
             
-            <div className="md:w-1/2">              <div className="relative mb-16">
+            <div className="md:w-1/2">
+              <motion.div 
+                className="relative"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
                 {/* Enhanced decorative elements */}
-                <div className="absolute -top-10 -left-10 w-32 h-32 bg-brand-green/30 rounded-full blur-lg"></div>
-                <span className="inline-block py-1.5 px-6 bg-brand-green-ultra-light text-brand-green rounded-full text-sm font-medium mb-5 shadow-sm border border-brand-green/30">Since 2018</span>                <h2 className="text-3xl font-bold text-brand-black mb-8 flex items-center relative">
-                  <span className="w-16 h-2 bg-gradient-to-r from-brand-green to-transparent inline-block mr-4 rounded-full"></span>
+                <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-green/20 rounded-full blur-2xl"></div>
+                <motion.span 
+                  className="inline-block py-2 px-8 bg-brand-green-ultra-light text-brand-green rounded-full text-sm font-semibold mb-6 shadow-lg border border-brand-green/30 transform hover:scale-105 transition-all duration-300"
+                  whileHover={{ y: -2 }}
+                >
+                  Since 2018
+                </motion.span>
+                
+                <h2 className="text-4xl lg:text-5xl font-bold text-brand-black mb-8 flex items-center relative tracking-tight">
+                  <motion.span 
+                    className="w-20 h-2 bg-gradient-to-r from-brand-green to-transparent inline-block mr-6 rounded-full"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 80 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                  ></motion.span>
                   Our Story
                 </h2>
                 <div className="pl-6 border-l-2 border-brand-green/50">
@@ -210,16 +281,16 @@ export default function About() {
                     Today, we collect hair waste from salons across Tanzania and transform it into organic fertilizers that help small-scale farmers improve soil health and crop yields while reducing environmental pollution.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>        </div>
+          </div>
+        </div>
       </section>
       
-      {/* Brand Pattern Divider */}
-      <BrandPatternDivider height="h-40" opacity={0.05} rotate={2} direction="right-to-left" />
+
       
         {/* Vision & Mission Section with enhanced curved sections and organic elements */}
-      <section className="py-24 bg-brand-green-ultra-light text-brand-black relative overflow-hidden">
+      <section className="py-16 bg-brand-green-ultra-light text-brand-black relative overflow-hidden">
         {/* Enhanced Top Curve with more organic wave shape */}
         <div className="absolute -top-1 left-0 w-full h-16 overflow-hidden">
           <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
@@ -242,7 +313,6 @@ export default function About() {
         <div className="absolute bottom-1/3 right-20 w-20 h-20 bg-brand-green/30 rounded-bl-full rounded-br-full -rotate-45 blur-lg"></div>
         
         <div className="container mx-auto px-4 md:px-8 relative z-10">          <div className="text-center mb-16">
-            <span className="inline-block py-1.5 px-6 bg-white/70 rounded-full text-brand-green font-medium text-sm mb-4 backdrop-blur-sm shadow-sm border border-brand-green/30 transform hover:scale-105 transition-all duration-300">Our Purpose</span>
             <h2 className="text-4xl font-bold mb-4 relative inline-block">
               Vision & <span className="text-brand-green relative inline-block">
                 Mission
@@ -311,7 +381,7 @@ export default function About() {
       <BrandPatternDivider height="h-36" opacity={0.08} rotate={-1} direction="left-to-right" />
       
       {/* Core Values Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-16 bg-white relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-circle-pattern opacity-5 bg-[length:40px_40px]"></div>
         <div className="absolute top-0 right-0 w-72 h-72 bg-leaf-pattern opacity-5 rotate-45"></div>
@@ -374,11 +444,8 @@ export default function About() {
         </div>
       </section>
       
-      {/* Brand Pattern Divider */}
-      <BrandPatternDivider height="h-32" opacity={0.06} rotate={1.5} direction="right-to-left" />
-      
         {/* Team Section with enhanced design elements */}
-      <section className="py-24 bg-brand-green-ultra-light relative overflow-hidden">
+      <section className="py-16 bg-brand-green-ultra-light relative overflow-hidden">
         {/* Enhanced Top Curve with more organic wave shape */}
         <div className="absolute -top-1 left-0 w-full h-16 overflow-hidden">
           <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
@@ -392,17 +459,9 @@ export default function About() {
             <path d="M0,150 C150,30 350,120 500,150 L500,00 L0,0 Z" fill="white"></path>
           </svg>
         </div>
-          {/* Enhanced Background pattern */}
-        <div className="absolute inset-0 bg-circle-pattern opacity-10"></div>
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-brand-green/25 rounded-full blur-3xl animate-float-slow"></div>
-        <div className="absolute bottom-1/3 left-0 w-80 h-80 bg-brand-green/20 rounded-full blur-3xl animate-float-delay"></div>
-        
-        {/* Decorative leaf elements */}
-        <div className="absolute top-1/2 left-10 w-20 h-20 bg-brand-green/25 rounded-tr-full rounded-br-full rotate-45 blur-md"></div>
-        <div className="absolute bottom-1/3 right-10 w-16 h-16 bg-brand-green/25 rounded-tl-full rounded-bl-full -rotate-45 blur-md"></div>
-        
+          
         <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center mb-16">            <span className="inline-block py-1.5 px-6 bg-white/70 backdrop-blur-sm rounded-full text-brand-green font-medium text-sm mb-4 shadow-sm border border-brand-green/30 transform hover:scale-105 transition-all duration-300">Our People</span>
+          <div className="text-center mb-16">            
             <h2 className="text-4xl font-bold mb-4 relative inline-block">
               Meet Our <span className="text-brand-green relative inline-block">
                 Team

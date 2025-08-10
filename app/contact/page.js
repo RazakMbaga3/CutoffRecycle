@@ -10,7 +10,7 @@ export default function Contact() {
     {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          <path stroap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
         </svg>
       ),
       title: "Phone",
@@ -90,14 +90,14 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-brand-white font-mulish overflow-x-hidden">
-      {/* Enhanced Hero Section with more organic shapes and animations */}
-      <section className="relative h-[70vh] bg-gradient-to-r from-brand-green-ultra-light to-white text-brand-black overflow-hidden">
+      {/* Hero Section with improved visual hierarchy */}
+      <section className="relative h-[80vh] bg-gradient-to-r from-brand-green-ultra-light to-white text-brand-black overflow-hidden flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src="/Images/Photos/BNK_0704.jpg"
             alt="Contact CutOff Recycle"
             fill
-            className="object-cover opacity-20 scale-105 animate-slow-zoom"
+            className="object-cover opacity-15 scale-105 animate-slow-zoom"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-brand-green-ultra-light/70"></div>
@@ -115,14 +115,6 @@ export default function Contact() {
         <div className="absolute bottom-1/4 right-1/4 w-32 h-32 rounded-full bg-brand-green/40 blur-2xl animate-float-delay"></div>
         <div className="absolute top-1/3 right-1/3 w-24 h-24 rounded-full bg-brand-green/35 blur-xl animate-float-slow"></div>
         
-        {/* Added decorative circles */}
-        <div className="absolute top-20 right-20 w-28 h-28 rounded-full border border-brand-green/40 animate-spin-slow"></div>
-        <div className="absolute bottom-20 left-20 w-36 h-36 rounded-full border border-brand-green/30 animate-spin-slow-reverse"></div>
-        
-        {/* Added leaf-shaped decorative elements */}
-        <div className="absolute top-1/2 right-10 w-20 h-20 bg-brand-green/25 rounded-tl-full rounded-tr-full rotate-45 blur-md"></div>
-        <div className="absolute bottom-1/3 left-10 w-16 h-16 bg-brand-green/25 rounded-bl-full rounded-br-full -rotate-45 blur-md"></div>
-        
         {/* Curved bottom border */}
         <div className="absolute bottom-0 left-0 w-full h-20 overflow-hidden">
           <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
@@ -132,31 +124,43 @@ export default function Contact() {
         
         <div className="container mx-auto px-4 md:px-8 h-full flex flex-col justify-center items-center relative z-10">
           <div className="w-full max-w-4xl mx-auto text-center">
-            <span className="inline-block py-1.5 px-6 rounded-full bg-brand-green text-white text-sm md:text-base font-semibold mb-4 backdrop-blur-sm animate-fade-in border border-brand-green/30 shadow-glow transform hover:scale-105 transition-all duration-300">Get In Touch</span>
-            
-            <motion.h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-brand-black" 
-              style={{textShadow: '0 4px 10px rgba(0,0,0,0.05)'}}
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col items-center space-y-6"
             >
-              Contact <span className="text-brand-green relative inline-block">
-                Us
-                <svg className="absolute -bottom-2 left-0 w-full h-3 text-brand-green/30" viewBox="0 0 200 8" preserveAspectRatio="none">
-                  <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
-                </svg>
+              <span className="inline-block py-2 px-8 rounded-full bg-brand-green text-white text-base font-semibold backdrop-blur-sm animate-fade-in border border-brand-green/30 shadow-glow transform hover:scale-105 transition-all duration-300">
+                Get In Touch
               </span>
-            </motion.h1>
-            
-            <motion.p 
-              className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-brand-black/80 leading-relaxed" 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              Get in touch with our team for inquiries, partnerships, or to learn more about our innovative products
-            </motion.p>
+              
+              <motion.h1 
+                className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-center text-brand-black max-w-4xl" 
+                style={{
+                  textShadow: '0 4px 10px rgba(0,0,0,0.05)',
+                  lineHeight: '1.1'
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                Contact <span className="text-brand-green relative inline-block">
+                  Us
+                  <svg className="absolute -bottom-3 left-0 w-full h-3 text-brand-green/30" viewBox="0 0 200 8" preserveAspectRatio="none">
+                    <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </motion.h1>
+              
+              <motion.p 
+                className="text-xl md:text-2xl text-center max-w-2xl mx-auto text-brand-black/80 leading-relaxed" 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+              >
+                Get in touch with our team for inquiries, partnerships, or to learn more about our innovative products
+              </motion.p>
+            </motion.div>
           </div>
             {/* Enhanced scroll indicator */}
           <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce cursor-pointer">
@@ -213,241 +217,288 @@ export default function Contact() {
                 </motion.p>
               </div>
               
-              <div className="space-y-8">
-                {contactInfo.map((item, index) => (                  <div key={index} className="group flex items-start bg-white p-6 rounded-2xl shadow-custom hover:shadow-custom-hover transition-all duration-500 transform hover:-translate-y-1 border border-brand-green/15 hover:border-brand-green/40 relative overflow-hidden">
-                    {/* Added glow effect */}
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-brand-green/15 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-green/30 to-brand-green/20 text-brand-green flex items-center justify-center mr-5 group-hover:bg-brand-green group-hover:text-white transition-colors duration-500 transform group-hover:rotate-6 relative">
-                      {/* Icon glow effect */}
-                      <div className="absolute inset-0 bg-brand-green/40 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      <div className="relative z-10">
-                        {item.icon}
+              <div className="grid grid-cols-1 gap-8">
+                {contactInfo.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 border border-brand-green/15 hover:border-brand-green/30 relative overflow-hidden">
+                      {/* Enhanced glow effect */}
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-green/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      
+                      <div className="flex items-start space-x-6">
+                        <div className="flex-shrink-0">
+                          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-brand-green/20 to-brand-green/10 text-brand-green flex items-center justify-center group-hover:bg-brand-green group-hover:text-white transition-all duration-500 transform group-hover:rotate-6 relative">
+                            {/* Enhanced icon glow effect */}
+                            <div className="absolute inset-0 bg-brand-green/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="relative z-10">
+                              {item.icon}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="flex-grow">
+                          <h3 className="text-xl font-semibold text-brand-black mb-2 group-hover:text-brand-green transition-colors duration-300">
+                            {item.title}
+                          </h3>
+                          <a 
+                            href={item.link} 
+                            className="text-lg text-brand-black/70 hover:text-brand-green transition-colors duration-300 font-medium relative inline-block group-hover:after:w-full after:w-0 after:h-0.5 after:bg-brand-green/30 after:absolute after:left-0 after:-bottom-1 after:transition-all after:duration-300"
+                          >
+                            {item.content}
+                          </a>
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-brand-black mb-1 group-hover:text-brand-green transition-colors duration-300">{item.title}</h3>
-                      <a 
-                        href={item.link} 
-                        className="text-brand-black/70 hover:text-brand-green transition-colors duration-300 font-medium relative inline-block group-hover:after:w-full after:w-0 after:h-0.5 after:bg-brand-green/30 after:absolute after:left-0 after:-bottom-0.5 after:transition-all after:duration-300"
-                      >
-                        {item.content}
-                      </a>
-                    </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
               
-              <div className="mt-12">
-                <h3 className="font-semibold text-lg text-brand-black mb-5 relative inline-block">
+              <motion.div
+                className="mt-16 bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-brand-green/10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <h3 className="font-semibold text-xl text-brand-black mb-6 relative inline-block">
                   Connect With Us
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-brand-green/30 rounded-full"></span>
+                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-brand-green/30 rounded-full"></span>
                 </h3>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-6 justify-center">
                   {socialMedia.map((social, index) => (
-                    <a 
+                    <motion.a 
                       key={index}
                       href={social.url} 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-full bg-white shadow-custom hover:shadow-custom-hover text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300 flex items-center justify-center transform hover:-translate-y-1 relative group"
+                      className="w-14 h-14 rounded-xl bg-white shadow-lg hover:shadow-xl text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300 flex items-center justify-center transform hover:-translate-y-1 relative group"
                       aria-label={social.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      whileHover={{ scale: 1.1 }}
                     >
-                      {/* Icon glow effect */}
-                      <div className="absolute inset-0 bg-brand-green/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      {/* Enhanced icon glow effect */}
+                      <div className="absolute inset-0 bg-brand-green/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="relative z-10">
                         {social.icon}
                       </div>
-                    </a>
+                      <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium text-brand-black">
+                        {social.name}
+                      </span>
+                    </motion.a>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </div>
-              {/* Enhanced Contact Form with more organic styling */}
-            <div className="bg-white rounded-3xl shadow-custom p-8 md:p-10 border border-brand-green/15 hover:border-brand-green/30 transition-all duration-500 relative overflow-hidden group">
-              {/* Apply PulsingBrandBorder to the contact form */}
-              <PulsingBrandBorder intensity="light">
-                {/* Enhanced Decorative Elements */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-brand-green/15 rounded-full blur-xl -translate-x-1/2 -translate-y-1/2"></div>
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-brand-green/15 rounded-full blur-xl translate-x-1/2 translate-y-1/2"></div>
-                
-                {/* Add Pattern Background to the form */}
-                <PatternBackground position="left-0 bottom-0" size="w-full h-full" opacity={[0.03, 0.05, 0.03]} animation="breathe" />
-                
-                {/* Added leaf-shaped elements */}
-                <div className="absolute bottom-10 right-10 w-16 h-16 bg-brand-green/15 rounded-tl-full transform rotate-90 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-10 left-10 w-12 h-12 bg-brand-green/15 rounded-tr-full transform -rotate-90 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Redesigned Contact Form with clean styling */}
+            <div className="bg-white rounded-3xl shadow-lg p-8 md:p-12 relative overflow-hidden group">
+              {/* Subtle gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-green/5 to-transparent"></div>
               
-              <div className="relative z-10">                <div className="mb-8">
-                  <span className="inline-block py-1.5 px-6 rounded-full bg-brand-green/20 text-brand-green text-sm font-medium mb-4 border border-brand-green/30 shadow-sm transform hover:scale-105 transition-all duration-300">Write to Us</span>
+              {/* Clean, minimal decorative elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-green/5 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-brand-green/5 rounded-full blur-2xl"></div>
+              
+              <div className="relative z-10">
+                <div className="mb-10 space-y-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="inline-flex items-center space-x-2 bg-brand-green/10 text-brand-green text-sm font-medium px-4 py-2 rounded-lg"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                    <span>Write to Us</span>
+                  </motion.div>
+                  
                   <motion.h2 
-                    className="text-3xl font-bold text-brand-black mb-4 relative"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7 }}
-                  >
-                    Send a <span className="text-brand-green relative inline-block">
-                      Message
-                      <svg className="absolute -bottom-1 left-0 w-full h-2 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
-                        <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
-                      </svg>
-                    </span>
-                  </motion.h2>
-                  <motion.p 
-                    className="text-brand-black/70"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: 0.2 }}
-                  >
-                    Fill out the form below and we&apos;ll get back to you as soon as possible.
-                  </motion.p>
-                </div>
-                
-                <form className="space-y-6">
-                  <motion.div 
-                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                    className="text-3xl font-bold text-brand-black"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                   >
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-brand-black mb-2">
-                        Full Name
-                      </label>                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/70 focus:border-transparent transition-all duration-300"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-brand-black mb-2">
-                        Email Address
-                      </label>                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/70 focus:border-transparent transition-all duration-300"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-                  </motion.div>
+                    Send us a Message
+                  </motion.h2>
                   
-                  <motion.div
+                  <motion.p 
+                    className="text-gray-600 leading-relaxed max-w-lg"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    <label htmlFor="subject" className="block text-sm font-medium text-brand-black mb-2">
+                    Have questions or want to collaborate? Fill out the form below and we'll get back to you promptly.
+                  </motion.p>
+                </div>
+                
+                <form className="space-y-8">
+                  <motion.div 
+                    className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        className="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/50 focus:border-transparent transition-all duration-300"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/50 focus:border-transparent transition-all duration-300"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                  </motion.div>
+                  
+                  <motion.div
+                    className="space-y-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                  >
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
                       Subject
                     </label>
                     <input
                       type="text"
                       id="subject"
                       name="subject"
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/70 focus:border-transparent transition-all duration-300"
-                      placeholder="How can we help you?"
+                      className="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/50 focus:border-transparent transition-all duration-300"
+                      placeholder="What would you like to discuss?"
                     />
                   </motion.div>
                   
                   <motion.div
+                    className="space-y-2"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
                   >
-                    <label htmlFor="message" className="block text-sm font-medium text-brand-black mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                       Message
-                    </label>                    <textarea
+                    </label>
+                    <textarea
                       id="message"
                       name="message"
-                      rows={5}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/70 focus:border-transparent transition-all duration-300"
-                      placeholder="Your message..."
+                      rows={6}
+                      className="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/50 focus:border-transparent transition-all duration-300 resize-none"
+                      placeholder="Tell us about your inquiry..."
                     ></textarea>
                   </motion.div>
-                    <motion.button
-                    type="submit"
-                    className="w-full btn btn-lg btn-primary btn-icon-right"
+                  
+                  <motion.div
+                    className="pt-4"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
                   >
-                    Send Message
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </motion.button>
+                    <button
+                      type="submit"
+                      className="w-full bg-brand-green text-white font-semibold px-8 py-4 rounded-xl hover:bg-brand-green/90 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 group"
+                    >
+                      <span>Send Message</span>
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        className="h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </button>
+                  </motion.div>
                 </form>
               </div>
-              </PulsingBrandBorder>
             </div>
           </div>
         </div>
       </section>      {/* Enhanced Location Map Section with organic elements */}
       <section className="py-24 bg-gray-50 relative overflow-hidden">
-        {/* Add Dancing Brand to the map section */}
-        <DancingBrand position="bottom-10 right-10" />
-        
-        {/* Top curved border */}
+        {/* Simple curved border */}
         <div className="absolute -top-1 left-0 w-full h-16 overflow-hidden">
           <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
             <path d="M0,0 C150,100 350,0 500,60 L500,150 L0,150 Z" fill="white"></path>
           </svg>
         </div>
         
-        {/* Add Pattern Background to the map section */}
-        <PatternBackground position="left-0 top-0" size="w-full md:w-1/3 h-full" opacity={[0.05, 0.1, 0.05]} animation="rotate" />
-        
-        {/* Enhanced Background Elements with animations */}
-        <div className="absolute inset-0 bg-circle-pattern opacity-10 bg-[length:30px_30px] rotate-45"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-green/15 rounded-full blur-3xl animate-float-slow"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-green/15 rounded-full blur-3xl animate-float-delay"></div>
-        
-        {/* Added leaf-shaped decorative elements */}
-        <div className="absolute top-1/3 left-10 w-24 h-24 bg-brand-green/25 rounded-tr-full rounded-br-full rotate-45 blur-md"></div>
-        <div className="absolute bottom-1/3 right-10 w-20 h-20 bg-brand-green/25 rounded-tl-full rounded-bl-full -rotate-45 blur-md"></div>
-        
-        {/* Added decorative spinning circles */}
-        <div className="absolute top-1/4 right-1/4 w-28 h-28 rounded-full border border-brand-green/30 animate-spin-slow"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-20 h-20 rounded-full border border-brand-green/30 animate-spin-slow-reverse"></div>
+        {/* Subtle background elements */}
+        <div className="absolute inset-0 bg-circle-pattern opacity-5 bg-[length:30px_30px]"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center mb-16">            <span className="inline-block py-1.5 px-6 rounded-full bg-brand-green/20 text-brand-green text-sm font-medium mb-4 border border-brand-green/30 shadow-sm transform hover:scale-105 transition-all duration-300">Visit Us</span>
-            <motion.h2 
-              className="text-3xl md:text-5xl font-bold mb-6 relative inline-block"
+          <div className="text-center mb-20">
+            <motion.div
+              className="flex flex-col items-center space-y-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              Our <span className="text-brand-green relative inline-block">
-                Location
-                <svg className="absolute -bottom-1 left-0 w-full h-2 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
-                  <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
-                </svg>
+              <span className="inline-block py-2.5 px-8 rounded-full bg-brand-green/20 text-brand-green text-base font-medium border border-brand-green/30 shadow-sm transform hover:scale-105 transition-all duration-300">
+                Visit Us
               </span>
               
-              {/* Decorative element */}
-              <div className="absolute -right-8 -top-6 w-8 h-8 bg-brand-green/25 rounded-full blur-sm"></div>
-            </motion.h2>
-            <motion.p 
-              className="text-lg text-brand-black/70 max-w-2xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              Find us at our office in Arusha, Tanzania where we&apos;re transforming hair waste into sustainable solutions
-            </motion.p>
+              <motion.h2 
+                className="text-4xl md:text-6xl font-bold relative inline-block max-w-3xl leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                Our <span className="text-brand-green relative inline-block">
+                  Location
+                  <svg className="absolute -bottom-2 left-0 w-full h-2 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
+                    <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+                
+                {/* Enhanced decorative element */}
+                <div className="absolute -right-10 -top-8 w-12 h-12 bg-brand-green/25 rounded-full blur-md"></div>
+              </motion.h2>
+              
+              <motion.p 
+                className="text-xl md:text-2xl text-brand-black/70 max-w-2xl mx-auto leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+              >
+                Find us at our office in Arusha, Tanzania where we&apos;re transforming hair waste into sustainable solutions
+              </motion.p>
+            </motion.div>
           </div>
             <div className="bg-white p-5 rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition-all duration-500 relative group">
             {/* Border glow effect */}
@@ -455,7 +506,7 @@ export default function Contact() {
             
             <div className="w-full h-[500px] rounded-2xl overflow-hidden relative z-10">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31636.965542725176!2d36.65382012269453!3d-3.3725566548513497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371c88cc406885%3A0xa316299fdd82cb2!2sArusha%2C%20Tanzania!5e0!3m2!1sen!2sus!4v1654758326618!5m2!1sen!2sus" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7965.775483396169!2d36.67192064189085!3d-3.3776038012903853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371d83a17502df%3A0xdf1a219464097fc9!2sSido%20Regional%20Office!5e0!3m2!1sen!2stz!4v1754750787627!5m2!1sen!2stz"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -473,41 +524,50 @@ export default function Contact() {
         </div>
       </section>
       
-      {/* Enhanced Partnership CTA with organic shapes and flowing design */}
+      {/* Partnership CTA Section */}
       <section className="py-24 bg-brand-green-ultra-light text-brand-black relative overflow-hidden">
-        {/* Add FloatingIcons to the partnership CTA section */}
-        <FloatingIcons count={4} opacity={0.1} />
-        
-        {/* Enhanced Background Elements */}
-        <PatternBackground position="right-0 bottom-0" size="w-full md:w-2/3 h-1/2" opacity={[0.03, 0.07, 0.03]} animation="pulse" />
+        {/* Simple background elements */}
+        <div className="absolute inset-0 bg-circle-pattern opacity-5 bg-[length:30px_30px]"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">            <span className="inline-block py-1.5 px-6 rounded-full bg-brand-green/30 text-brand-green text-sm font-medium mb-6 backdrop-blur-sm border border-brand-green/30 shadow-sm transform hover:scale-105 transition-all duration-300">Join Our Mission</span>
-            
-            <motion.h2 
-              className="text-3xl md:text-5xl font-bold mb-6 text-brand-black"
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              className="flex flex-col items-center space-y-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              Become a <span className="text-brand-green relative inline-block">
-                Partner
-                <svg className="absolute -bottom-1 left-0 w-full h-2 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
-                  <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
-                </svg>
+              <span className="inline-block py-2.5 px-8 rounded-full bg-brand-green/30 text-brand-green text-base font-medium backdrop-blur-sm border border-brand-green/30 shadow-sm transform hover:scale-105 transition-all duration-300">
+                Join Our Mission
               </span>
-            </motion.h2>
-            
-            <motion.p 
-              className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-brand-black/80 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              Join us in our mission to create environmentally sustainable waste management solutions that benefit agriculture and the environment.
-            </motion.p>
+              
+              <motion.h2 
+                className="text-4xl md:text-6xl font-bold text-brand-black max-w-3xl leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                Become a <span className="text-brand-green relative inline-block">
+                  Partner
+                  <svg className="absolute -bottom-2 left-0 w-full h-2 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
+                    <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </motion.h2>
+              
+              <motion.p 
+                className="text-xl md:text-2xl max-w-2xl mx-auto text-brand-black/80 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+              >
+                Join us in our mission to create environmentally sustainable waste management solutions that benefit agriculture and the environment.
+              </motion.p>
+            </motion.div>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">              <motion.div
                 initial={{ opacity: 0, y: 20 }}

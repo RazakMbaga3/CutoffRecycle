@@ -35,7 +35,8 @@ export default function Navbar() {
     { href: '/awards', label: 'Awards & Recognition' },
     { href: '/media', label: 'Media' },
     { href: '/send', label: 'Barbers' },
-    { href: '/employee', label: 'Collection Hub' }
+    { href: '/employee', label: 'Collection Hub' },
+    { href: '/careers', label: 'Careers' }
   ];
 
   const toggleMenu = () => {
@@ -51,23 +52,31 @@ export default function Navbar() {
       <div className={`side-popup ${isOpen ? "open" : ""}`} style={{zIndex:50, display:'flex',flexDirection:'column',alignItems:'center'}}>
           <button onClick={()=>setIsOpen(false)} style={{position:'absolute',top:0,left:0,padding:'5px',width:'fit-content',fontSize:'1.5em'}}>X</button>
           <p>Cart</p>
-        {cart.map(c => <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}} key={c.product.id}>
-          <Image src={c.product.image} width={100}height={100}/>
-          <div>
-            <p>{c.product.name}</p>
-            <p>{c.product.price}$</p>
+        {Array.isArray(cart) && cart.length > 0 ? cart.map(c => (
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}} key={c.product.id}>
+            <Image src={c.product.image} width={100}height={100}/>
+            <div>
+              <p>{c.product.name}</p>
+              <p>{c.product.price}$</p>
+            </div>
+            <div>
+              <p style={{display:'flex',alignItems:'center'}}>
+                      <button onClick={()=>updateCart(c.product.id,1,'add')} style={{width: '2.6rem', height: '2.6rem'}}>+</button>
+                      <span>{c.amount}</span>
+                      <button onClick={()=>updateCart(c.product.id,1,'sub')} style={{width: '2.6rem', height: '2.6rem'}}>-</button>
+                    </p>
+              <p style={{width:'fit-content'}}>{parseFloat((c.product.price * c.amount).toFixed(2))}</p>
+            </div>
           </div>
-          <div>
-            <p style={{display:'flex',alignItems:'center'}}>
-                    <button onClick={()=>updateCart(c.product.id,1,'add')} style={{width: '2.6rem', height: '2.6rem'}}>+</button>
-                    <span>{c.amount}</span>
-                    <button onClick={()=>updateCart(c.product.id,1,'sub')} style={{width: '2.6rem', height: '2.6rem'}}>-</button>
-                  </p>
-            <p style={{width:'fit-content'}}>{parseFloat((c.product.price * c.amount).toFixed(2))}</p>
-          </div>
-        </div>)}
-        <p>Total: {parseFloat((((cart[0]?.amount || 0) * cart[0]?.product.price) + ((cart[1]?.amount || 0) * cart[0]?.product.price)).toFixed(2))}</p>
-        <Link target="_blank" href="https://wa.me/c/255742290884"><button className="ml-3 btn btn-md btn-primary btn-icon-right">Checkout</button></Link>
+        )) : <p>Your cart is empty</p>}
+        {Array.isArray(cart) && cart.length > 0 && (
+          <>
+            <p>Total: {parseFloat(cart.reduce((total, item) => total + (item.amount * item.product.price), 0).toFixed(2))}$</p>
+            <Link target="_blank" href="https://wa.me/c/255742290884">
+              <button className="ml-3 btn btn-md btn-primary btn-icon-right">Checkout</button>
+            </Link>
+          </>
+        )}
       </div>
       <style jsx>{`.side-popup {
   position: fixed;
@@ -88,7 +97,7 @@ width:auto;
         <div className="flex justify-between items-center h-16">
           {/* Logo - Far left */}
           <Link href="/" className="flex items-center space-x-3 group flex-shrink-0">
-            <div className="relative w-20 h-20 flex-shrink-0">
+            <div className="relative w-20 h-20 flex-shrink-0 mt-5 -mr-6">
               <Image
                 src="/Brand Assets/CutOff-Icon.png"
                 alt="CutOff Recycle"
@@ -98,9 +107,9 @@ width:auto;
                 priority
               />
             </div>
-            <div className="hidden sm:block">
+            <div className="hidden sm:block -ml-7">
               <span className="text-xl font-bold text-brand-black leading-tight tracking-tight">
-                <span className="text-brand-green">CutOff</span> <span className="text-brand-black">Recycle</span>
+                <span className="text-brand-black">CutOff</span> <span className="text-brand-green">Recycle</span>
               </span>
             </div>
           </Link>

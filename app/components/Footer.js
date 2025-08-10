@@ -58,9 +58,9 @@ export default function Footer() {
             <div className="mb-6">
               <Link href="/" className="group">
                 <h2 className="text-2xl font-bold flex items-center">
-                  <span className="text-brand-green mr-1 group-hover:scale-105 transition-transform duration-300">Cut</span>Off
+                  <span className="text-brand-black mr-1 group-hover:scale-105 transition-transform duration-300">CutOff</span>
                   <span className="relative ml-2">
-                    <span className="relative z-10 group-hover:text-brand-green transition-colors duration-300">Recycle</span>
+                    <span className="text-brand-green relative z-10 group-hover:text-brand-green transition-colors duration-300">Recycle</span>
                     <span className="absolute bottom-0.5 left-0 w-full h-2 bg-brand-green/20 rounded-full -z-10 group-hover:h-3 group-hover:bg-brand-green/30 transition-all duration-300"></span>
                   </span>
                 </h2>
