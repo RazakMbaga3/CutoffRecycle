@@ -54,7 +54,7 @@ export default function Navbar() {
           <p>Cart</p>
         {Array.isArray(cart) && cart.length > 0 ? cart.map(c => (
           <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}} key={c.product.id}>
-            <Image src={c.product.image} width={100}height={100}/>
+            <Image src={c.product.image} width={100} height={100} alt={c.product.name} />
             <div>
               <p>{c.product.name}</p>
               <p>{c.product.price}$</p>

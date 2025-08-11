@@ -92,19 +92,8 @@ export default function HeroSection({
             />
           </motion.div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-black/60" />
       </div>
-
-      {/* Background Pattern */}
-      {showPattern && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.05 }}
-          transition={{ duration: 1 }}
-        >
-          <BrandPattern opacity={0.05} />
-        </motion.div>
-      )}
 
       {/* Floating Elements */}
       <motion.div 
@@ -114,25 +103,25 @@ export default function HeroSection({
         transition={{ duration: 1, delay: 0.5 }}
       >
         {/* Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-brand-green/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-brand-green/20 rounded-full blur-3xl animate-float-delay" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-green/10 rounded-full blur-[100px] animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-green/10 rounded-full blur-[100px] animate-float-delay" />
         
         {/* Brand Icon */}
-        <div className="absolute top-10 right-10 w-32 h-32 opacity-10 animate-float">
+        <div className="absolute top-10 right-10 w-32 h-32 opacity-20 animate-float mix-blend-overlay">
           <Image
             src="/Brand Assets/CutOff-Icon.png"
             alt="CutOff Icon"
             fill
-            className="object-contain"
+            className="object-contain invert"
           />
         </div>
       </motion.div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center">
-        <div className="max-w-4xl" ref={ref}>
+        <div className="max-w-4xl backdrop-blur-sm p-8 rounded-3xl bg-black/10" ref={ref}>
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)]"
             variants={titleAnimation}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
@@ -140,7 +129,7 @@ export default function HeroSection({
             <span className="text-brand-green relative inline-block">
               {title.split(' ')[0]}
               <motion.span
-                className="absolute bottom-0 left-0 w-full h-1 bg-brand-green/30"
+                className="absolute bottom-0 left-0 w-full h-1.5 bg-brand-green/50"
                 initial={{ scaleX: 0 }}
                 animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
                 transition={{ duration: 1, delay: 0.8 }}
@@ -152,7 +141,7 @@ export default function HeroSection({
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-white/90 max-w-3xl mb-12 leading-relaxed"
+            className="text-xl md:text-2xl text-white max-w-3xl mb-12 leading-relaxed [text-shadow:_1px_1px_8px_rgb(0_0_0_/_30%)]"
             variants={subtitleAnimation}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
