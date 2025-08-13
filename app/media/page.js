@@ -47,7 +47,7 @@ export default function Media() {
       title: "As Seen on Voice Of America",
       description: "Voice of America feature on sustainable solutions from CutOff Recycle",
       link: "#",
-      thumbnail: "/Images/Photos/BNK_0711.jpg"
+      thumbnail: "/new/VOA.jpg"
     }
   ];
 
