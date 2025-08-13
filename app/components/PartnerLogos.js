@@ -6,20 +6,59 @@ import Image from 'next/image';
 const partnerLogos = [
   {
     id: 1,
-    src: '/Images/partner1.png',
-    alt: 'Partner 1',
+    src: '/Images/PARTNER LOGOS/African Union.png',
+    alt: 'African Union',
   },
   {
     id: 2,
-    src: '/Images/partner2.png',
-    alt: 'Partner 2',
+    src: '/Images/PARTNER LOGOS/Alibaba logo.png',
+    alt: 'Alibaba',
   },
   {
     id: 3,
-    src: '/Images/partner3.png',
-    alt: 'Partner 3',
+    src: '/Images/PARTNER LOGOS/Anzisha Prize.png',
+    alt: 'Anzisha Prize',
   },
-  // Add more partner logos as needed
+  {
+    id: 4,
+    src: '/Images/PARTNER LOGOS/Global Student Entrepreneur Awards.png',
+    alt: 'Global Student Entrepreneur Awards',
+  },
+  {
+    id: 5,
+    src: '/Images/PARTNER LOGOS/Inkomoko.png',
+    alt: 'Inkomoko',
+  },
+  {
+    id: 6,
+    src: '/Images/PARTNER LOGOS/International Trade Center.svg',
+    alt: 'International Trade Center',
+  },
+  {
+    id: 7,
+    src: '/Images/PARTNER LOGOS/MasterCard Foundation.png',
+    alt: 'MasterCard Foundation',
+  },
+  {
+    id: 8,
+    src: '/Images/PARTNER LOGOS/SIDO.jpg',
+    alt: 'SIDO',
+  },
+  {
+    id: 9,
+    src: '/Images/PARTNER LOGOS/The School of St Jude - Horizontal.svg',
+    alt: 'The School of St Jude',
+  },
+  {
+    id: 10,
+    src: '/Images/PARTNER LOGOS/wipo.png',
+    alt: 'WIPO',
+  },
+  {
+    id: 11,
+    src: '/Images/PARTNER LOGOS/WSH-Arusha.png',
+    alt: 'WSH Arusha',
+  }
 ];
 
 export default function PartnerLogos() {
@@ -27,7 +66,7 @@ export default function PartnerLogos() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setScrollPosition((prev) => (prev + 1) % (partnerLogos.length * 200));
+      setScrollPosition((prev) => (prev + 0.5) % (partnerLogos.length * 250));
     }, 50);
 
     return () => clearInterval(interval);
@@ -47,7 +86,7 @@ export default function PartnerLogos() {
           
           {/* Scrolling logos container */}
           <div 
-            className="flex items-center gap-16 py-8"
+            className="flex items-center gap-24 py-8"
             style={{
               transform: `translateX(-${scrollPosition}px)`,
               transition: 'transform 0.05s linear'

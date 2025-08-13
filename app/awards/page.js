@@ -65,7 +65,7 @@ export default function Awards() {  // Awards data from Linktree
       description: "Winner of business pitching competition about our human hair recycling innovation",
       image: "/new/pitch.jpg",
       link: "https://www.instagram.com/p/DIEhTq0uJNu/"
-    }
+    },
     {
       id: 6,
       title: "Fund for Alumni Start-ups in Transition",
