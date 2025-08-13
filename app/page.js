@@ -22,6 +22,10 @@ const FarmerTestimonials = dynamic(() => import('./components/FarmerTestimonials
 });
 const DonateHairCTA = dynamic(() => import('./components/DonateHairCTA'), { ssr: true });
 const HomeFAQ = dynamic(() => import('./components/HomeFAQ'), { ssr: true });
+const PartnerLogos = dynamic(() => import('./components/PartnerLogos'), { 
+  ssr: true,
+  loading: () => <div className="min-h-[300px] bg-gray-50 animate-pulse" />
+});
 
 export default function Home() {
   
@@ -82,6 +86,9 @@ export default function Home() {
       
       {/* Hair Has Value Campaign */}
       <HairValueCampaign />
+
+      {/* Partner Logos */}
+      <PartnerLogos />
 
       {/* Farmer Testimonials */}
       <FarmerTestimonials />

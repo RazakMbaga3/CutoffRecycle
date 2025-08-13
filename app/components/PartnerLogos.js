@@ -1,0 +1,145 @@
+'use client';
+
+import Image from 'next/image';
+
+export default function PartnerLogos() {
+  const partners = [
+    { name: 'African Union', logo: '/Images/PARTNER LOGOS/African Union.png' },
+    { name: 'Alibaba', logo: '/Images/PARTNER LOGOS/Alibaba logo.png' },
+    { name: 'Anzisha Prize', logo: '/Images/PARTNER LOGOS/Anzisha Prize.png' },
+    { name: 'Global Student Entrepreneur Awards', logo: '/Images/PARTNER LOGOS/Global Student Entrepreneur Awards.png' },
+    { name: 'Inkomoko', logo: '/Images/PARTNER LOGOS/Inkomoko.png' },
+    { name: 'International Trade Center', logo: '/Images/PARTNER LOGOS/International Trade Center.svg' },
+    { name: 'MasterCard Foundation', logo: '/Images/PARTNER LOGOS/MasterCard Foundation.png' },
+    { name: 'SIDO', logo: '/Images/PARTNER LOGOS/SIDO.jpg' },
+    { name: 'The School of St Jude', logo: '/Images/PARTNER LOGOS/The School of St Jude - Horizontal.svg' },
+    { name: 'WIPO', logo: '/Images/PARTNER LOGOS/wipo.png' },
+    { name: 'WSH Arusha', logo: '/Images/PARTNER LOGOS/WSH-Arusha.png' },
+  ];
+
+  // Duplicate partners array for seamless loop
+  const allPartners = [...partners, ...partners, ...partners];
+
+  return (
+    <section className="py-16 bg-gray-50 overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <span className="inline-block py-1.5 px-6 bg-brand-green/10 rounded-full text-brand-green font-medium text-sm mb-4">
+            Our Partners
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Trusted by Industry Leaders
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            We collaborate with leading organizations to drive innovation in sustainable agriculture and environmental conservation.
+          </p>
+        </div>
+      </div>
+
+      <div className="relative w-full overflow-hidden py-10">
+        <div className="flex animate-[scroll_40s_linear_infinite] hover:[animation-play-state:paused]">
+          {duplicatedPartners.map((partner, index) => (
+            <div
+              key={`${partner.name}-${index}`}
+              className="flex-shrink-0 w-[180px] h-[90px] mx-6 relative group"
+            >
+              <div className="absolute inset-0 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 p-3">
+                <Image
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  fill
+                  className="object-contain p-2 filter grayscale hover:grayscale-0 transition-all duration-300"
+                  sizes="180px"
+                className="object-contain"
+                sizes="200px"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Second row moving in opposite direction */}
+        <div className="flex animate-scroll-reverse mt-8">
+          {[...duplicatedPartners].reverse().map((partner, index) => (
+            <div
+              key={`${partner.name}-reverse-${index}`}
+              className="flex-shrink-0 w-[200px] h-20 mx-8 relative grayscale hover:grayscale-0 transition-all duration-300"
+            >
+              <Image
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                fill
+                className="object-contain"
+                sizes="200px"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+  // Duplicate partners array for seamless loop
+  const duplicatedPartners = [...partners, ...partners];
+
+  return (
+    <section className="py-16 bg-gray-50 overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <span className="inline-block py-1.5 px-6 bg-brand-green/10 rounded-full text-brand-green font-medium text-sm mb-4">
+            Our Partners
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Trusted by Industry Leaders
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            We collaborate with leading organizations to drive innovation in sustainable agriculture and environmental conservation.
+          </p>
+        </div>
+
+        <div className="relative w-full overflow-hidden">
+          <div 
+            className="flex animate-[scroll_40s_linear_infinite] hover:[animation-play-state:paused]"
+            style={{ width: 'fit-content' }}
+          >
+            {allPartners.map((partner, index) => (
+              <div
+                key={`${partner.name}-${index}`}
+                className="flex-shrink-0 w-[180px] h-[90px] mx-6 relative group"
+              >
+                <div className="absolute inset-0 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 p-3">
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    fill
+                    className="object-contain p-2 filter grayscale hover:grayscale-0 transition-all duration-300"
+                    sizes="180px"
+                className="object-contain"
+                sizes="200px"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Second row moving in opposite direction */}
+        <div className="flex animate-scroll-reverse mt-8">
+          {duplicatedPartners.reverse().map((partner, index) => (
+            <div
+              key={`${partner.name}-reverse-${index}`}
+              className="flex-shrink-0 w-[200px] h-20 mx-8 relative grayscale hover:grayscale-0 transition-all duration-300"
+            >
+              <Image
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                fill
+                className="object-contain"
+                sizes="200px"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+

@@ -5,35 +5,53 @@ export default function Awards() {  // Awards data from Linktree
   const awards = [
     {
       id: 1,
-      title: "Anzisha Prize Fellow",
-      organization: "Anzisha Prize",
-      year: "2023",
-      description: "David Denis, founder of CutOff Recycle, was selected as one of Africa's top young entrepreneurs by the Anzisha Prize for innovation in sustainable waste management.",
-      image: "/Images/Photos/BNK_0681.jpg",
+      title: "Anzisha Prize",
+      organization: "African Leadership Academy | MasterCard Foundation",
+      year: "2020",
+      description: "David Denis, founder of CutOff Recycle, was selected as one of Africa's top very young entrepreneurs (VYEs) by the Anzisha Prize for innovation in sustainable waste management.",
+      image: "/new/anzisha.jpg",
       link: "https://anzishaprize.org/fellows/david-denis/"
     },
     {
       id: 2,
       title: "Global Student Entrepreneur Awards",
       organization: "Entrepreneurs' Organization",
-      year: "2022",
-      description: "Recognized for outstanding entrepreneurial achievement while balancing the demands of academics and business management.",
-      image: "/Images/Photos/BNK_0684.jpg",
+      year: "2021",
+      description: "Achieved 2nd Place Overall Globally, recognized for outstanding entrepreneurial excellence while successfully balancing the demands of academics and business management.",
+      image: "/new/gsea.jpg",
       link: "https://gsea.org/gsea/gsea/profile.aspx?id=371599&ordinal=79"
     },
     {
       id: 3,
-      title: "Westerwelle Foundation Entrepreneurship Support",
-      organization: "Westerwelle Foundation",
+      title: "Startupper of the Year Challenge",
+      organization: "TotalEnergies Tanzania",
       year: "2022",
-      description: "Selected to receive entrepreneurship support for CutOff Recycle's innovative approach to sustainable business practices and environmental impact.",
-      image: "/Images/Photos/BNK_0689.jpg",
-      link: "https://www.facebook.com/share/p/1Fwvh1SspM/"
+      description: "Recognized as top 15 in the Business Creation category",
+      image: "/new/Total Energies.jpg",
+      link: "https://www.instagram.com/p/CbYNLyAstlV/?img_index=1"
     },
     {
       id: 4,
+      title: "Extreme Tech Challenge - StartUp Innovation Awards",
+      organization: "FAO | World Food Forum",
+      year: "2023",
+      description: "Semi-Finalists in Better Environment Category",
+      image: "/new/extremetech.jpg",
+      link: "https://extremetechchallenge.org/finalists/cutoff-recycle/"
+    },
+    {
+      id: 4,
+      title: "WSHA Anniversary Pitch Competition",
+      organization: "Westerwelle Startup Haus Arusha",
+      year: "2024",
+      description: "Won First place during the WSHA 2nd Anniversary Alumni Pitch Competition",
+      image: "/Images/Photos/BNK_0694.jpg",
+      link: "https://www.facebook.com/share/p/1Fwvh1SspM/"
+    },
+    {
+      id: 5,
       title: "The 5th CR Birthday Recognition",
-      organization: "CutOff Recycle",
+      organization: "SOMO",
       year: "2023",
       description: "Celebrating five years of impactful environmental work, recycling hair waste, and supporting agricultural development in Tanzania.",
       image: "/Images/Photos/BNK_0694.jpg"
