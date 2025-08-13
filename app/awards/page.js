@@ -54,7 +54,7 @@ export default function Awards() {  // Awards data from Linktree
       organization: "SOMO",
       year: "2024",
       description: "Received business financial support to boost growth and accounting software for real time financial tracking.",
-      image: "/new/somo.jpg",
+      image: "/new/SOMO.jpg",
       link: "https://invest.somoafrica.org/public/2659/CUTOFF%20RECYCLE%20LIMITED"
     },
     {
@@ -63,7 +63,7 @@ export default function Awards() {  // Awards data from Linktree
       organization: "UNDP | Institute of Accountancy Arusha",
       year: "2025",
       description: "Winner of business pitching competition about our human hair recycling innovation",
-      image: "/new/pitch.jpg",
+      image: "/new/innovationweek.jpg",
       link: "https://www.instagram.com/p/DIEhTq0uJNu/"
     },
     {
@@ -73,7 +73,7 @@ export default function Awards() {  // Awards data from Linktree
       year: "2025",
       description: "Received on-going support for our business growth and development by MasterCard Foundation as Anzisha Prize Alumni.",
       image: "/new/inkomoko.jpg",
-      link: "https://www.instagram.com/p/DIEhTq0uJNu/"
+      link: "https://www.linkedin.com/posts/inkomoko_solutionsfoundhere-activity-7355494721617543168-k8Be?utm_source=share&utm_medium=member_desktop&rcm=ACoAACihCDQBnkEHDpBKC0mvkFMq8SKYRwYlY-4"
     }
   ];
 
@@ -196,7 +196,7 @@ export default function Awards() {  // Awards data from Linktree
           <div className="flex items-center justify-center">
             <div className="w-20 h-20 relative rounded-full overflow-hidden mr-5 border-4 border-brand-green/30">
               <Image 
-                src="/Images/Photos/IMG_20241021_121702_350.jpg"
+                src="/new/David0.jpg"
                 alt="CEO" 
                 fill
                 className="object-cover"
