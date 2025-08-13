@@ -72,7 +72,7 @@ export default function Awards() {  // Awards data from Linktree
       organization: "MasterCard Foundation",
       year: "2025",
       description: "Received on-going support for our business growth and development by MasterCard Foundation as Anzisha Prize Alumni.",
-      image: "/new/pitch.jpg",
+      image: "/new/inkomoko.jpg",
       link: "https://www.instagram.com/p/DIEhTq0uJNu/"
     }
   ];

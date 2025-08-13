@@ -1,22 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import FAQ from "./FAQ";
 import AnimatedTagline from "./AnimatedTagline";
-import BrandPatternDivider from "../components/BrandPatternDivider";
 
 export default function About() {
-  const scrollRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: scrollRef,
-    offset: ["start start", "end end"]
-  });
-  
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [1, 0.8, 0.4, 0]);
   
   const teamMembers = [
     {
@@ -31,73 +20,18 @@ export default function About() {
   return (
     <div className="min-h-screen bg-brand-white font-mulish overflow-x-hidden">
       {/* Hero Section with Enhanced Parallax */}
-      <section className="relative min-h-[80vh] bg-gradient-to-r from-brand-green-ultra-light via-white/90 to-white text-brand-black overflow-hidden flex items-center">
-        <motion.div 
-          className="absolute inset-0 overflow-hidden"
-          style={{ y: backgroundY }}
-        >
-          <Image
-            src="/Images/Photos/BNK_0715.jpg"
-            alt="About CutOff Recycle"
-            fill
-            className="object-cover opacity-10 scale-105 animate-slow-zoom filter saturate-50"
-            priority
-            quality={100}
+      <section className="relative min-h-[80vh] bg-black text-brand-black overflow-hidden flex items-center">
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            src="/videos/Founder and CEO - Our Story.mp4"
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
           />
-          <motion.div 
-            className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-brand-green-ultra-light/80"
-            style={{ opacity }}
-          ></motion.div>
-        </motion.div>
-        
-        {/* Enhanced Background Pattern */}
-        <div className="absolute inset-0 bg-[url('/Brand Assets/CutOff Pattern.svg')] opacity-[0.03] bg-repeat bg-[length:500px_500px]"></div>
-        <div className="absolute inset-0 bg-dot-pattern bg-[length:20px_20px] opacity-5"></div>
-        
-        {/* Animated Elements with improved positioning and effects */}
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-brand-green/20 blur-[100px]"
-          animate={{ 
-            y: [0, -30, 0],
-            opacity: [0.2, 0.4, 0.2],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        ></motion.div>
-        
-        <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-brand-green/25 blur-[80px]"
-          animate={{ 
-            y: [0, -20, 0],
-            opacity: [0.3, 0.5, 0.3],
-            scale: [1, 1.05, 1]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-        ></motion.div>
-        
-        <motion.div 
-          className="absolute top-1/3 right-1/3 w-[250px] h-[250px] rounded-full bg-brand-green/15 blur-[60px]"
-          animate={{ 
-            y: [0, -15, 0],
-            opacity: [0.15, 0.3, 0.15],
-            scale: [1, 1.08, 1]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-        ></motion.div>
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
         
         {/* Decorative Elements */}
         <motion.div 
