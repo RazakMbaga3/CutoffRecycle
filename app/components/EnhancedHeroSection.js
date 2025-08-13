@@ -86,14 +86,6 @@ export default function EnhancedHeroSection() {
         </div>
       </motion.div>
 
-      {/* Animated Brand Pattern Background */}
-      <PatternBackground
-        position="left-0 top-0"
-        size="w-full h-full"
-        opacity={[0.05, 0.1, 0.05]}
-        animation="wave"
-      />
-
       {/* Content */}
       <div className="container mx-auto px-4 relative z-20 h-screen flex flex-col justify-center items-center">
         <motion.div 
@@ -144,16 +136,7 @@ export default function EnhancedHeroSection() {
             </button>
           </motion.div>
         </motion.div>
-      </div>      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden z-10">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-20">
-          <path 
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            fill="currentColor" 
-            className="text-brand-green"
-          />
-        </svg>
-      </div>
+      </div>     
     </section>
   );
 }

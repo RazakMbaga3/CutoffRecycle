@@ -17,7 +17,7 @@ export default function HairValueCampaign() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      image: "/Images/Photos/BNK_0676.jpg"
+      image: "/new/environment.jpg"
     },
     {
       title: 'Community',
@@ -28,7 +28,7 @@ export default function HairValueCampaign() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       ),
-      image: "/Images/Photos/BNK_0694.jpg"
+      image: "/new/famers3.jpg"
     },
     {
       title: 'Crops',
@@ -39,7 +39,7 @@ export default function HairValueCampaign() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
         </svg>
       ),
-      image: "/Images/Photos/BNK_0685.jpg"
+      image: "/new/vuna4.jpg"
     }
   ];
 
@@ -94,23 +94,23 @@ export default function HairValueCampaign() {
               >
                 {/* Front of card */}
                 <div
-                  className={`absolute inset-0 bg-white rounded-2xl shadow-xl p-8 
+                  className={`absolute inset-0 bg-brand-green rounded-2xl shadow-xl p-8 
                     ${flippedCards[index] ? 'pointer-events-none' : ''}`}
                   style={{
                     backfaceVisibility: 'hidden',
                   }}
                 >
                   <div className="flex flex-col items-center justify-center h-full space-y-6">
-                    <div className="text-primary-600">
+                    <div className="text-white">
                       {card.icon}
                     </div>
-                    <h3 className="text-2xl font-semibold text-gray-900">
+                    <h3 className="text-2xl font-semibold text-white">
                       {card.title}
                     </h3>
-                    <p className="text-lg text-gray-600 text-center">
+                    <p className="text-lg text-white/90 text-center">
                       {card.description}
                     </p>
-                    <span className="text-sm text-primary-600 mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-sm text-white mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
                       Click to see our impact →
                     </span>
                   </div>
@@ -118,7 +118,7 @@ export default function HairValueCampaign() {
 
                 {/* Back of card */}
                 <div
-                  className={`absolute inset-0 bg-white rounded-2xl shadow-xl overflow-hidden 
+                  className={`absolute inset-0 bg-brand-green rounded-2xl shadow-xl overflow-hidden 
                     ${flippedCards[index] ? '' : 'pointer-events-none'}`}
                   style={{
                     backfaceVisibility: 'hidden',
@@ -133,14 +133,14 @@ export default function HairValueCampaign() {
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-60 p-8 flex flex-col items-center justify-center">
+                    <div className="absolute inset-0 bg-brand-green/90 p-8 flex flex-col items-center justify-center backdrop-blur-sm">
                       <h3 className="text-2xl font-semibold text-white mb-4">
                         Our Impact
                       </h3>
-                      <p className="text-lg text-white text-center">
+                      <p className="text-lg text-white/90 text-center">
                         {card.impact}
                       </p>
-                      <span className="text-sm text-white mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-sm text-white/80 mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
                         ← Click to flip back
                       </span>
                     </div>

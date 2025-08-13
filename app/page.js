@@ -2,14 +2,26 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import BrandCard from './components/BrandCard';
-import BrandPattern from './components/BrandPattern';
+import dynamic from 'next/dynamic';
 import EnhancedHeroSection from './components/EnhancedHeroSection';
-import HowItWorksAnimation from './components/HowItWorksAnimation';
-import HairValueCampaign from './components/HairValueCampaign';
-import FarmerTestimonials from './components/FarmerTestimonials';
-import DonateHairCTA from './components/DonateHairCTA';
-import HomeFAQ from './components/HomeFAQ';
+
+// Dynamically import non-critical components
+const BrandCard = dynamic(() => import('./components/BrandCard'), { ssr: true });
+const BrandPattern = dynamic(() => import('./components/BrandPattern'), { ssr: true });
+const HowItWorksAnimation = dynamic(() => import('./components/HowItWorksAnimation'), { 
+  ssr: true,
+  loading: () => <div className="min-h-[600px] bg-gray-50 animate-pulse" />
+});
+const HairValueCampaign = dynamic(() => import('./components/HairValueCampaign'), {
+  ssr: true,
+  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />
+});
+const FarmerTestimonials = dynamic(() => import('./components/FarmerTestimonials'), {
+  ssr: true,
+  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />
+});
+const DonateHairCTA = dynamic(() => import('./components/DonateHairCTA'), { ssr: true });
+const HomeFAQ = dynamic(() => import('./components/HomeFAQ'), { ssr: true });
 
 export default function Home() {
   
@@ -17,6 +29,53 @@ export default function Home() {
     <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Enhanced Hero Section */}
       <EnhancedHeroSection />
+
+      {/* Updates Banner */}
+      <section className="relative h-[180px] md:h-[200px] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/Images/banner.jpeg"
+            alt="Latest Updates Banner"
+            fill
+            priority
+            sizes="100vw"
+            quality={85}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4dHRwcHR0dHR4eHR0dHR4dHR0dHR0dHR4dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/2wBDAR4eHh0dHR4eHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+            className="object-cover object-center"
+          />
+          {/* Dark overlay for better text visibility */}
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+        </div>
+        <div className="container mx-auto px-4 h-full relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between h-full gap-4">
+            <div className="flex flex-col md:flex-1">
+              <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 text-center md:text-left">
+                Early Adopter Special Offer
+              </h3>
+              <p className="text-white/90 text-base md:text-lg max-w-xl text-center md:text-left">
+                Get 20% off on our new fertilizer product line!
+              </p>
+            </div>
+            
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-2 bg-white/95 hover:bg-white text-brand-green px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 shadow-lg hover:scale-105 group whitespace-nowrap mt-4 md:mt-0"
+            >
+              Shop Now
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* How It Works Animation */}
       <HowItWorksAnimation />

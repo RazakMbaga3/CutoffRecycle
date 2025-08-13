@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useTransform, useScroll } from 'framer-motion';
 import Image from 'next/image';
-import { PatternBackground } from './BrandAnimate';
 
 const processSteps = [
   {
@@ -14,7 +13,7 @@ const processSteps = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
       </svg>
     ),
-    image: "/new/people.png"
+    image: "/new/collection.jpg"
   },
   {
     title: "Processing",
@@ -24,7 +23,7 @@ const processSteps = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
       </svg>
     ),
-    image: "/new/science.png"
+    image: "/new/processing2.jpgg"
   },
   {
     title: "Conversion",
@@ -35,7 +34,7 @@ const processSteps = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 4a2 2 0 00-2-2H7a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4z" />
       </svg>
     ),
-    image: "/Images/Photos/IMG_20241105_143433_338.jpg"
+    image: "/Images/Photos/processing.jpg"
   },
   {
     title: "Application",
@@ -45,7 +44,7 @@ const processSteps = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    image: "/new/farm.png"
+    image: "/new/spraying.jpg"
   },
   {
     title: "Growth",
@@ -55,7 +54,7 @@ const processSteps = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
       </svg>
     ),
-    image: "/Images/Photos/IMG_20241105_143812_570.jpg"
+    image: "/new/growth4.jpg"
   }
 ];
 
@@ -216,20 +215,12 @@ export default function HowItWorksAnimation() {
           </div>
         </div>
 
-        <PatternBackground className="absolute inset-0 -z-10" />
       </div>
     </div>
   );
 
   return (
     <section id="how-it-works" className="py-16 bg-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <PatternBackground 
-        position="right-0 top-0" 
-        size="w-full h-full" 
-        opacity={[0.02, 0.04, 0.02]}
-      />
-      
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="text-center mb-12">
           <span className="inline-block py-2 px-6 bg-brand-green/10 rounded-full text-brand-green font-medium text-sm mb-4">
