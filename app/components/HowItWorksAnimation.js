@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence, useTransform, useScroll } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const processSteps = [
@@ -23,7 +23,7 @@ const processSteps = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
       </svg>
     ),
-    image: "/new/processing2.jpgg"
+    image: "/new/processing2.jpg"
   },
   {
     title: "Conversion",
@@ -59,7 +59,6 @@ const processSteps = [
 ];
 
 export default function HowItWorksAnimation() {
-  const { scrollYProgress } = useScroll();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -91,133 +90,7 @@ export default function HowItWorksAnimation() {
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [isAutoPlaying, isHovered]); // processSteps is constant, no need to include in deps
-
-  // Process steps are defined at the top of the file
-
-  return (
-    <div className="w-full min-h-screen overflow-hidden bg-[#F9F9F9]">
-      <div className="relative h-auto w-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center h-full py-12">
-            <div className="flex flex-col space-y-8">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900"
-              >
-                How Our{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#000000] to-[#be8b4d]">
-                  Process
-                </span>{" "}
-                Works
-              </motion.h2>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-xl relative"
-              >
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div
-                    key={currentIndex}
-                    custom={direction}
-                    initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-                    transition={{ type: "tween", duration: 0.5 }}
-                    className="flex flex-col space-y-4"
-                  >
-                    <h3 className="text-2xl font-semibold text-gray-900">
-                      {processSteps[currentIndex].title}
-                    </h3>
-                    <p className="text-lg text-gray-600">
-                      {processSteps[currentIndex].description}
-                    </p>
-                    <div className="w-12 h-12 text-primary-600">
-                      {processSteps[currentIndex].icon}
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-
-                <div className="flex justify-between mt-8">
-                  <button
-                    onClick={() => paginate(-1)}
-                    className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-                    aria-label="Previous step"
-                  >
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 19l-7-7 7-7"
-                      />
-                    </svg>
-                  </button>
-                  <button
-                    onClick={() => paginate(1)}
-                    className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-                    aria-label="Next step"
-                  >
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </motion.div>
-            </div>
-
-            <div className="flex justify-center items-center">
-              <div className="relative w-full h-[500px]">
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div
-                    key={currentIndex}
-                    custom={direction}
-                    initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-                    transition={{ type: "tween", duration: 0.5 }}
-                    className="absolute inset-0"
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                  >
-                    <Image
-                      src={processSteps[currentIndex].image}
-                      alt={processSteps[currentIndex].title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover rounded-2xl shadow-2xl"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  );
+  }, [isAutoPlaying, isHovered]);
 
   return (
     <section id="how-it-works" className="py-16 bg-white relative overflow-hidden">

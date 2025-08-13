@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import HeroSection from '../components/HeroSection';
 
 export default function Awards() {  // Awards data from Linktree
   const awards = [
@@ -78,26 +81,16 @@ export default function Awards() {  // Awards data from Linktree
   ];
 
   return (
-    <div className="min-h-screen bg-brand-white font-mulish">      {/* Hero Section */}
-      <section className="relative h-[50vh] bg-gradient-to-r from-brand-green-ultra-light to-white text-brand-black">
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/Images/Photos/BNK_0676.jpg"
-            alt="Awards and Recognition"
-            fill
-            className="object-cover opacity-70"
-            priority
-          />
-        </div>
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        
-        {/* Animated Elements */}
-        <div className="absolute top-1/4 left-1/4 w-24 h-24 rounded-full bg-brand-green/20 animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-16 h-16 rounded-full bg-brand-green/30 animate-float-delay"></div>
-        <div className="absolute top-1/3 right-1/3 w-12 h-12 rounded-full bg-brand-green/25 animate-float-slow"></div>
-        
-        <div className="container mx-auto px-4 md:px-8 h-full flex flex-col justify-center items-center relative z-10">
+    <div className="min-h-screen bg-brand-white font-mulish">
+      <HeroSection
+        title="Our Achievements and Recognition"
+        subtitle="Discover our journey of innovation and impact through awards and accolades from leading organizations worldwide."
+        backgroundImage="/Images/Photos/BNK_0676.jpg"
+        tag="Awards"
+      />
+      
+      <section className="py-20 bg-brand-white relative">
+        <div className="container mx-auto px-4 text-center">
           <span className="text-brand-green uppercase tracking-wider text-sm md:text-base font-semibold mb-3 animate-fade-in">Recognition</span>
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">
             Awards & <span className="text-brand-green relative inline-block">
@@ -105,16 +98,18 @@ export default function Awards() {  // Awards data from Linktree
               <span className="absolute bottom-2 left-0 w-full h-1 bg-brand-green/30 rounded"></span>
             </span>
           </h1>
-          <p className="text-lg md:text-xl max-w-2xl text-center">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-center">
             Honoring our commitment to sustainable environmental solutions and community impact
           </p>
           <div className="animate-bounce mt-12 text-brand-black/50">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </div>
         </div>
-      </section>{/* Awards Section */}
+      </section>
+      
+      {/* Awards Section */}
       <section className="py-20 bg-brand-white relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-64 h-64 bg-brand-green/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>

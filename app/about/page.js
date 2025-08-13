@@ -20,74 +20,16 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-brand-white font-mulish overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-[80vh] bg-gradient-to-br from-brand-green-ultra-light via-white to-white overflow-hidden flex items-center">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2 space-y-8">
-              <motion.span 
-                className="inline-block py-2 px-8 bg-white text-brand-green rounded-full text-sm font-semibold shadow-lg transform hover:scale-105 transition-all duration-300 border border-brand-green/20"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ y: -2 }}
-              >
-                Our Story
-              </motion.span>
-              
-              <motion.h1 
-                className="text-5xl md:text-6xl font-bold text-brand-black tracking-tight"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Transforming Hair Waste into <span className="text-brand-green">Agricultural Gold</span>
-              </motion.h1>
-              
-              <motion.p 
-                className="text-xl text-brand-black/80 leading-relaxed"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                We collect and recycle human hair waste into organic fertilizers for sustainable agriculture, 
-                pioneering a greener future through innovative waste management solutions.
-              </motion.p>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex gap-4"
-              >
-                <Link href="/contact" className="px-8 py-3 bg-brand-green text-white rounded-full font-semibold hover:bg-brand-green/90 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  Get Started
-                </Link>
-                <Link href="#learn-more" className="px-8 py-3 border border-brand-green text-brand-green rounded-full font-semibold hover:bg-brand-green/10 transition-all duration-300">
-                  Learn More
-                </Link>
-              </motion.div>
-            </div>
-            
-            <div className="lg:w-1/2">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl"
-              >
-                <Image
-                  src="/Images/Photos/BNK_0542.jpg"
-                  alt="CutOff Recycle Process"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title="Transforming Hair Waste into Agricultural Gold"
+        subtitle="We collect and recycle human hair waste into organic fertilizers for sustainable agriculture, pioneering a greener future through innovative waste management solutions."
+        backgroundImage="/Images/Photos/BNK_0542.jpg"
+        tag="Our Story"
+        ctaButtons={[
+          { text: "Get Started", href: "/contact", primary: true },
+          { text: "Learn More", href: "#learn-more", primary: false }
+        ]}
+      />
 
       {/* Video Feature Section */}
       <section className="py-24 bg-white relative overflow-hidden">

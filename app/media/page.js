@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import HeroSection from '../components/HeroSection';
 
 export default function Media() {
   // Media features data from Linktree
@@ -46,59 +47,19 @@ export default function Media() {
       id: 3,
       title: "As Seen on Voice Of America",
       description: "Voice of America feature on sustainable solutions from CutOff Recycle",
-      link: "#",
+      link: "https://youtu.be/qiWLCC6P2Yk?feature=shared",
       thumbnail: "/new/VOA.jpg"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-brand-white font-mulish">      {/* Hero Section */}
-      <section className="relative h-[60vh] bg-gradient-to-r from-brand-green-ultra-light to-white text-brand-black overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/Images/Photos/BNK_0680.jpg"
-            alt="Media Coverage"
-            fill
-            className="object-cover opacity-20 scale-105"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-brand-green-ultra-light/70"></div>
-        </div>
-        
-        {/* Enhanced Background Pattern */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        <div className="absolute inset-0 bg-pattern-waves opacity-5"></div>
-        
-        {/* Animated Elements */}
-        <div className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-brand-green/10 blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-32 h-32 rounded-full bg-brand-green/20 blur-2xl animate-float-delay"></div>
-        <div className="absolute top-1/3 right-1/3 w-24 h-24 rounded-full bg-brand-green/15 blur-xl animate-float-slow"></div>
-        
-        <div className="absolute top-20 right-20 w-24 h-24 rounded-full border border-brand-green/20 animate-spin-slow"></div>
-        <div className="absolute bottom-20 left-20 w-32 h-32 rounded-full border border-brand-green/10 animate-spin-slow-reverse"></div>
-        
-        <div className="container mx-auto px-4 md:px-8 h-full flex flex-col justify-center items-center relative z-10">          <div className="w-full max-w-4xl mx-auto text-center">
-            <span className="inline-block py-1 px-3 rounded-full bg-brand-green text-white text-sm md:text-base font-semibold mb-4 backdrop-blur-sm animate-fade-in">In The News</span>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 animate-slide-up text-brand-black" style={{textShadow: '0 4px 10px rgba(0,0,0,0.05)'}}>
-              Media <span className="text-brand-green relative inline-block">
-                Coverage
-                <span className="absolute -bottom-1 left-0 w-full h-1 bg-brand-green/40 rounded-full"></span>
-              </span>
-            </h1>
-            
-            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-brand-black/80 leading-relaxed animate-slide-up" style={{animationDelay: '0.1s'}}>
-              CutOff Recycle in the press, documentaries, features, and recognition from around the world
-            </p>
-          </div>
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center">
-            <span className="text-brand-black/70 text-sm mb-2">Scroll to explore</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
-        </div>
-      </section>
+    <div className="min-h-screen bg-brand-white font-mulish">
+      <HeroSection
+        title={<>Media <span className="text-brand-green">Coverage</span></>}
+        subtitle="CutOff Recycle in the press, documentaries, features, and recognition from around the world"
+        backgroundImage="/Images/Photos/BNK_0680.jpg"
+        tag="In The News"
+      />
 
       {/* Articles Section */}
       <section className="py-24 bg-brand-white relative overflow-hidden">
@@ -144,7 +105,7 @@ export default function Media() {
                     href={article.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-brand-green font-semibold hover:opacity-80 transition-colors duration-300 group-hover:translate-x-1 transform transition-transform"
+                    className="inline-flex items-center text-brand-green font-semibold hover:opacity-80 group-hover:translate-x-1 transition-all duration-300"
                   >
                     <span>Read Article</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
