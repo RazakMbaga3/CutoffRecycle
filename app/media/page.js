@@ -30,17 +30,17 @@ export default function Media() {
   const videos = [
     {
       id: 1,
-      title: "The Award Winning KIJANA LEO TV Programme",
+      title: "The Samia Kalamu Award Winner - KIJANA LEO TV Programme",
       description: "Television feature on CutOff Recycle's innovative recycling solutions",
       link: "https://youtu.be/vy1xCaAFMXY?feature=shared",
-      thumbnail: "/Images/Photos/BNK_0707.jpg"
+      thumbnail: "/new/kijana.jpg"
     },
     {
       id: 2,
       title: "As Seen on CGTN",
       description: "CGTN coverage of CutOff Recycle's environmental impact",
       link: "https://youtu.be/OAC87Te3SUU",
-      thumbnail: "/Images/Photos/BNK_0709.jpg"
+      thumbnail: "/new/CGTN.jpg"
     },
     {
       id: 3,
