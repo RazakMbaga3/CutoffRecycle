@@ -40,7 +40,7 @@ export default function Awards() {  // Awards data from Linktree
       link: "https://extremetechchallenge.org/finalists/cutoff-recycle/"
     },
     {
-      id: 4,
+      id: 5,
       title: "WSHA Anniversary Pitch Competition",
       organization: "Westerwelle Startup Haus Arusha",
       year: "2024",
@@ -49,12 +49,31 @@ export default function Awards() {  // Awards data from Linktree
       link: "https://www.facebook.com/share/p/1Fwvh1SspM/"
     },
     {
-      id: 5,
-      title: "The 5th CR Birthday Recognition",
+      id: 6,
+      title: "SOMO Business Support Program",
       organization: "SOMO",
-      year: "2023",
-      description: "Celebrating five years of impactful environmental work, recycling hair waste, and supporting agricultural development in Tanzania.",
-      image: "/Images/Photos/BNK_0694.jpg"
+      year: "2024",
+      description: "Received business financial support to boost growth and accounting software for real time financial tracking.",
+      image: "/new/somo.jpg",
+      link: "https://invest.somoafrica.org/public/2659/CUTOFF%20RECYCLE%20LIMITED"
+    },
+    {
+      id: 5,
+      title: "Innovation Week Arusha Pitching Competition",
+      organization: "UNDP | Institute of Accountancy Arusha",
+      year: "2025",
+      description: "Winner of business pitching competition about our human hair recycling innovation",
+      image: "/new/pitch.jpg",
+      link: "https://www.instagram.com/p/DIEhTq0uJNu/"
+    }
+    {
+      id: 6,
+      title: "Fund for Alumni Start-ups in Transition",
+      organization: "MasterCard Foundation",
+      year: "2025",
+      description: "Received on-going support for our business growth and development by MasterCard Foundation as Anzisha Prize Alumni.",
+      image: "/new/pitch.jpg",
+      link: "https://www.instagram.com/p/DIEhTq0uJNu/"
     }
   ];
 

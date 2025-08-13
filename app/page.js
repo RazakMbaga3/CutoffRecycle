@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,24 +6,20 @@ import dynamic from 'next/dynamic';
 import EnhancedHeroSection from './components/EnhancedHeroSection';
 
 // Dynamically import non-critical components
-const BrandCard = dynamic(() => import('./components/BrandCard'), { ssr: true });
-const BrandPattern = dynamic(() => import('./components/BrandPattern'), { ssr: true });
-const HowItWorksAnimation = dynamic(() => import('./components/HowItWorksAnimation'), { 
-  ssr: true,
+const BrandCard = dynamic(() => import('./components/BrandCard'));
+const BrandPattern = dynamic(() => import('./components/BrandPattern'));
+const HowItWorksAnimation = dynamic(() => import('./components/HowItWorksAnimation'), {
   loading: () => <div className="min-h-[600px] bg-gray-50 animate-pulse" />
 });
 const HairValueCampaign = dynamic(() => import('./components/HairValueCampaign'), {
-  ssr: true,
   loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />
 });
 const FarmerTestimonials = dynamic(() => import('./components/FarmerTestimonials'), {
-  ssr: true,
   loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />
 });
-const DonateHairCTA = dynamic(() => import('./components/DonateHairCTA'), { ssr: true });
-const HomeFAQ = dynamic(() => import('./components/HomeFAQ'), { ssr: true });
-const PartnerLogos = dynamic(() => import('./components/PartnerLogos'), { 
-  ssr: true,
+const DonateHairCTA = dynamic(() => import('./components/DonateHairCTA'));
+const HomeFAQ = dynamic(() => import('./components/HomeFAQ'));
+const PartnerLogos = dynamic(() => import('./components/PartnerLogos'), {
   loading: () => <div className="min-h-[300px] bg-gray-50 animate-pulse" />
 });
 
