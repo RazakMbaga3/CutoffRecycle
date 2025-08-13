@@ -9,21 +9,21 @@ export default function Media() {
       title: "\"Your hair is surprisingly recyclable\" - National Geographic Environment",
       description: "National Geographic feature on hair recycling and its environmental benefits",
       link: "https://www.nationalgeographic.com/environment/article/recycle-human-hair-oil-spills-fertilizer",
-      image: "/Images/Photos/BNK_0680.jpg"
+      image: "/new/NG.jpg"
     },
     {
       id: 2,
       title: "Inflight Magazine Feature - Paa by Precision Air",
       description: "Feature article in Tanzania's Precision Air inflight magazine",
       link: "https://issuu.com/landmarine/docs/paa_102_precision-air/18",
-      image: "/Images/Photos/BNK_0678.jpg"
+      image: "/new/teachers.jpg"
     },
     {
       id: 3,
       title: "From school project to fully-fledged business - The Citizen",
       description: "The journey of CutOff Recycle from a school project to a successful business",
       link: "https://www.thecitizen.co.tz/tanzania/magazines/success/-from-school-project-to-fully-fledged-business-3301092",
-      image: "/Images/Photos/BNK_0674.jpg"
+      image: "/new/founders.png"
     }
   ];
 
@@ -109,7 +109,6 @@ export default function Media() {
         
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-16">
-            <span className="inline-block py-1 px-3 rounded-full bg-brand-green/10 text-brand-green text-sm font-medium mb-4">Press Coverage</span>
             <h2 className="text-3xl md:text-5xl font-bold text-brand-black mb-6">
               Featured <span className="text-brand-green relative inline-block">
                 Articles

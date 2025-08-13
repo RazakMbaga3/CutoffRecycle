@@ -20,100 +20,109 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-brand-white font-mulish overflow-x-hidden">
-      {/* Hero Section with Enhanced Parallax */}
-      <section className="relative min-h-[80vh] bg-black text-brand-black overflow-hidden flex items-center">
-        <div className="absolute inset-0 w-full h-full">
-          <video
-            src="/videos/Founder and CEO - Our Story.mp4"
-            className="w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-        
-        {/* Decorative Elements */}
-        <motion.div 
-          className="absolute top-20 right-20 w-28 h-28 rounded-full border border-brand-green/40"
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        ></motion.div>
-        
-        {/* Curved Border with enhanced wave effect */}
-        <div className="absolute bottom-0 left-0 w-full h-20 overflow-hidden">
-          <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,150 C150,30 350,120 500,150 L500,00 L0,0 Z" fill="white"></path>
-          </svg>
-        </div>
-        
-        <div className="container mx-auto px-4 md:px-8 h-full flex flex-col justify-center items-center relative z-10 py-20">
-          <motion.span 
-            className="inline-block py-2 px-8 bg-white/70 backdrop-blur-md text-brand-green rounded-full text-sm font-semibold mb-8 shadow-lg transform hover:scale-105 transition-all duration-300 border border-brand-green/20"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ y: -2 }}
-          >
-            Our Story
-          </motion.span>
-          
-          <motion.h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-center text-brand-black tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            About <span className="text-brand-green relative inline-block">
-              Us
-              <motion.svg 
-                className="absolute -bottom-2 left-0 w-full h-3 text-brand-green/60" 
-                viewBox="0 0 200 8" 
-                preserveAspectRatio="none"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
+      {/* Hero Section */}
+      <section className="relative min-h-[80vh] bg-gradient-to-br from-brand-green-ultra-light via-white to-white overflow-hidden flex items-center">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2 space-y-8">
+              <motion.span 
+                className="inline-block py-2 px-8 bg-white text-brand-green rounded-full text-sm font-semibold shadow-lg transform hover:scale-105 transition-all duration-300 border border-brand-green/20"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ y: -2 }}
               >
-                <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor" />
-              </motion.svg>
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            className="text-xl md:text-2xl max-w-3xl text-center mb-12 text-brand-black/80 leading-relaxed font-light"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            We collect and recycle human hair waste into organic fertilizers for sustainable agriculture, 
-            pioneering a greener future through innovative waste management solutions.
-          </motion.p>
-          
-          {/* Enhanced Scroll Indicator */}
-          <motion.div 
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-          >
-            <span className="text-brand-black/60 text-sm mb-2 font-medium">Scroll</span>
-            <div className="w-8 h-12 border-2 border-brand-green/50 rounded-full flex justify-center pt-2 backdrop-blur-sm">
-              <motion.div 
-                className="w-2 h-2 bg-brand-green rounded-full"
-                animate={{ y: [0, 10, 0] }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              ></motion.div>
+                Our Story
+              </motion.span>
+              
+              <motion.h1 
+                className="text-5xl md:text-6xl font-bold text-brand-black tracking-tight"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Transforming Hair Waste into <span className="text-brand-green">Agricultural Gold</span>
+              </motion.h1>
+              
+              <motion.p 
+                className="text-xl text-brand-black/80 leading-relaxed"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                We collect and recycle human hair waste into organic fertilizers for sustainable agriculture, 
+                pioneering a greener future through innovative waste management solutions.
+              </motion.p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex gap-4"
+              >
+                <Link href="/contact" className="px-8 py-3 bg-brand-green text-white rounded-full font-semibold hover:bg-brand-green/90 transition-all duration-300 shadow-lg hover:shadow-xl">
+                  Get Started
+                </Link>
+                <Link href="#learn-more" className="px-8 py-3 border border-brand-green text-brand-green rounded-full font-semibold hover:bg-brand-green/10 transition-all duration-300">
+                  Learn More
+                </Link>
+              </motion.div>
             </div>
-          </motion.div>
+            
+            <div className="lg:w-1/2">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl"
+              >
+                <Image
+                  src="/Images/Photos/BNK_0542.jpg"
+                  alt="CutOff Recycle Process"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Feature Section */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-4">
+                Meet Our Founder
+              </h2>
+              <p className="text-lg text-brand-black/70">
+                Learn about our journey from a school project to a sustainable business
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <video
+                src="/videos/Founder and CEO - Our Story.mp4"
+                className="w-full h-full object-cover"
+                controls
+                playsInline
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
       
