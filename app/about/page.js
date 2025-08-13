@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import FAQ from "./FAQ";
@@ -312,7 +313,7 @@ export default function About() {
       </section>
       
       {/* Brand Pattern Divider */}
-      <BrandPatternDivider height="h-36" opacity={0.08} rotate={-1} direction="left-to-right" />
+
       
       {/* Core Values Section */}
       <section className="py-16 bg-white relative overflow-hidden">
@@ -462,7 +463,7 @@ export default function About() {
       </section>
       
       {/* Brand Pattern Divider */}
-      <BrandPatternDivider height="h-40" opacity={0.07} rotate={-1} direction="left-to-right" />
+
       
         {/* FAQ Section with collapsible accordions */}
       <section className="py-24 bg-white relative overflow-hidden">
