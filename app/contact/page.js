@@ -5,7 +5,6 @@ import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import BrandPattern from '../components/BrandPattern';
 
 // Initialize EmailJS with your public key
 emailjs.init('hBNgCRi-ijh4flBkJ');
@@ -209,9 +208,10 @@ export default function Contact() {
 
       {/* Contact Information Section */}
       <section className="py-24 bg-white relative overflow-hidden">
-        <BrandPattern className="absolute right-0 top-0 w-full md:w-1/2 h-full opacity-5" />
+        {/* Clean, subtle background pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50"></div>
         
-        <div className="container mx-auto px-4 max-w-7xl">
+        <div className="container mx-auto px-4 max-w-7xl relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
@@ -221,12 +221,12 @@ export default function Contact() {
                 viewport={{ once: true }}
                 className="mb-12"
               >
-                <span className="inline-block py-2 px-4 bg-brand-green/10 text-brand-green text-sm font-medium rounded-full mb-6">
-                  Contact Information
-                </span>
-                <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
-                <p className="text-gray-600 mb-8">
-                  Have questions or want to collaborate? Reach out to us through any of these channels.
+                <h2 className="text-4xl font-bold mb-4 text-gray-900">
+                  Let's Connect
+                </h2>
+                <div className="w-20 h-1 bg-brand-green mb-6 rounded-full"></div>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  We're here to help and answer any questions you might have. Looking forward to hearing from you!
                 </p>
               </motion.div>
 
@@ -238,19 +238,21 @@ export default function Contact() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-start space-x-4"
+                    className="group p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
                   >
-                    <div className="bg-brand-green/10 p-3 rounded-lg">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">{item.title}</h3>
-                      <a
-                        href={item.link}
-                        className="text-gray-600 hover:text-brand-green transition-colors"
-                      >
-                        {item.content}
-                      </a>
+                    <div className="flex items-center space-x-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-lg flex items-center justify-center group-hover:bg-brand-green/90 transition-colors">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
+                        <a
+                          href={item.link}
+                          className="text-gray-600 hover:text-brand-green transition-colors"
+                        >
+                          {item.content}
+                        </a>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
@@ -289,8 +291,12 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg p-8"
+              className="bg-white rounded-xl shadow-lg p-8 lg:p-12"
             >
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Send us a Message</h3>
+                <p className="text-gray-600">Fill out the form below and we'll get back to you promptly.</p>
+              </div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {status.message && (
                   <div
@@ -386,9 +392,11 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4">Visit Our Office</h2>
-            <p className="text-gray-600">
-              Find us at our office in Arusha, Tanzania where we're transforming hair waste into sustainable solutions
+            <span className="text-brand-green font-medium">Our Location</span>
+            <h2 className="text-4xl font-bold mt-2 mb-4">Visit Our Office</h2>
+            <div className="w-20 h-1 bg-brand-green mx-auto mb-6 rounded-full"></div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Come visit us at our office in Arusha, Tanzania. We'd love to show you how we're transforming hair waste into sustainable solutions.
             </p>
           </motion.div>
 
