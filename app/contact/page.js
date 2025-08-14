@@ -1,11 +1,67 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { FloatingIcons, PatternBackground, DancingBrand, PulsingBrandBorder } from "../components/BrandAnimate";
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+// Initialize EmailJS with your public key
+emailjs.init('hBNgCRi-ijh4flBkJ');
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: '', message: '' });
+
+    try {
+      const result = await emailjs.send(
+        'service_4tr74vv',
+        'template_y3t6f1x',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'info@cutoffrecycle.co.tz',
+        }
+      );
+
+      if (result.status === 200) {
+        setStatus({
+          type: 'success',
+          message: 'Thank you for your message. We will get back to you soon!'
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'Oops! Something went wrong. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const contactInfo = [
     {
       icon: (
@@ -89,26 +145,66 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen bg-brand-white font-mulish overflow-x-hidden">
-      {/* Hero Section with improved visual hierarchy */}
-      <section className="relative h-[80vh] bg-gradient-to-r from-brand-green-ultra-light to-white text-brand-black overflow-hidden flex items-center">
-        <div className="absolute inset-0 overflow-hidden">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
           <Image
-            src="/Images/Photos/BNK_0704.jpg"
-            alt="Contact CutOff Recycle"
+            src="/new/environment.jpeg"
+            alt="Environmental Impact"
             fill
-            className="object-cover opacity-15 scale-105 animate-slow-zoom"
+            className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-brand-green-ultra-light/70"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
         
-        {/* Enhanced Background Pattern with overlapping patterns */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        <div className="absolute inset-0 bg-pattern-waves opacity-5"></div>
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="inline-block py-2 px-6 bg-brand-green/20 text-white text-sm font-medium rounded-full mb-6 backdrop-blur-sm border border-white/20">
+              Contact Us
+            </span>
+          </motion.div>
+          
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Get in Touch
+          </motion.h1>
+          
+          <motion.p 
+            className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Have questions about our sustainable solutions? We're here to help transform the future together.
+          </motion.p>
+        </div>
         
-        {/* Animated Brand Elements - FloatingIcons */}
-        <FloatingIcons count={7} opacity={0.15} />
+        {/* Subtle wave overlay */}
+        <div className="absolute inset-0 opacity-30">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,0 C16.6666667,66 33.3333333,98 50,98 C66.6666667,98 83.3333333,66 100,0 L100,100 L0,100 Z" fill="white" fillOpacity="0.1"/>
+          </svg>
+        </div>
+        
+        {/* Curved bottom edge */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+          <svg className="relative block w-full h-[50px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"/>
+          </svg>
+        </div>
+      </section>
         
         {/* Enhanced Animated Elements with different sizes and animations */}
         <div className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-brand-green/30 blur-3xl animate-float"></div>
@@ -319,141 +415,129 @@ export default function Contact() {
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                     </svg>
-                    <span>Write to Us</span>
+                    <span>Send us a message</span>
                   </motion.div>
                   
-                  <motion.h2 
-                    className="text-3xl font-bold text-brand-black"
+                  <motion.h3
+                    className="text-2xl md:text-3xl font-bold text-brand-black"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                   >
-                    Send us a Message
-                  </motion.h2>
-                  
-                  <motion.p 
-                    className="text-gray-600 leading-relaxed max-w-lg"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
                     Have questions or want to collaborate? Fill out the form below and we'll get back to you promptly.
-                  </motion.p>
+                  </motion.h3>
                 </div>
-                
-                <form className="space-y-8">
-                  <motion.div 
-                    className="grid grid-cols-1 md:grid-cols-2 gap-8"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/50 focus:border-transparent transition-all duration-300"
-                        placeholder="John Doe"
-                      />
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Status Message */}
+                  {status.message && (
+                    <div className={`p-4 rounded-xl ${
+                      status.type === 'success' 
+                        ? 'bg-green-50 text-green-800 border border-green-200' 
+                        : 'bg-red-50 text-red-800 border border-red-200'
+                    }`}>
+                      <p>{status.message}</p>
                     </div>
-                    
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/50 focus:border-transparent transition-all duration-300"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                  </motion.div>
-                  
-                  <motion.div
-                    className="space-y-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                  >
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
-                      Subject
-                    </label>
+                  )}
+
+                  {/* Name Input */}
+                  <div className="relative group">
                     <input
                       type="text"
-                      id="subject"
-                      name="subject"
-                      className="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/50 focus:border-transparent transition-all duration-300"
-                      placeholder="What would you like to discuss?"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-2 border-brand-green/30 rounded-xl px-5 py-4 outline-none focus:border-brand-green transition-all duration-300 peer"
+                      placeholder=" "
+                      required
                     />
-                  </motion.div>
-                  
-                  <motion.div
-                    className="space-y-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                  >
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                      Message
+                    <label className="absolute left-4 top-4 text-brand-green/70 transition-all duration-300 -translate-y-[1.15rem] peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[1.15rem] peer-focus:text-brand-green text-sm peer-placeholder-shown:text-base bg-white px-2 cursor-text">
+                      Your Name
                     </label>
+                  </div>
+
+                  {/* Email Input */}
+                  <div className="relative group">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-2 border-brand-green/30 rounded-xl px-5 py-4 outline-none focus:border-brand-green transition-all duration-300 peer"
+                      placeholder=" "
+                      required
+                    />
+                    <label className="absolute left-4 top-4 text-brand-green/70 transition-all duration-300 -translate-y-[1.15rem] peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[1.15rem] peer-focus:text-brand-green text-sm peer-placeholder-shown:text-base bg-white px-2 cursor-text">
+                      Email Address
+                    </label>
+                  </div>
+
+                  {/* Subject Input */}
+                  <div className="relative group">
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-2 border-brand-green/30 rounded-xl px-5 py-4 outline-none focus:border-brand-green transition-all duration-300 peer"
+                      placeholder=" "
+                      required
+                    />
+                    <label className="absolute left-4 top-4 text-brand-green/70 transition-all duration-300 -translate-y-[1.15rem] peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[1.15rem] peer-focus:text-brand-green text-sm peer-placeholder-shown:text-base bg-white px-2 cursor-text">
+                      Subject
+                    </label>
+                  </div>
+
+                  {/* Message Input */}
+                  <div className="relative group">
                     <textarea
-                      id="message"
                       name="message"
-                      rows={6}
-                      className="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/50 focus:border-transparent transition-all duration-300 resize-none"
-                      placeholder="Tell us about your inquiry..."
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows="5"
+                      className="w-full bg-transparent border-2 border-brand-green/30 rounded-xl px-5 py-4 outline-none focus:border-brand-green transition-all duration-300 peer resize-none"
+                      placeholder=" "
+                      required
                     ></textarea>
-                  </motion.div>
-                  
-                  <motion.div
-                    className="pt-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
+                    <label className="absolute left-4 top-4 text-brand-green/70 transition-all duration-300 -translate-y-[1.15rem] peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[1.15rem] peer-focus:text-brand-green text-sm peer-placeholder-shown:text-base bg-white px-2 cursor-text">
+                      Your Message
+                    </label>
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full bg-brand-green text-white font-semibold px-8 py-4 rounded-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 group ${
+                      isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-brand-green/90'
+                    }`}
                   >
-                    <button
-                      type="submit"
-                      className="w-full bg-brand-green text-white font-semibold px-8 py-4 rounded-xl hover:bg-brand-green/90 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 group"
+                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={`h-5 w-5 transform transition-transform duration-300 ${
+                        isSubmitting ? '' : 'group-hover:translate-x-1'
+                      }`}
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
                     >
-                      <span>Send Message</span>
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        className="h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </button>
-                  </motion.div>
+                      <path
+                        fillRule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
                 </form>
               </div>
             </div>
           </div>
         </div>
-      </section>      {/* Enhanced Location Map Section with organic elements */}
+      </section>
+
+      {/* Location Map Section */}
       <section className="py-24 bg-gray-50 relative overflow-hidden">
-        {/* Simple curved border */}
-        <div className="absolute -top-1 left-0 w-full h-16 overflow-hidden">
-          <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,0 C150,100 350,0 500,60 L500,150 L0,150 Z" fill="white"></path>
-          </svg>
-        </div>
-        
-        {/* Subtle background elements */}
         <div className="absolute inset-0 bg-circle-pattern opacity-5 bg-[length:30px_30px]"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl"></div>
@@ -471,33 +555,60 @@ export default function Contact() {
                 Visit Us
               </span>
               
-              <motion.h2 
-                className="text-4xl md:text-6xl font-bold relative inline-block max-w-3xl leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-              >
-                Our <span className="text-brand-green relative inline-block">
-                  Location
-                  <svg className="absolute -bottom-2 left-0 w-full h-2 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
-                    <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
-                  </svg>
-                </span>
-                
-                {/* Enhanced decorative element */}
-                <div className="absolute -right-10 -top-8 w-12 h-12 bg-brand-green/25 rounded-full blur-md"></div>
-              </motion.h2>
+              <h2 className="text-4xl md:text-5xl font-bold">Our Location</h2>
               
-              <motion.p 
-                className="text-xl md:text-2xl text-brand-black/70 max-w-2xl mx-auto leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-              >
-                Find us at our office in Arusha, Tanzania where we&apos;re transforming hair waste into sustainable solutions
-              </motion.p>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Find us at our office in Arusha, Tanzania where we're transforming hair waste into sustainable solutions
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="bg-white p-5 rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition-all duration-500 relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-green/10 via-brand-green/50 to-brand-green/10 rounded-3xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-1000"></div>
+            
+            <div className="w-full h-[500px] rounded-2xl overflow-hidden relative z-10">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.8723243948316!2d36.680721999999996!3d-3.3813595999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371d65afd8045d%3A0x14e1f64c646e7361!2sCutOff%20Recycle%20Limited!5e0!3m2!1sen!2stz!4v1755206154950!5m2!1sen!2stz"
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen="" 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="grayscale hover:grayscale-0 transition-all duration-1000"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );      {/* Enhanced Location Map Section with organic elements */}
+      <section className="py-24 bg-gray-50 relative overflow-hidden">
+        {/* Simple curved border */}
+        <div className="absolute -top-1 left-0 w-full h-16 overflow-hidden">
+          <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
+            <path d="M0,0 C150,100 350,0 500,60 L500,150 L0,150 Z" fill="white"></path>
+          </svg>
+        </div>
+        
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <motion.div
+              className="flex flex-col items-center space-y-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <span className="inline-block py-2.5 px-8 rounded-full bg-brand-green/20 text-brand-green text-base font-medium border border-brand-green/30 shadow-sm transform hover:scale-105 transition-all duration-300">
+                Visit Us
+              </span>
+              
+              <h2 className="text-4xl md:text-5xl font-bold">Our Location</h2>
+              
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Find us at our office in Arusha, Tanzania where we're transforming hair waste into sustainable solutions
+              </p>
             </motion.div>
           </div>
             <div className="bg-white p-5 rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition-all duration-500 relative group">
@@ -506,7 +617,7 @@ export default function Contact() {
             
             <div className="w-full h-[500px] rounded-2xl overflow-hidden relative z-10">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7965.775483396169!2d36.67192064189085!3d-3.3776038012903853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371d83a17502df%3A0xdf1a219464097fc9!2sSido%20Regional%20Office!5e0!3m2!1sen!2stz!4v1754750787627!5m2!1sen!2stz"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.8723243948316!2d36.680721999999996!3d-3.3813595999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371d65afd8045d%3A0x14e1f64c646e7361!2sCutOff%20Recycle%20Limited!5e0!3m2!1sen!2stz!4v1755206154950!5m2!1sen!2stz"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -620,3 +731,5 @@ export default function Contact() {
     </div>
   );
 }
+
+export default Contact;
