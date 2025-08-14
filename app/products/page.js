@@ -35,7 +35,7 @@ export default function Products() {
         "Soil-Conditioning Effect",
         "Wide Crop Compatibility"
       ],
-      image: "/new/mchekuza.jpg",
+      image: "/new/mchekuza.webp",
       orderLink: "https://wa.link/a7bngd"
     },
 

@@ -4,7 +4,10 @@ import {ActiveUserType, CartItemType, CartSubType, CartType, UserType} from '../
 
 export async function PUT(req) {
     try {
-      await connectDB();
+      const connection = await connectDB();
+      if (!connection) {
+        return Response.json({ error: "Database connection not available" }, { status: 503 });
+      }
       const body = await req.json();
   
       if (!body || !body.user) {
