@@ -5,6 +5,7 @@ import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import BrandPattern from '../components/BrandPattern';
 
 // Initialize EmailJS with your public key
 emailjs.init('hBNgCRi-ijh4flBkJ');
@@ -66,7 +67,7 @@ export default function Contact() {
     {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
         </svg>
       ),
       title: "Phone",
@@ -145,7 +146,7 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
@@ -205,531 +206,211 @@ export default function Contact() {
           </svg>
         </div>
       </section>
+
+      {/* Contact Information Section */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <BrandPattern className="absolute right-0 top-0 w-full md:w-1/2 h-full opacity-5" />
         
-        {/* Enhanced Animated Elements with different sizes and animations */}
-        <div className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-brand-green/30 blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-32 h-32 rounded-full bg-brand-green/40 blur-2xl animate-float-delay"></div>
-        <div className="absolute top-1/3 right-1/3 w-24 h-24 rounded-full bg-brand-green/35 blur-xl animate-float-slow"></div>
-        
-        {/* Curved bottom border */}
-        <div className="absolute bottom-0 left-0 w-full h-20 overflow-hidden">
-          <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,150 C150,50 350,100 500,150 L500,00 L0,0 Z" fill="white"></path>
-          </svg>
-        </div>
-        
-        <div className="container mx-auto px-4 md:px-8 h-full flex flex-col justify-center items-center relative z-10">
-          <div className="w-full max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col items-center space-y-6"
-            >
-              <span className="inline-block py-2 px-8 rounded-full bg-brand-green text-white text-base font-semibold backdrop-blur-sm animate-fade-in border border-brand-green/30 shadow-glow transform hover:scale-105 transition-all duration-300">
-                Get In Touch
-              </span>
-              
-              <motion.h1 
-                className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-center text-brand-black max-w-4xl" 
-                style={{
-                  textShadow: '0 4px 10px rgba(0,0,0,0.05)',
-                  lineHeight: '1.1'
-                }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-              >
-                Contact <span className="text-brand-green relative inline-block">
-                  Us
-                  <svg className="absolute -bottom-3 left-0 w-full h-3 text-brand-green/30" viewBox="0 0 200 8" preserveAspectRatio="none">
-                    <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
-                  </svg>
-                </span>
-              </motion.h1>
-              
-              <motion.p 
-                className="text-xl md:text-2xl text-center max-w-2xl mx-auto text-brand-black/80 leading-relaxed" 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-              >
-                Get in touch with our team for inquiries, partnerships, or to learn more about our innovative products
-              </motion.p>
-            </motion.div>
-          </div>
-            {/* Enhanced scroll indicator */}
-          <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce cursor-pointer">
-            <span className="text-brand-black/60 text-sm mb-2 font-medium">Scroll</span>
-            <div className="w-8 h-12 border-2 border-brand-green/50 rounded-full flex justify-center pt-2 backdrop-blur-sm">
-              <div className="w-2 h-2 bg-brand-green rounded-full animate-pulse-slow"></div>
-            </div>
-          </div>
-        </div>
-      </section>      {/* Enhanced Contact Information Section with more organic styling */}
-      <section className="py-24 bg-brand-white relative overflow-hidden">
-        {/* Brand Pattern Background */}
-        <PatternBackground position="right-0 top-0" size="w-full md:w-1/2 h-full" opacity={[0.05, 0.1, 0.05]} animation="wave" />
-        
-        {/* Enhanced Background Elements with floating animations */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-green/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-float-slow"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-green/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 animate-float-delay"></div>
-        <div className="absolute inset-0 bg-circle-pattern opacity-10 bg-[length:40px_40px]"></div>
-        
-        {/* Added leaf-shaped decorative elements */}
-        <div className="absolute top-1/3 right-10 w-24 h-24 bg-brand-green/25 rounded-tl-full rounded-bl-full rotate-45 blur-md"></div>
-        <div className="absolute bottom-1/3 left-10 w-20 h-20 bg-brand-green/25 rounded-tr-full rounded-br-full -rotate-45 blur-md"></div>
-        
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div>              <div className="mb-12 relative">
-                {/* Added decorative element */}
-                <div className="absolute -top-10 -left-10 w-32 h-32 bg-brand-green/30 rounded-full blur-lg"></div>
-                
-                <span className="inline-block py-1.5 px-6 rounded-full bg-brand-green/20 text-brand-green text-sm font-medium mb-4 border border-brand-green/30 shadow-sm transform hover:scale-105 transition-all duration-300">Reach Out</span>
-                <motion.h2 
-                  className="text-3xl md:text-4xl font-bold text-brand-black mb-6 relative"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                >
-                  Get in <span className="text-brand-green relative inline-block">
-                    Touch
-                    <svg className="absolute -bottom-1 left-0 w-full h-2 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
-                      <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
-                    </svg>
-                  </span>
-                </motion.h2>
-                <motion.p 
-                  className="text-lg text-brand-black/70 max-w-xl leading-relaxed mb-8"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.2 }}
-                >
-                  Have questions about our products or services? Looking to partner with us? Our team is ready to help you.
-                </motion.p>
-              </div>
-              
-              <div className="grid grid-cols-1 gap-8">
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-12"
+              >
+                <span className="inline-block py-2 px-4 bg-brand-green/10 text-brand-green text-sm font-medium rounded-full mb-6">
+                  Contact Information
+                </span>
+                <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
+                <p className="text-gray-600 mb-8">
+                  Have questions or want to collaborate? Reach out to us through any of these channels.
+                </p>
+              </motion.div>
+
+              <div className="space-y-8">
                 {contactInfo.map((item, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start space-x-4"
                   >
-                    <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 border border-brand-green/15 hover:border-brand-green/30 relative overflow-hidden">
-                      {/* Enhanced glow effect */}
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-green/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      
-                      <div className="flex items-start space-x-6">
-                        <div className="flex-shrink-0">
-                          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-brand-green/20 to-brand-green/10 text-brand-green flex items-center justify-center group-hover:bg-brand-green group-hover:text-white transition-all duration-500 transform group-hover:rotate-6 relative">
-                            {/* Enhanced icon glow effect */}
-                            <div className="absolute inset-0 bg-brand-green/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                              {item.icon}
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="flex-grow">
-                          <h3 className="text-xl font-semibold text-brand-black mb-2 group-hover:text-brand-green transition-colors duration-300">
-                            {item.title}
-                          </h3>
-                          <a 
-                            href={item.link} 
-                            className="text-lg text-brand-black/70 hover:text-brand-green transition-colors duration-300 font-medium relative inline-block group-hover:after:w-full after:w-0 after:h-0.5 after:bg-brand-green/30 after:absolute after:left-0 after:-bottom-1 after:transition-all after:duration-300"
-                          >
-                            {item.content}
-                          </a>
-                        </div>
-                      </div>
+                    <div className="bg-brand-green/10 p-3 rounded-lg">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">{item.title}</h3>
+                      <a
+                        href={item.link}
+                        className="text-gray-600 hover:text-brand-green transition-colors"
+                      >
+                        {item.content}
+                      </a>
                     </div>
                   </motion.div>
                 ))}
               </div>
-              
+
+              {/* Social Media Links */}
               <motion.div
-                className="mt-16 bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-brand-green/10"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                className="mt-12"
               >
-                <h3 className="font-semibold text-xl text-brand-black mb-6 relative inline-block">
-                  Connect With Us
-                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-brand-green/30 rounded-full"></span>
-                </h3>
-                <div className="flex flex-wrap gap-6 justify-center">
+                <h3 className="font-semibold mb-6">Follow Us</h3>
+                <div className="flex flex-wrap gap-4">
                   {socialMedia.map((social, index) => (
-                    <motion.a 
+                    <motion.a
                       key={index}
-                      href={social.url} 
+                      href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-14 h-14 rounded-xl bg-white shadow-lg hover:shadow-xl text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300 flex items-center justify-center transform hover:-translate-y-1 relative group"
-                      aria-label={social.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      whileHover={{ scale: 1.1 }}
+                      className="p-3 bg-brand-green/10 text-brand-green rounded-lg hover:bg-brand-green hover:text-white transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: index * 0.1 }}
                     >
-                      {/* Enhanced icon glow effect */}
-                      <div className="absolute inset-0 bg-brand-green/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="relative z-10">
-                        {social.icon}
-                      </div>
-                      <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium text-brand-black">
-                        {social.name}
-                      </span>
+                      {social.icon}
                     </motion.a>
                   ))}
                 </div>
               </motion.div>
             </div>
-              {/* Redesigned Contact Form with clean styling */}
-            <div className="bg-white rounded-3xl shadow-lg p-8 md:p-12 relative overflow-hidden group">
-              {/* Subtle gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-green/5 to-transparent"></div>
-              
-              {/* Clean, minimal decorative elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-green/5 rounded-full blur-2xl"></div>
-              <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-brand-green/5 rounded-full blur-2xl"></div>
-              
-              <div className="relative z-10">
-                <div className="mb-10 space-y-4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className="inline-flex items-center space-x-2 bg-brand-green/10 text-brand-green text-sm font-medium px-4 py-2 rounded-lg"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    <span>Send us a message</span>
-                  </motion.div>
-                  
-                  <motion.h3
-                    className="text-2xl md:text-3xl font-bold text-brand-black"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                  >
-                    Have questions or want to collaborate? Fill out the form below and we'll get back to you promptly.
-                  </motion.h3>
-                </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Status Message */}
-                  {status.message && (
-                    <div className={`p-4 rounded-xl ${
-                      status.type === 'success' 
-                        ? 'bg-green-50 text-green-800 border border-green-200' 
-                        : 'bg-red-50 text-red-800 border border-red-200'
-                    }`}>
-                      <p>{status.message}</p>
-                    </div>
-                  )}
-
-                  {/* Name Input */}
-                  <div className="relative group">
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-2 border-brand-green/30 rounded-xl px-5 py-4 outline-none focus:border-brand-green transition-all duration-300 peer"
-                      placeholder=" "
-                      required
-                    />
-                    <label className="absolute left-4 top-4 text-brand-green/70 transition-all duration-300 -translate-y-[1.15rem] peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[1.15rem] peer-focus:text-brand-green text-sm peer-placeholder-shown:text-base bg-white px-2 cursor-text">
-                      Your Name
-                    </label>
-                  </div>
-
-                  {/* Email Input */}
-                  <div className="relative group">
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-2 border-brand-green/30 rounded-xl px-5 py-4 outline-none focus:border-brand-green transition-all duration-300 peer"
-                      placeholder=" "
-                      required
-                    />
-                    <label className="absolute left-4 top-4 text-brand-green/70 transition-all duration-300 -translate-y-[1.15rem] peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[1.15rem] peer-focus:text-brand-green text-sm peer-placeholder-shown:text-base bg-white px-2 cursor-text">
-                      Email Address
-                    </label>
-                  </div>
-
-                  {/* Subject Input */}
-                  <div className="relative group">
-                    <input
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-2 border-brand-green/30 rounded-xl px-5 py-4 outline-none focus:border-brand-green transition-all duration-300 peer"
-                      placeholder=" "
-                      required
-                    />
-                    <label className="absolute left-4 top-4 text-brand-green/70 transition-all duration-300 -translate-y-[1.15rem] peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[1.15rem] peer-focus:text-brand-green text-sm peer-placeholder-shown:text-base bg-white px-2 cursor-text">
-                      Subject
-                    </label>
-                  </div>
-
-                  {/* Message Input */}
-                  <div className="relative group">
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows="5"
-                      className="w-full bg-transparent border-2 border-brand-green/30 rounded-xl px-5 py-4 outline-none focus:border-brand-green transition-all duration-300 peer resize-none"
-                      placeholder=" "
-                      required
-                    ></textarea>
-                    <label className="absolute left-4 top-4 text-brand-green/70 transition-all duration-300 -translate-y-[1.15rem] peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[1.15rem] peer-focus:text-brand-green text-sm peer-placeholder-shown:text-base bg-white px-2 cursor-text">
-                      Your Message
-                    </label>
-                  </div>
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-full bg-brand-green text-white font-semibold px-8 py-4 rounded-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 group ${
-                      isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-brand-green/90'
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-lg p-8"
+            >
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {status.message && (
+                  <div
+                    className={`p-4 rounded-lg ${
+                      status.type === 'success'
+                        ? 'bg-green-50 text-green-800'
+                        : 'bg-red-50 text-red-800'
                     }`}
                   >
-                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className={`h-5 w-5 transform transition-transform duration-300 ${
-                        isSubmitting ? '' : 'group-hover:translate-x-1'
-                      }`}
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </form>
-              </div>
-            </div>
+                    {status.message}
+                  </div>
+                )}
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-transparent"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-transparent"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-transparent"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="5"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-transparent"
+                    required
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full bg-brand-green text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 ${
+                    isSubmitting
+                      ? 'opacity-70 cursor-not-allowed'
+                      : 'hover:bg-brand-green/90 hover:transform hover:-translate-y-1'
+                  }`}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Location Map Section */}
-      <section className="py-24 bg-gray-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-circle-pattern opacity-5 bg-[length:30px_30px]"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl"></div>
-        
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <motion.div
-              className="flex flex-col items-center space-y-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <span className="inline-block py-2.5 px-8 rounded-full bg-brand-green/20 text-brand-green text-base font-medium border border-brand-green/30 shadow-sm transform hover:scale-105 transition-all duration-300">
-                Visit Us
-              </span>
-              
-              <h2 className="text-4xl md:text-5xl font-bold">Our Location</h2>
-              
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Find us at our office in Arusha, Tanzania where we're transforming hair waste into sustainable solutions
-              </p>
-            </motion.div>
-          </div>
+      {/* Map Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold mb-4">Visit Our Office</h2>
+            <p className="text-gray-600">
+              Find us at our office in Arusha, Tanzania where we're transforming hair waste into sustainable solutions
+            </p>
+          </motion.div>
 
-          <div className="bg-white p-5 rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition-all duration-500 relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-green/10 via-brand-green/50 to-brand-green/10 rounded-3xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-1000"></div>
-            
-            <div className="w-full h-[500px] rounded-2xl overflow-hidden relative z-10">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.8723243948316!2d36.680721999999996!3d-3.3813595999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371d65afd8045d%3A0x14e1f64c646e7361!2sCutOff%20Recycle%20Limited!5e0!3m2!1sen!2stz!4v1755206154950!5m2!1sen!2stz"
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                className="grayscale hover:grayscale-0 transition-all duration-1000"
-              ></iframe>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden shadow-lg"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.8723243948316!2d36.680721999999996!3d-3.3813595999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371d65afd8045d%3A0x14e1f64c646e7361!2sCutOff%20Recycle%20Limited!5e0!3m2!1sen!2stz!4v1755206154950!5m2!1sen!2stz"
+              width="100%"
+              height="500"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="grayscale hover:grayscale-0 transition-all duration-500"
+            ></iframe>
+          </motion.div>
         </div>
       </section>
-    </div>
-  );      {/* Enhanced Location Map Section with organic elements */}
-      <section className="py-24 bg-gray-50 relative overflow-hidden">
-        {/* Simple curved border */}
-        <div className="absolute -top-1 left-0 w-full h-16 overflow-hidden">
-          <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,0 C150,100 350,0 500,60 L500,150 L0,150 Z" fill="white"></path>
-          </svg>
-        </div>
-        
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <motion.div
-              className="flex flex-col items-center space-y-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <span className="inline-block py-2.5 px-8 rounded-full bg-brand-green/20 text-brand-green text-base font-medium border border-brand-green/30 shadow-sm transform hover:scale-105 transition-all duration-300">
-                Visit Us
-              </span>
-              
-              <h2 className="text-4xl md:text-5xl font-bold">Our Location</h2>
-              
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Find us at our office in Arusha, Tanzania where we're transforming hair waste into sustainable solutions
-              </p>
-            </motion.div>
-          </div>
-            <div className="bg-white p-5 rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition-all duration-500 relative group">
-            {/* Border glow effect */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-green/10 via-brand-green/50 to-brand-green/10 rounded-3xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-1000"></div>
-            
-            <div className="w-full h-[500px] rounded-2xl overflow-hidden relative z-10">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.8723243948316!2d36.680721999999996!3d-3.3813595999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371d65afd8045d%3A0x14e1f64c646e7361!2sCutOff%20Recycle%20Limited!5e0!3m2!1sen!2stz!4v1755206154950!5m2!1sen!2stz"
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                className="grayscale hover:grayscale-0 transition-all duration-1000"
-              ></iframe>
-              
-              {/* Map overlay with leaf shape */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-b from-brand-green/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-t from-brand-green/20 to-transparent rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Partnership CTA Section */}
-      <section className="py-24 bg-brand-green-ultra-light text-brand-black relative overflow-hidden">
-        {/* Simple background elements */}
-        <div className="absolute inset-0 bg-circle-pattern opacity-5 bg-[length:30px_30px]"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl"></div>
-        
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              className="flex flex-col items-center space-y-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <span className="inline-block py-2.5 px-8 rounded-full bg-brand-green/30 text-brand-green text-base font-medium backdrop-blur-sm border border-brand-green/30 shadow-sm transform hover:scale-105 transition-all duration-300">
-                Join Our Mission
-              </span>
-              
-              <motion.h2 
-                className="text-4xl md:text-6xl font-bold text-brand-black max-w-3xl leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-              >
-                Become a <span className="text-brand-green relative inline-block">
-                  Partner
-                  <svg className="absolute -bottom-2 left-0 w-full h-2 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
-                    <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
-                  </svg>
-                </span>
-              </motion.h2>
-              
-              <motion.p 
-                className="text-xl md:text-2xl max-w-2xl mx-auto text-brand-black/80 leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-              >
-                Join us in our mission to create environmentally sustainable waste management solutions that benefit agriculture and the environment.
-              </motion.p>
-            </motion.div>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <Link 
-                  href="/contact"
-                  className="btn btn-md btn-primary btn-icon-right"
-                >
-                  Partner With Us
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <a 
-                  href="https://wa.link/a7bngd"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 bg-transparent border-2 border-brand-green/70 text-brand-green font-semibold rounded-full hover:bg-brand-green/10 transition-all duration-500 transform hover:-translate-y-1 flex items-center justify-center group relative overflow-hidden"
-                >
-                  {/* Button glow effect */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-brand-green/0 via-brand-green/15 to-brand-green/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
-                  
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 relative z-10" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372.272.297 1.04 1.016 1.04 2.479 0 1.462-1.065 2.875-1.213 3.074-.149.198-2.096 3.2-5.077 4.487-.709.306-1.262.489-1.694.625-.712.227-1.36.195-1.871.118-.571-.085-1.758-.719-2.006-1.413-.248-.694-.248-1.289-.173-1.413.074-.124.272-.198.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                  </svg>
-                  <span className="relative z-10">Contact via WhatsApp</span>
-                </a>
-              </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    </main>
   );
 }
-
-export default Contact;
