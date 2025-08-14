@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import FAQ from "./FAQ";
 import AnimatedTagline from "./AnimatedTagline";
+import HeroSection from '../components/HeroSection';
 
 export default function About() {
   

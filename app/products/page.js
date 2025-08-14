@@ -6,7 +6,7 @@ import Link from "next/link";
 import HeroSection from '../components/HeroSection';
 export default function Products() {
   const {addItemToCart, updateCart, cart} = useAuth()
-  const [amounts, setAmounts] = useState([{id:1,amount:0},{id:2,amount:0}])
+  const [amounts, setAmounts] = useState([{id:1,amount:0}, {id:2,amount:0}, {id:3,amount:0}])
   const [isVisible, setVisible] = useState(true)
   // Products data from Linktree
   const products = [
@@ -54,7 +54,7 @@ export default function Products() {
       orderLink: "https://wa.link/9cd4j0"
     }
   ];
-  useEffect(() => setAmounts([{id:1,amount:0},{id:2,amount:0}]),[cart])
+  useEffect(() => setAmounts([{id:1,amount:0}, {id:2,amount:0}, {id:3,amount:0}]),[cart])
   return (
     <div className="min-h-screen bg-brand-white font-mulish">
       {isVisible && (
