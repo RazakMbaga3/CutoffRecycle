@@ -34,7 +34,7 @@ export default function Home() {
       <section className="relative h-[180px] md:h-[200px] overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/Images/banner.jpeg"
+            src="/new/banner.webp"
             alt="Latest Updates Banner"
             fill
             priority
@@ -51,11 +51,8 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between h-full gap-4">
             <div className="flex flex-col md:flex-1">
               <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 text-center md:text-left">
-                Early Adopter Special Offer
+                You Can Now order Faster on WhatsApp
               </h3>
-              <p className="text-white/90 text-base md:text-lg max-w-xl text-center md:text-left">
-                Get 20% off on our new fertilizer product line!
-              </p>
             </div>
             
             <Link
