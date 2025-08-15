@@ -117,7 +117,8 @@ export default function EnhancedHeroSection() {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            Creating an environmentally sustainable future by transforming hair waste into valuable agricultural resources.
+            Creating an environmentally sustainable future by transforming human hair waste into valuable agricultural resources for the planet, farmers and communities.
+
           </motion.p>
 
           <motion.div
