@@ -6,25 +6,25 @@ import { motion } from 'framer-motion';
 export default function FarmerTestimonials() {
   const testimonials = [
     {
-      name: 'Asha Mwanzi',
-      location: 'Morogoro',
+      name: 'Mpemba',
+      location: 'Mbeya',
       crop: 'Maize',
-      quote: 'Since I started using CutOff\'s fertilizer, my maize crops have grown stronger and healthier. The yields have increased by almost 40% compared to last season.',
-      image: '/Images/Photos/Test1.jpg'
+      quote: 'I used the organic crop booster from CutOff Recycle on my maize and to my surprise, the crops grew greener, healthier and increased in yields to almost 40% compared to the last season.',
+      image: '/Images/maize.webp'
     },
     {
-      name: 'Ibrahim Hassan',
-      location: 'Arusha',
-      crop: 'Vegetables',
-      quote: 'I was skeptical at first about using fertilizer made from hair, but the results speak for themselves. My vegetable garden is thriving with minimal pest problems.',
-      image: '/Images/Photos/BNK_0694.jpg'
+      name: 'Happyness Makundi',
+      location: 'Arusha - Flower Farmer',
+      crop: 'Flowers',
+      quote: 'I started using the organic growing medium for my flowers and I have been able to reduce my water use as the material used seems to retain water but also I saved time by having a ready-to-use growing medium for my flowers',
+      image: '/Images/flowers.webp'
     },
     {
-      name: 'Grace Makundi',
-      location: 'Mwanza',
-      crop: 'Coffee',
-      quote: 'As a coffee farmer, soil quality is everything. CutOff\'s organic fertilizer has improved my soil health significantly.',
-      image: '/Images/Photos/BNK_0684.jpg'
+      name: 'Nashe',
+      location: 'Arusha - Tomato Farmer',
+      crop: 'Tomato',
+      quote: 'I enjoy free farm consultation from CutOff Recycle before and after buying their products which helps me grow without stress',
+      image: '/Images/tomato.wepb'
     }
   ];
 
