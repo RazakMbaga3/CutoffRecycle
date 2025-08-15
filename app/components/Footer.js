@@ -197,7 +197,7 @@ export default function Footer() {
                   </svg>
                   Monday - Friday:
                 </span>
-                <span className="text-brand-black font-medium">9:00 AM - 5:00 PM</span>
+                <span className="text-brand-black font-medium">8:00 AM - 4:00 PM</span>
               </li>
               <li className="flex justify-between items-center p-2 rounded-lg hover:bg-white/50 transition-colors duration-300">
                 <span className="text-brand-black/70 flex items-center">
@@ -206,7 +206,7 @@ export default function Footer() {
                   </svg>
                   Saturday:
                 </span>
-                <span className="text-brand-black font-medium">10:00 AM - 2:00 PM</span>
+                <span className="text-brand-black font-medium">Closed</span>
               </li>
               <li className="flex justify-between items-center p-2 rounded-lg hover:bg-white/50 transition-colors duration-300">
                 <span className="text-brand-black/70 flex items-center">
