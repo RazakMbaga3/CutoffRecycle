@@ -99,7 +99,7 @@ export default function EnhancedHeroSection() {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <span className="block text-brand-green drop-shadow-glow mb-2">We Make Hair Rubbish</span>
+            <span className="block text-brand-green drop-shadow-glow mb-2">We Make Human Hair Rubbish</span>
             <span className="relative">
             Flourish
               <motion.span
