@@ -8,15 +8,15 @@ export default function DonateHairCTA() {
   const steps = [
     {
       title: "Collect",
-      description: "Save clean, dry hair from your salon or haircuts"
+      description: "Get hair waste from your nearest barbershop, school or military camp. Ensure that you remove any unwanted waste."
     },
     {
       title: "Package",
-      description: "Place in a clean, sealed container"
+      description: "Seal in a bag"
     },
     {
       title: "Drop Off",
-      description: "Bring to our collection points or request pickup"
+      description: "Bring to our available third party-run collection hubs in your area."
     }
   ];
 
