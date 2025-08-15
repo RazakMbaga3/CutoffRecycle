@@ -47,32 +47,95 @@ export default function CareersPage() {
   
   const jobs = [
     {
-      title: "Sustainability Specialist",
-      department: "Environmental Impact",
-      location: "Remote",
-      type: "Full-time",
-      category: "environmental"
-    },
-    {
       title: "Hair Collection Manager",
       department: "Operations",
-      location: "New York",
+      location: "Arusha, Tanzania",
       type: "Full-time",
       category: "operations"
     },
     {
-      title: "Community Engagement Coordinator",
-      department: "Outreach",
-      location: "Hybrid",
+      title: "Sales Manager",
+      department: "Sales",
+      location: "Arusha, Tanzania",
       type: "Full-time",
-      category: "community"
+      category: "sales"
     },
     {
-      title: "Supply Chain Analyst",
+      title: "Marketing Manager",
+      department: "Marketing",
+      location: "Arusha, Tanzania",
+      type: "Full-time",
+      category: "marketing"
+    },
+    {
+      title: "Compliance Manager",
+      department: "Legal & Compliance",
+      location: "Arusha, Tanzania",
+      type: "Full-time",
+      category: "operations"
+    },
+    {
+      title: "Operations Manager",
       department: "Operations",
-      location: "Remote",
+      location: "Arusha, Tanzania",
       type: "Full-time",
       category: "operations"
+    },
+    {
+      title: "Finance and Accounts Manager",
+      department: "Finance",
+      location: "Arusha, Tanzania",
+      type: "Full-time",
+      category: "finance"
+    },
+    {
+      title: "Production Manager",
+      department: "Production",
+      location: "Arusha, Tanzania",
+      type: "Full-time",
+      category: "operations"
+    },
+    {
+      title: "Data Analyst (Monitoring & Evaluation Manager)",
+      department: "Analytics",
+      location: "Arusha, Tanzania",
+      type: "Full-time",
+      category: "analytics"
+    },
+    {
+      title: "People & Culture Manager",
+      department: "Human Resources",
+      location: "Arusha, Tanzania",
+      type: "Full-time",
+      category: "hr"
+    },
+    {
+      title: "Digital Design and Web Specialist",
+      department: "Digital",
+      location: "Arusha, Tanzania",
+      type: "Full-time",
+      category: "marketing"
+    },
+    {
+      title: "Social Media Manager",
+      department: "Marketing",
+      location: "Arusha, Tanzania",
+      type: "Full-time",
+      category: "marketing"
+    },
+    {
+      title: "Digital Content Creator",
+      department: "Marketing",
+      location: "Arusha, Tanzania",
+      type: "Full-time",
+      category: "marketing"
+    },
+    {
+      title: "Reception & Office Administrative Assistant",
+      department: "Administration",
+      location: "Arusha, Tanzania",
+      type: "Full-time",
+      category: "administration"
     }
   ];
 
@@ -150,7 +213,7 @@ export default function CareersPage() {
           
           {/* Job Categories Filter */}
           <div className="flex justify-center gap-4 mb-12 flex-wrap">
-            {['all', 'environmental', 'operations', 'community'].map((tab) => (
+            {['all', 'operations', 'marketing', 'sales', 'finance', 'hr', 'analytics', 'administration'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -166,7 +229,7 @@ export default function CareersPage() {
           </div>
 
           {/* Job Listings */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredJobs.map((job, index) => (
               <motion.div
                 key={index}
