@@ -97,7 +97,6 @@ export default function Home() {
         
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-20">
-            <span className="inline-block py-1.5 px-6 bg-brand-green-ultra-light rounded-full text-brand-green font-medium text-sm mb-4 shadow-sm">Sustainable Solutions</span>
             <h2 className="text-4xl font-bold mb-4 text-brand-black">
               Our <span className="text-brand-green relative inline-block">
                 Products
@@ -133,7 +132,7 @@ export default function Home() {
                 </p>
                 <div className="flex justify-between items-center">
                   <Link 
-                    href="/products/liquid-fertilizer"
+                    href="/products"
                     className="text-brand-green font-semibold flex items-center group-hover:underline"
                   >
                     Learn more
@@ -163,7 +162,7 @@ export default function Home() {
                 </p>
                 <div className="flex justify-between items-center">
                   <Link 
-                    href="/products/organic-soil"
+                    href="/products"
                     className="text-brand-green font-semibold flex items-center group-hover:underline"
                   >
                     Learn more
@@ -180,7 +179,7 @@ export default function Home() {
               <div className="relative h-72 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-black/30 to-transparent z-10"></div>
                 <Image 
-                  src="/Images/Photos/Production.png" 
+                  src="/new/mchekuza.webp" 
                   alt="Recycled Hair Products" 
                   fill
                   className="object-cover transform group-hover:scale-105 transition-transform duration-700"
@@ -190,13 +189,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-8 border-t border-gray-100">
-                <h3 className="text-2xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors duration-300">Custom Solutions</h3>
+                <h3 className="text-2xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors duration-300">McheKuza</h3>
                 <p className="text-brand-black/70 mb-6">
-                  Tailored recycling solutions for your specific agricultural needs and environmental goals.
+                 Designed to stimulate early-stage crop growth and improve soil health.
                 </p>
                 <div className="flex justify-between items-center">
                   <Link 
-                    href="/products/custom-solutions"
+                    href="/products"
                     className="text-brand-green font-semibold flex items-center group-hover:underline"
                   >
                     Learn more
