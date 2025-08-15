@@ -239,14 +239,24 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} CutOff Recycle. All rights reserved.
             </p>
             <div className="flex items-center space-x-8 text-brand-black/60 text-sm">
-              <Link href="/privacy" className="hover:text-brand-green transition-colors relative group">
+              <a 
+                href="https://docs.google.com/document/d/1n-kxzsYVWZqKozd4OCLUMrTHmpRzAgaAb0uq347T1Ss/edit?usp=sharing" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-green transition-colors relative group"
+              >
                 <span className="absolute -inset-1 -z-10 scale-x-0 group-hover:scale-x-100 origin-left bg-brand-green/5 rounded-full transition-transform duration-300"></span>
                 Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-brand-green transition-colors relative group">
+              </a>
+              <a 
+                href="https://docs.google.com/document/d/1pOglv6sADJ3jyCteIv1OJIIobicI0QHDOqHqh43wHaU/edit?usp=sharing" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-green transition-colors relative group"
+              >
                 <span className="absolute -inset-1 -z-10 scale-x-0 group-hover:scale-x-100 origin-left bg-brand-green/5 rounded-full transition-transform duration-300"></span>
                 Terms of Service
-              </Link>
+              </a>
             </div>
           </div>
         </div>
