@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import HeroSection from '../components/HeroSection';
 
 const JobCard = ({ title, department, location, type }) => (
   <motion.div 
@@ -161,34 +162,33 @@ export default function CareersPage() {
     ? jobs 
     : jobs.filter(job => job.category === activeTab);
 
+  const heroCtaButtons = [
+    {
+      text: "View Open Positions",
+      href: "#positions",
+      primary: true
+    },
+    {
+      text: "Learn About Our Culture",
+      href: "#culture",
+      primary: false
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-neutral-gray">
-      {/* Hero Section */}
-      <section className="relative bg-brand-green text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="hero-title mb-6"
-            >
-              Join Our Mission to Revolutionize Hair Recycling
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="body-large mb-8"
-            >
-              Be part of a team that's transforming the beauty industry while making a positive impact on the environment.
-            </motion.p>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 w-full h-20 bg-neutral-gray" style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0)' }}></div>
-      </section>
+      {/* Hero Section using imported component */}
+      <HeroSection
+        title="Join Our Mission to Revolutionize Hair Recycling"
+        subtitle="Be part of a team that's transforming the beauty industry while making a positive impact on the environment."
+        backgroundImage="/Images/Photos/BNK_0555.jpg"
+        ctaButtons={heroCtaButtons}
+        showPattern={true}
+        className="min-h-[70vh]"
+      />
 
       {/* Culture Section */}
-      <section className="py-20">
+      <section id="culture" className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="section-title text-center mb-12">Our Culture</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -207,7 +207,7 @@ export default function CareersPage() {
       </section>
 
       {/* Open Positions Section */}
-      <section className="py-20 bg-white">
+      <section id="positions" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="section-title text-center mb-12">Open Positions</h2>
           
