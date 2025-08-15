@@ -16,7 +16,7 @@ const partnerLogos = [
   },
   {
     id: 3,
-    src: '/Images/PARTNER LOGOS/Anzisha Prize.png',
+    src: '/Images/PARTNER LOGOS/anzisha.png',
     alt: 'Anzisha Prize',
   },
   {
@@ -36,17 +36,17 @@ const partnerLogos = [
   },
   {
     id: 7,
-    src: '/Images/PARTNER LOGOS/MasterCard Foundation.png',
+    src: '/Images/PARTNER LOGOS/mf.png',
     alt: 'MasterCard Foundation',
   },
   {
     id: 8,
-    src: '/Images/PARTNER LOGOS/SIDO.jpg',
+    src: '/Images/PARTNER LOGOS/SIDO.png',
     alt: 'SIDO',
   },
   {
     id: 9,
-    src: '/Images/PARTNER LOGOS/The School of St Jude - Horizontal.svg',
+    src: '/Images/PARTNER LOGOS/jude.png',
     alt: 'The School of St Jude',
   },
   {
