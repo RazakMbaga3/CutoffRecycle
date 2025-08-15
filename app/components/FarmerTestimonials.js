@@ -14,14 +14,14 @@ export default function FarmerTestimonials() {
     },
     {
       name: 'Happyness Makundi',
-      location: 'Arusha - Flower Farmer',
-      crop: 'Flowers',
+      location: 'Arusha',
+      crop: 'Flower',
       quote: 'I started using the organic growing medium for my flowers and I have been able to reduce my water use as the material used seems to retain water but also I saved time by having a ready-to-use growing medium for my flowers',
       image: '/Images/flowers.webp'
     },
     {
       name: 'Nashe',
-      location: 'Arusha - Tomato Farmer',
+      location: 'Arusha - Tomato',
       crop: 'Tomato',
       quote: 'I enjoy free farm consultation from CutOff Recycle before and after buying their products which helps me grow without stress',
       image: '/Images/tomato.wepb'
