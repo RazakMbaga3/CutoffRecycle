@@ -76,7 +76,7 @@ export default function PartnerLogos() {
     <section className="py-16 bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-          Our Trusted Partners
+          Our Proud Supporters
         </h2>
         
         <div className="relative w-full">
