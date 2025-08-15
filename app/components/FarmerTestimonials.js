@@ -21,7 +21,7 @@ export default function FarmerTestimonials() {
     },
     {
       name: 'Nashe',
-      location: 'Arusha - Tomato',
+      location: 'Arusha - Tomatoes',
       crop: 'Tomato',
       quote: 'I enjoy free farm consultation from CutOff Recycle before and after buying their products which helps me grow without stress',
       image: '/Images/tomato.webp'
