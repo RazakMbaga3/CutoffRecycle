@@ -111,99 +111,188 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Product 1 */}
+            {/* Product 1 - Amino Acid+ Crop Booster */}
             <div className="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-custom-hover transition-all duration-300 group">
               <div className="relative h-72 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-black/30 to-transparent z-10"></div>
                 <Image 
                   src="/Images/PRODUCTS/Liquid Fertilizer PNG.png" 
-                  alt="Liquid Fertilizer" 
+                  alt="Amino Acid+ Crop Booster" 
                   fill
                   className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-brand-green z-20">
                   Bestseller
                 </div>
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full text-sm font-bold text-brand-green z-20">
+                  $4.61
+                </div>
               </div>
               <div className="p-8 border-t border-gray-100">
-                <h3 className="text-2xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors duration-300">Liquid Fertilizer</h3>
-                <p className="text-brand-black/70 mb-6">
-                  Our organic liquid fertilizer enhances plant growth and soil health with natural nutrients.
+                <h3 className="text-2xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors duration-300">Amino Acid+ Crop Booster</h3>
+                <p className="text-brand-black/70 mb-4">
+                  Organic liquid fertilizer that enhances plant growth, boosts crop health, and improves yields sustainably.
                 </p>
-                <div className="flex justify-between items-center">
+                <div className="mb-6">
+                  <div className="flex items-center text-sm text-brand-black/60 mb-1">
+                    <span className="w-2 h-2 bg-brand-green rounded-full mr-2"></span>
+                    Made from recycled human hair waste
+                  </div>
+                  <div className="flex items-center text-sm text-brand-black/60">
+                    <span className="w-2 h-2 bg-brand-green rounded-full mr-2"></span>
+                    Rich in nitrogen and amino acids
+                  </div>
+                </div>
+                <div className="flex gap-3">
                   <Link 
                     href="/products"
-                    className="text-brand-green font-semibold flex items-center group-hover:underline"
+                    className="flex-1 text-center px-4 py-2 border border-brand-green text-brand-green font-medium rounded-lg hover:bg-brand-green/5 transition-colors duration-300"
                   >
-                    Learn more
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
+                    Learn More
                   </Link>
+                  <a 
+                    href="https://wa.link/a7bngd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center px-4 py-2 bg-brand-green text-white font-medium rounded-lg hover:bg-brand-green/90 transition-colors duration-300"
+                  >
+                    Order Now
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Product 2 */}
-            <div className="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-custom-hover transition-all duration-300 group">
-              <div className="relative h-72 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/30 to-transparent z-10"></div>
-                <Image 
-                  src="/Images/PRODUCTS/Nutrified Organic Soil PNG.png" 
-                  alt="Nutrified Organic Soil" 
-                  fill
-                  className="object-cover transform group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="p-8 border-t border-gray-100">
-                <h3 className="text-2xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors duration-300">Nutrified Organic Soil</h3>
-                <p className="text-brand-black/70 mb-6">
-                  Premium organic soil enriched with nutrients for better crop yields and healthier plants.
-                </p>
-                <div className="flex justify-between items-center">
-                  <Link 
-                    href="/products"
-                    className="text-brand-green font-semibold flex items-center group-hover:underline"
-                  >
-                    Learn more
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Product 3 */}
+            {/* Product 2 - McheKuza */}
             <div className="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-custom-hover transition-all duration-300 group">
               <div className="relative h-72 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-black/30 to-transparent z-10"></div>
                 <Image 
                   src="/new/mchekuza.webp" 
-                  alt="Recycled Hair Products" 
+                  alt="McheKuza" 
                   fill
                   className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-brand-green z-20">
-                  Custom
+                  Bio-Fertilizer
+                </div>
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full text-sm font-bold text-brand-green z-20">
+                  $4.61
                 </div>
               </div>
               <div className="p-8 border-t border-gray-100">
                 <h3 className="text-2xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors duration-300">McheKuza</h3>
-                <p className="text-brand-black/70 mb-6">
-                 Designed to stimulate early-stage crop growth and improve soil health.
+                <p className="text-brand-black/70 mb-4">
+                  Specialized organic bio-fertilizer designed to stimulate early-stage crop growth and improve soil health.
                 </p>
-                <div className="flex justify-between items-center">
+                <div className="mb-6">
+                  <div className="flex items-center text-sm text-brand-black/60 mb-1">
+                    <span className="w-2 h-2 bg-brand-green rounded-full mr-2"></span>
+                    Beneficial microbial blend
+                  </div>
+                  <div className="flex items-center text-sm text-brand-black/60">
+                    <span className="w-2 h-2 bg-brand-green rounded-full mr-2"></span>
+                    Early growth optimized
+                  </div>
+                </div>
+                <div className="flex gap-3">
                   <Link 
                     href="/products"
-                    className="text-brand-green font-semibold flex items-center group-hover:underline"
+                    className="flex-1 text-center px-4 py-2 border border-brand-green text-brand-green font-medium rounded-lg hover:bg-brand-green/5 transition-colors duration-300"
                   >
-                    Learn more
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
+                    Learn More
                   </Link>
+                  <a 
+                    href="https://wa.link/a7bngd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center px-4 py-2 bg-brand-green text-white font-medium rounded-lg hover:bg-brand-green/90 transition-colors duration-300"
+                  >
+                    Order Now
+                  </a>
                 </div>
+              </div>
+            </div>
+
+            {/* Product 3 - Nutrified Growing Medium */}
+            <div className="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-custom-hover transition-all duration-300 group">
+              <div className="relative h-72 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/30 to-transparent z-10"></div>
+                <Image 
+                  src="/Images/PRODUCTS/Nutrified Organic Soil PNG.png" 
+                  alt="Nutrified Growing Medium" 
+                  fill
+                  className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-brand-green z-20">
+                  Growing Medium
+                </div>
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full text-sm font-bold text-brand-green z-20">
+                  $0.38
+                </div>
+              </div>
+              <div className="p-8 border-t border-gray-100">
+                <h3 className="text-2xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors duration-300">Nutrified Growing Medium</h3>
+                <p className="text-brand-black/70 mb-4">
+                  Premium growing medium enriched with nutrients from recycled hair waste for better crop yields.
+                </p>
+                <div className="mb-6">
+                  <div className="flex items-center text-sm text-brand-black/60 mb-1">
+                    <span className="w-2 h-2 bg-brand-green rounded-full mr-2"></span>
+                    Enhanced soil structure
+                  </div>
+                  <div className="flex items-center text-sm text-brand-black/60">
+                    <span className="w-2 h-2 bg-brand-green rounded-full mr-2"></span>
+                    Improved water retention
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <Link 
+                    href="/products"
+                    className="flex-1 text-center px-4 py-2 border border-brand-green text-brand-green font-medium rounded-lg hover:bg-brand-green/5 transition-colors duration-300"
+                  >
+                    Learn More
+                  </Link>
+                  <a 
+                    href="https://wa.link/9cd4j0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center px-4 py-2 bg-brand-green text-white font-medium rounded-lg hover:bg-brand-green/90 transition-colors duration-300"
+                  >
+                    Order Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-16">
+            <div className="bg-gradient-to-r from-brand-green/5 to-brand-green/10 rounded-2xl p-8 max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold text-brand-black mb-4">
+                Transform Your Agriculture with Sustainable Solutions
+              </h3>
+              <p className="text-brand-black/70 mb-6 max-w-2xl mx-auto">
+                Join thousands of farmers who have improved their yields with our eco-friendly products made from recycled hair waste.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link 
+                  href="/products"
+                  className="px-8 py-3 bg-brand-green text-white font-semibold rounded-xl hover:bg-brand-green/90 transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center shadow-lg"
+                >
+                  View All Products
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+                <Link 
+                  href="/contact"
+                  className="px-8 py-3 border-2 border-brand-green text-brand-green font-semibold rounded-xl hover:bg-brand-green/5 transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center"
+                >
+                  Get Expert Advice
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </Link>
               </div>
             </div>
           </div>
