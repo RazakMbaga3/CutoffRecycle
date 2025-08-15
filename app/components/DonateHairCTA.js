@@ -17,6 +17,10 @@ export default function DonateHairCTA() {
     {
       title: "Drop Off",
       description: "Bring to our available third party-run collection hubs in your area."
+    },
+    {
+      title: "Get Paid",
+      description: "300 Tanzanian Shillings per kilo"
     }
   ];
 
@@ -26,7 +30,7 @@ export default function DonateHairCTA() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
             <span className="inline-block py-1.5 px-6 bg-brand-green/10 rounded-full text-brand-green font-medium text-sm mb-4">
-              Donate Hair
+              Collect Hair
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Turn Hair Waste Into 
