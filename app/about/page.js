@@ -253,7 +253,7 @@ export default function About() {
               </div>
               
               <h3 className="text-xl font-bold mb-4 text-brand-black group-hover:text-brand-green transition-colors duration-300">Our Vision</h3>              <p className="text-brand-black/80 group-hover:text-brand-black/90 transition-colors duration-300">
-                To create an environmentally sustainable world by fostering local solutions with a global impact.
+                Turning waste into growth for the planet, for farmers, and for communities.
               </p>
               <div className="mt-6 w-12 h-1 bg-brand-green/50 rounded-full group-hover:w-20 transition-all duration-500"></div>
             </div>            {/* Mission - Enhanced card with more organic styling */}
@@ -275,7 +275,7 @@ export default function About() {
               </div>
               
               <h3 className="text-xl font-bold mb-4 text-brand-black group-hover:text-brand-green transition-colors duration-300">Our Mission</h3>              <p className="text-brand-black/80 group-hover:text-brand-black/90 transition-colors duration-300">
-                To create an environmentally sustainable waste management solution that supports agricultural development and environmental conservation.
+               To lead the innovation of organic waste recycling by providing high-quality, eco-friendly fertilizers that improve soil health, boost crop yields, and create economic opportunities for communities, while reducing environmental pollution.
               </p>
               <div className="mt-6 w-12 h-1 bg-brand-green/50 rounded-full group-hover:w-20 transition-all duration-500"></div>
             </div>          </div>
