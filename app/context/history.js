@@ -59,7 +59,9 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(users));
     localStorage.setItem("employees", JSON.stringify(employees));
+    if (activeUser !== undefined) {
     localStorage.setItem("activeUser", JSON.stringify(activeUser));
+  }
     localStorage.setItem("pickupOrders", JSON.stringify(pickupOrders));
   }, [users, employees, activeUser, pickupOrders]);
 
@@ -135,6 +137,8 @@ export const AuthProvider = ({ children }) => {
 
     // You might call an actual auth endpoint here in a real app
     setActiveUser(user);
+
+    // Update active user in backend too (if needed)
   } catch (err) {
     console.error("Login Error:", err);
     throw err;
@@ -148,6 +152,12 @@ const employeeLogin = async (email, password) => {
 
     // You might call an actual auth endpoint here in a real app
     setActiveEmployee(user);
+
+    // Update active user in backend too (if needed)
+    await fetch("/api/employee", {
+      method: "PUT",
+      body: JSON.stringify({ user }),
+    });
   } catch (err) {
     console.error("Login Error:", err);
     throw err;
@@ -155,7 +165,9 @@ const employeeLogin = async (email, password) => {
 };
 
   // Logout
-  const logout = async () => setActiveUser(null);
+  const logout = async () => {
+    setActiveUser(null);
+  };
 
   const updateUser = async (updates) => {
     if (!activeUser) return;
@@ -261,54 +273,30 @@ const addOrder = async (order) => {
   if (!res.ok) throw new Error("Failed to register user");
 };
 
-const addPickupOrder = async (location, order) => {
+const addPickupOrder = async (location, order, userId) => {
   try {
     const res = await fetch("/api/pickup", {
       method: "PUT",
-      body: JSON.stringify({ location, order }),
+      body: JSON.stringify({ location, order, userId }),
     });
 
     if (!res.ok) throw new Error("Failed to add pickup order");
 
-    const updatedPickupOrder = await res.json();
+    const {orders, user} = await res.json()
+
+      setActiveUser(user);
+      const updatedUsers = users.map(u =>
+        u._id === user._id ? user : u
+      );
+      setUsers(updatedUsers);
 
     setPickupOrders((prev) =>
       prev.map((pickup) =>
         pickup.location.toLowerCase() === location.toLowerCase()
-          ? updatedPickupOrder
+          ? { ...pickup, orders: Array.isArray(orders) ? orders : [] }
           : pickup
       )
     );
-
-      const barberFunc = async () => {
-        console.log(order.user)
-        const updatedOrders = [...(order.user.newBarber.orders || []), {date:order.date,address:location,amount:order.amount,payment:order.payment,paymentMethod:order.paymentMethod,status:order.status,name:order.name}];
-  const updatedUser = {
-        ...order.user,
-        newBarber:{
-          ...order.user.newBarber,
-          orders: updatedOrders
-        },
-      };
-      const res = await fetch("/api/barber", {
-        method: "PUT",
-        body: JSON.stringify({ _id: order.user._id, newBarber: updatedUser.newBarber }),
-      });
-      const savedUser = await res.json();
-      setActiveUser(savedUser);
-      const updatedUsers = users.map((user) =>
-        user._id === savedUser._id ? savedUser : user
-      );
-      setUsers(updatedUsers);
-      }
-const func = async () => {
-  const newRes = await fetch("/api/order", {
-    method: "POST",
-    body: JSON.stringify(order),
-  });
-}
-barberFunc()
-func()
   } catch (err) {
     console.error("Add Pickup Order Error:", err);
   }
@@ -333,19 +321,18 @@ const updateCart = (id, quantity, operation) => {
   });
 };
 
-const changePickupOrderStatus = async (location, orderId, status, amount = undefined) => {
+// context function
+const changePickupOrderStatus = async (location,orderId,status,amount) => {
   try {
     if (!location || !orderId || !status) {
       throw new Error("Missing location, orderId, or status");
     }
 
-    const payload = { location, orderId, status };
-    if (amount !== undefined) {
-      payload.amount = amount;
-    }
+    const payload = { location, orderId, status, amount };
 
     const res = await fetch("/api/pickup", {
       method: "PATCH",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
 
@@ -354,12 +341,21 @@ const changePickupOrderStatus = async (location, orderId, status, amount = undef
       throw new Error(errorData.error || "Failed to update order status");
     }
 
-    const updatedPickupOrder = await res.json();
+    const {order} = await res.json();
 
-    // Replace the updated pickupOrder in the state
-    setPickupOrders((prevOrders) =>
-      prevOrders.map((po) =>
-        po.location.toLowerCase() === location.toLowerCase() ? updatedPickupOrder : po
+    // Update local state without breaking array shape
+    setPickupOrders(prevOrders =>
+      prevOrders.map(po =>
+        po.location.toLowerCase() === location.toLowerCase()
+          ? {
+              ...po,
+              orders: po.orders.map(o =>
+                o._id === orderId
+                  ? { ...o, ...order }
+                  : o
+              ),
+            }
+          : po
       )
     );
   } catch (err) {
@@ -368,7 +364,7 @@ const changePickupOrderStatus = async (location, orderId, status, amount = undef
 };
 
   return (
-    <AuthContext.Provider value={{ users, setUsers, cart, activeUser, activeEmployee, signUp, login, logout, updateUser, updateCustomerData, updateBarberData, addOrder, addPickupOrder, pickupOrders, addItemToCart, changePickupOrderStatus, updateCart, employeeLogin, employees}}>
+    <AuthContext.Provider value={{ users, setUsers, cart, activeUser, activeEmployee, signUp, login, logout, updateUser, updateCustomerData, updateBarberData, addOrder, addPickupOrder, pickupOrders, addItemToCart, changePickupOrderStatus, updateCart, employeeLogin, employees, setPickupOrders}}>
       {children}
     </AuthContext.Provider>
   );
