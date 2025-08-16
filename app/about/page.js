@@ -13,8 +13,26 @@ export default function About() {
     {
       name: "David Denis",
       position: "Founder & CEO",
-      bio: "David founded CutOff Recycle with a vision to create sustainable waste management solutions that support agricultural development.",
-      image: "/Images/Photos/IMG_20241021_121702_350.jpg" 
+      bio: "Passionate about creating innovative environmental solutions that transform waste into valuable resources, while empowering communities through education and job creation.",
+      image: "/Images/Team/Aderich.webp" 
+    },
+    {
+      name: "Ojung'u Jackson",
+      position: "Director & Chief of Strategy and Partnership",
+      bio: "Passionate about building strategic alliances and partnerships that unlock growth opportunities, scale impactful solutions, and drive sustainable change in communities.",
+      image: "/Images/Team/Ojungu.webp" 
+    },
+    {
+      name: "Mercy Alfayo",
+      position: "Director & Research and Development Manager",
+      bio: "Passionate about scientific innovation, especially in creating sustainable, high-quality agricultural products that improve soil health and boost farmer productivity.",
+      image: "/Images/Team/Mercy.webp" 
+    },
+    {
+      name: "Richard Laizer",
+      position: "Agronomist",
+      bio: "Passionate about helping farmers adopt eco-friendly farming practices that increase yields, protect the environment, and ensure long-term soil fertility.",
+      image: "/Images/Team/Richard.webp" 
     }
     // Add more team members as needed
   ];
@@ -24,7 +42,7 @@ export default function About() {
       <HeroSection
         title="Transforming Hair Waste into Agricultural Gold"
         subtitle="We collect and recycle human hair waste into organic fertilizers for sustainable agriculture, pioneering a greener future through innovative waste management solutions."
-        backgroundImage="/Images/Photos/BNK_0542.jpg"
+        backgroundImage="/new/David3.webp"
         tag="Our Story"
         ctaButtons={[
           { text: "Get Started", href: "/contact", primary: true },
@@ -120,7 +138,7 @@ export default function About() {
                   <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-green/30 rounded-tl-full z-0 blur-xl opacity-60"></div>
                   
                   <Image
-                    src="/Images/Photos/BNK_0542.jpg"
+                    src="/new/founders.webp"
                     alt="Our story"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
