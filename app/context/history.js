@@ -135,12 +135,6 @@ export const AuthProvider = ({ children }) => {
 
     // You might call an actual auth endpoint here in a real app
     setActiveUser(user);
-
-    // Update active user in backend too (if needed)
-    await fetch("/api/active", {
-      method: "PUT",
-      body: JSON.stringify({ user }),
-    });
   } catch (err) {
     console.error("Login Error:", err);
     throw err;
@@ -161,17 +155,7 @@ const employeeLogin = async (email, password) => {
 };
 
   // Logout
-  const logout = async () => {
-    try {
-      setActiveUser(null);
-      await fetch("/api/active", {
-        method: "PUT",
-        body: JSON.stringify({ user: null }),
-      });
-    } catch (err) {
-      console.error("Logout Error:", err);
-    }
-  };
+  const logout = async () => setActiveUser(null);
 
   const updateUser = async (updates) => {
     if (!activeUser) return;
