@@ -41,6 +41,11 @@ export const metadata = {
   verification: {
     google: 'your-google-verification-code',
   },
+  icons: {
+    icon: '/favicon.ico',   // <- make sure favicon.ico is in your /public folder
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png', // optional, for iOS homescreen
+  },
 };
 
 // Import components
@@ -53,12 +58,12 @@ export default function RootLayout({ children }) {
       <body className={`${mulish.variable} antialiased font-mulish`}>
         <AuthProvider>
           <StyledJsxRegistry>
-        <Navbar />
-        <main className="overflow-x-hidden">
-          {children}
-        </main>
-        <Footer />
-        </StyledJsxRegistry>
+            <Navbar />
+            <main className="overflow-x-hidden">
+              {children}
+            </main>
+            <Footer />
+          </StyledJsxRegistry>
         </AuthProvider>
       </body>
     </html>
