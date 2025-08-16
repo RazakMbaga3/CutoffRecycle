@@ -349,88 +349,113 @@ export default function About() {
         </div>
       </section>
       
-        {/* Team Section with enhanced design elements */}
-      <section className="py-16 bg-brand-green-ultra-light relative overflow-hidden">
-        {/* Enhanced Top Curve with more organic wave shape */}
-        <div className="absolute -top-1 left-0 w-full h-16 overflow-hidden">
-          <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,0 C150,120 350,30 500,0 L500,150 L0,150 Z" fill="white"></path>
+       {/* Team Section with compact design matching reference */}
+<section className="py-16 bg-brand-green-ultra-light relative overflow-hidden">
+  {/* Enhanced Top Curve with more organic wave shape */}
+  <div className="absolute -top-1 left-0 w-full h-16 overflow-hidden">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
+      <path d="M0,0 C150,120 350,30 500,0 L500,150 L0,150 Z" fill="white"></path>
+    </svg>
+  </div>
+  
+  {/* Enhanced Bottom Curve with more organic wave shape */}
+  <div className="absolute -bottom-1 left-0 w-full h-16 overflow-hidden">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
+      <path d="M0,150 C150,30 350,120 500,150 L500,00 L0,0 Z" fill="white"></path>
+    </svg>
+  </div>
+    
+  <div className="container mx-auto px-4 md:px-8 relative z-10">
+    <div className="text-center mb-12">            
+      <h2 className="text-4xl font-bold mb-4 relative inline-block">
+        Meet Our <span className="text-brand-green relative inline-block">
+          Team
+          <svg className="absolute -bottom-1 left-0 w-full h-2 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
+            <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
           </svg>
-        </div>
+        </span>
         
-        {/* Enhanced Bottom Curve with more organic wave shape */}
-        <div className="absolute -bottom-1 left-0 w-full h-16 overflow-hidden">
-          <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,150 C150,30 350,120 500,150 L500,00 L0,0 Z" fill="white"></path>
-          </svg>
-        </div>
-          
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center mb-16">            
-            <h2 className="text-4xl font-bold mb-4 relative inline-block">
-              Meet Our <span className="text-brand-green relative inline-block">
-                Team
-                <svg className="absolute -bottom-1 left-0 w-full h-2 text-brand-green/60" viewBox="0 0 200 8" preserveAspectRatio="none">
-                  <path d="M0,5 C50,0 150,0 200,5 L200,8 L0,8 Z" fill="currentColor"></path>
-                </svg>
+        {/* Decorative element */}
+        <div className="absolute -right-10 -top-6 w-8 h-8 bg-brand-green/40 rounded-full blur-sm"></div>
+      </h2>            
+      <p className="max-w-xl mx-auto text-brand-black/70 text-lg mt-6">
+        The passionate individuals behind CutOff Recycle&apos;s mission and vision
+      </p>
+    </div>
+    
+    {/* Compact Team Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      {teamMembers.map((member, index) => (
+        <div key={index} className="group text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          {/* Compact profile image */}
+          <div className="relative mx-auto mb-4 w-24 h-24">
+            {/* Background decorative elements */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-brand-green/30 to-brand-green/20 rounded-full transform group-hover:scale-110 transition-transform duration-300 blur-sm"></div>
+            
+            <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto border-3 border-white shadow-md">
+              <Image 
+                src={member.image} 
+                alt={member.name}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              />
+            </div>
+            
+            {/* Role badge */}
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+              <span className="bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                Designer
               </span>
-              
-              {/* Decorative element */}
-              <div className="absolute -right-10 -top-6 w-8 h-8 bg-brand-green/40 rounded-full blur-sm"></div>
-            </h2>            <p className="max-w-xl mx-auto text-brand-black/70 text-lg mt-6">
-              The passionate individuals behind CutOff Recycle&apos;s mission and vision
-            </p>
+            </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="group text-center">
-                <div className="relative mx-auto mb-6 transition-all duration-500">                  {/* Enhanced profile image with decorative elements */}
-                  <div className="absolute -inset-2 bg-gradient-to-r from-brand-green/50 to-brand-green/30 rounded-full transform scale-105 group-hover:scale-110 transition-transform duration-500 blur-md"></div>
-                  
-                  {/* Additional decorative circle */}
-                  <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full border-2 border-brand-green/40 animate-spin-slow"></div>
-                  <div className="absolute -bottom-4 -left-4 w-10 h-10 rounded-full border-2 border-brand-green/40 animate-spin-slow-reverse"></div>
-                  
-                  <div className="relative w-56 h-56 rounded-full overflow-hidden mx-auto border-4 border-white shadow-xl">
-                    <Image 
-                      src={member.image} 
-                      alt={member.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    
-                    {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-green/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
-                  
-                  {/* Enhanced social media icons */}
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex space-x-2">
-                    <a href="#" className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-brand-green shadow-md hover:bg-brand-green hover:text-white transition-colors duration-300 transform hover:scale-110">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
-                      </svg>
-                    </a>
-                    <a href="#" className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-brand-green shadow-md hover:bg-brand-green hover:text-white transition-colors duration-300 transform hover:scale-110">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-                
-                <h3 className="text-xl font-bold text-brand-black group-hover:text-brand-green transition-colors duration-300 relative inline-block">
-                  {member.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-green/50 group-hover:w-full transition-all duration-500 rounded-full"></span>
-                </h3>
-                <p className="text-brand-green mb-3 font-medium">{member.position}</p>
-                <p className="text-brand-black/70 max-w-xs mx-auto leading-relaxed">
-                  {member.bio}
-                </p>
-              </div>            ))}
+          {/* Compact content */}
+          <div className="mt-6">
+            <h3 className="text-lg font-bold text-brand-black group-hover:text-brand-green transition-colors duration-300 mb-1">
+              {member.name}
+            </h3>
+            <p className="text-brand-green mb-3 font-medium text-sm">{member.position}</p>
+            <p className="text-brand-black/70 text-sm leading-relaxed mb-4 line-clamp-3">
+              {member.bio}
+            </p>
+            
+            {/* Social stats - compact version */}
+            <div className="space-y-1 text-xs text-brand-black/60">
+              <div className="flex items-center justify-center space-x-1">
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+                <span>158,850 Follower</span>
+              </div>
+              <div className="flex items-center justify-center space-x-1">
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                </svg>
+                <span>158,850 Follower</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+          
+          {/* Hover overlay with social icons */}
+          <div className="absolute inset-0 bg-brand-green/95 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="flex space-x-4">
+              <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-brand-green shadow-lg hover:bg-yellow-400 hover:text-black transition-colors duration-300 transform hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+                </svg>
+              </a>
+              <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-brand-green shadow-lg hover:bg-yellow-400 hover:text-black transition-colors duration-300 transform hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>            
+      ))}
+    </div>
+  </div>
+</section>
       
       {/* Brand Pattern Divider */}
 
