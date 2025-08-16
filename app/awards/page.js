@@ -85,7 +85,7 @@ export default function Awards() {  // Awards data from Linktree
       <HeroSection
         title="Our Achievements and Recognition"
         subtitle="Discover our journey of innovation and impact through awards and accolades from leading organizations worldwide."
-        backgroundImage="/Images/Photos/BNK_0676.jpg"
+        backgroundImage="/new/award.webp"
         tag="Awards"
       />
       
