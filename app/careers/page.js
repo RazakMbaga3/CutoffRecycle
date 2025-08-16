@@ -181,7 +181,7 @@ export default function CareersPage() {
       <HeroSection
         title="Join Our Mission to Revolutionize Hair Recycling"
         subtitle="Be part of a team that's transforming the beauty industry while making a positive impact on the environment."
-        backgroundImage="/Images/Photos/BNK_0555.jpg"
+        backgroundImage="/new/teachers.jpg"
         ctaButtons={heroCtaButtons}
         showPattern={true}
         className="min-h-[70vh]"
