@@ -96,7 +96,7 @@ export default function Products() {
       <HeroSection
         title="Sustainable Solutions for Agriculture"
         subtitle="Discover our innovative line of organic fertilizers and growing mediums made from recycled hair waste."
-        backgroundImage="/Images/Photos/IMG_20241021_121452_839.jpg"
+        backgroundImage="/new/Vuna4.webp"
         tag="Our Products"
         ctaButtons={[
           { text: "Shop Now", href: "#products", primary: true },
