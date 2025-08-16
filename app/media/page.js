@@ -57,7 +57,7 @@ export default function Media() {
       <HeroSection
         title={<>Media <span className="text-brand-green">Coverage</span></>}
         subtitle="CutOff Recycle in the press, documentaries, features, and recognition from around the world"
-        backgroundImage="/Images/Photos/BNK_0680.jpg"
+        backgroundImage="/new/CGTN.jpg"
         tag="In The News"
       />
 
