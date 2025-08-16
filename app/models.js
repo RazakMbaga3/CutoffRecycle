@@ -14,7 +14,6 @@ const NewBarberTypeSchema = new mongoose.Schema({orders: [],paymentType:String,p
 const UserTypeSchema = new mongoose.Schema({name: String,email: String,password: String,customerData: CustomerDataTypeSchema, newBarber:NewBarberTypeSchema}, { strict: false })
 const ActiveUserTypeSchema = new mongoose.Schema({ user: UserTypeSchema })
 const EmployeeTypeSchema = new mongoose.Schema({name: String,email: String,password: String})
-const ActiveEmployeeTypeSchema = new mongoose.Schema({ user: EmployeeTypeSchema })
 const CustomerOrderTypeSchema = new mongoose.Schema({price:Number,items:CartItemTypeSchema,status:{
       type: String,
       enum: ["pending", "processing", "shipped", "delivered", "cancelled"],
@@ -33,6 +32,5 @@ export const CustomerSubType = mongoose.models.CustomerSubType || mongoose.model
 export const CustomerDataType = mongoose.models.CustomerDataType || mongoose.model("CustomerDataType", CustomerDataTypeSchema, "customerdatatypes")
 export const CustomerOrderType = mongoose.models.CustomerOrderType || mongoose.model("CustomerOrderType", CustomerOrderTypeSchema, "customerOrdertypes")
 export const AddressType = mongoose.models.AddressType || mongoose.model("AddressType", AddressTypeSchema, "addresstypes")
-export const ActiveEmployeeType = mongoose.models.ActiveEmployeeType || mongoose.model("ActiveEmployeeTypeSchema", ActiveEmployeeTypeSchema, "activeemployeetypes")
 export const NewBarberType = mongoose.models.NewBarberType || mongoose.model("NewBarberTypeSchema", NewBarberTypeSchema, "newbarbertypes")
 export const NewBarberOrderType = mongoose.models.NewBarberOrderType || mongoose.model("NewBarberOrderSchema", NewBarberOrderSchema, "newbarberordertypes")

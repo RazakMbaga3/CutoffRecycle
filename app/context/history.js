@@ -154,12 +154,6 @@ const employeeLogin = async (email, password) => {
 
     // You might call an actual auth endpoint here in a real app
     setActiveEmployee(user);
-
-    // Update active user in backend too (if needed)
-    await fetch("/api/employee", {
-      method: "PUT",
-      body: JSON.stringify({ user }),
-    });
   } catch (err) {
     console.error("Login Error:", err);
     throw err;
