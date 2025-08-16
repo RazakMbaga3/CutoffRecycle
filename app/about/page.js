@@ -383,72 +383,51 @@ export default function About() {
       </p>
     </div>
     
-    {/* Compact Team Grid */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+    {/* Classic Team Grid with Golden Ratio Proportions */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
       {teamMembers.map((member, index) => (
-        <div key={index} className="group text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          {/* Compact profile image */}
-          <div className="relative mx-auto mb-4 w-24 h-24">
-            {/* Background decorative elements */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-brand-green/30 to-brand-green/20 rounded-full transform group-hover:scale-110 transition-transform duration-300 blur-sm"></div>
-            
-            <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto border-3 border-white shadow-md">
+        <div key={index} className="group text-center bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 relative overflow-hidden">
+          
+          {/* Subtle decorative element */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-green/60 to-brand-green/20"></div>
+          
+          {/* Profile image following golden ratio */}
+          <div className="relative mx-auto mb-8">
+            {/* Golden ratio based sizing: larger image for better visual hierarchy */}
+            <div className="relative w-32 h-32 rounded-full overflow-hidden mx-auto border-4 border-brand-green/10 shadow-xl">
               <Image 
                 src={member.image} 
                 alt={member.name}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                className="object-cover transition-all duration-700 group-hover:scale-105"
               />
+              
+              {/* Subtle overlay for depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             
-            {/* Role badge */}
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-              <span className="bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full shadow-md">
-                Designer
-              </span>
-            </div>
+            {/* Decorative ring following golden ratio */}
+            <div className="absolute -inset-2 border border-brand-green/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
           
-          {/* Compact content */}
-          <div className="mt-6">
-            <h3 className="text-lg font-bold text-brand-black group-hover:text-brand-green transition-colors duration-300 mb-1">
+          {/* Content with golden ratio spacing and typography */}
+          <div className="space-y-5">
+            <h3 className="text-xl font-bold text-brand-black group-hover:text-brand-green transition-colors duration-300 leading-tight">
               {member.name}
             </h3>
-            <p className="text-brand-green mb-3 font-medium text-sm">{member.position}</p>
-            <p className="text-brand-black/70 text-sm leading-relaxed mb-4 line-clamp-3">
-              {member.bio}
+            
+            <p className="text-brand-green font-medium text-base leading-relaxed">
+              {member.position}
             </p>
             
-            {/* Social stats - compact version */}
-            <div className="space-y-1 text-xs text-brand-black/60">
-              <div className="flex items-center justify-center space-x-1">
-                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-              </div>
-              <div className="flex items-center justify-center space-x-1">
-                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
-                </svg>
-              </div>
-            </div>
+            {/* Golden ratio font sizing: base text reduced by φ (1.618) */}
+            <p className="text-brand-black/75 text-sm leading-loose max-w-xs mx-auto">
+              {member.bio}
+            </p>
           </div>
           
-          {/* Hover overlay with social icons */}
-          <div className="absolute inset-0 bg-brand-green/95 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-brand-green shadow-lg hover:bg-yellow-400 hover:text-black transition-colors duration-300 transform hover:scale-110">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
-                </svg>
-              </a>
-              <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-brand-green shadow-lg hover:bg-yellow-400 hover:text-black transition-colors duration-300 transform hover:scale-110">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
+          {/* Minimal hover accent */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-brand-green group-hover:w-16 transition-all duration-500 rounded-full"></div>
         </div>            
       ))}
     </div>
