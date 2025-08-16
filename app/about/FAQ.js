@@ -6,22 +6,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const faqItems = [
+   const faqItems = [
     {
       question: "Why human hair?",
-      answer: "Human hair is incredibly rich in nitrogen (15-18%), making it an excellent slow-release fertilizer. It decomposes gradually, feeding plants over time while improving soil structure. Unlike synthetic fertilizers, hair is a waste product we're recycling, creating a circular economy solution that diverts waste from landfills while supporting sustainable agriculture."
+      answer: "Human hair is a rich source of keratin — a protein high in nitrogen, which is a vital nutrient for plant growth. We use it to make a nutritious growing medium because it decomposes slowly, releasing nitrogen and other proteins into the soil, acting as a natural, slow-release fertilizer that improves soil fertility over time. In addition, we have developed a patented technology to extract amino acids from human hair to produce foliar fertilizer, providing a fast nutrient release method for healthier, more productive crops."
     },
     {
-      question: "Is it safe for crops?",
-      answer: "Absolutely! Our hair fertilizer undergoes a specialized processing method that sanitizes it while preserving its nutrient content. The fertilizer has been extensively tested on various crops and has shown excellent results without any safety concerns. It's 100% organic and doesn't contain chemicals found in many commercial fertilizers."
-    },
-    {
-      question: "Can I donate my hair?",
-      answer: "Yes! We welcome hair donations from individuals and businesses alike. Clean, dry hair of any length, color, or texture can be donated. We have collection points across Tanzania, or you can contact us to arrange pickup. Visit our 'Donate Hair' section on the homepage for more details on how to contribute."
+      question: "How do I join the Human Hair Waste Collection?",
+      answer: "For existing collection hubs (listed on our Human Hair Waste Collection page):\n\n1. Collect – Get hair waste from your nearest barbershop, school, or military camp. Make sure to remove any unwanted waste.\n2. Package – Seal the hair waste securely in a bag.\n3. Drop Off – Bring it to one of our third-party-run collection hubs in your area.\n\nIf there's no existing hub in your area:\n• Send us your Name, Phone Number (preferably WhatsApp), and Location (District and Region) using the Contact Us form on our Get In Touch page.\n• We'll connect you with other collectors in your region.\n• If you'd like to become a bulk collector in your area, let us know in your message."
     },
     {
       question: "How do I get the fertilizer?",
-      answer: "Our fertilizers are available for purchase through our website, at select agricultural supply stores in Tanzania, or directly from our production facility. We offer both liquid fertilizer and nutrified organic soil options in various quantities to suit different needs, from home gardeners to commercial farmers."
+      answer: "You can purchase our fertilizers in several convenient ways:\n\n• Online – Order directly through our website or via our WhatsApp AI Chatbot.\n• In Stores – Available at select agricultural supply stores across Tanzania.\n• Direct from Us – Visit our production facility for on-site purchases.\n\nWe offer both liquid fertilizers and growing medium in various quantities — perfect for everyone from home gardeners to large-scale commercial farmers."
     }
   ];
 
