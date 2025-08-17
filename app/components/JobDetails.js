@@ -3,7 +3,6 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowLeft, MapPin, Clock, Building, Mail } from 'lucide-react';
 
 const JobDetails = ({ job }) => {
   if (!job) {
@@ -28,7 +27,7 @@ const JobDetails = ({ job }) => {
             href="/careers" 
             className="inline-flex items-center text-brand-green hover:text-brand-green/80 transition-colors mb-6"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <span className="mr-2">←</span>
             Back to Careers
           </Link>
           
@@ -43,15 +42,15 @@ const JobDetails = ({ job }) => {
             
             <div className="flex flex-wrap gap-4 text-gray-600">
               <div className="flex items-center gap-2">
-                <Building className="w-4 h-4" />
+                <span className="w-4 h-4 bg-brand-green rounded-full"></span>
                 <span>{job.department}</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
+                <span className="w-4 h-4 bg-gray-400 rounded-full"></span>
                 <span>{job.location}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
+                <span className="w-4 h-4 bg-gray-400 rounded-full"></span>
                 <span>{job.type}</span>
               </div>
             </div>
@@ -106,7 +105,7 @@ const JobDetails = ({ job }) => {
                 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center gap-3 text-gray-600">
-                    <Mail className="w-5 h-5 text-brand-green" />
+                    <span className="w-5 h-5 text-brand-green">✉</span>
                     <div>
                       <p className="font-medium text-text-dark">Send your CV to:</p>
                       <a 
@@ -120,10 +119,10 @@ const JobDetails = ({ job }) => {
                 </div>
 
                 <a
-                  href="mailto:career@cutoffrecycle.co.tz?subject=Application for <?php echo urlencode($job['title']); ?>"
+                  href={`mailto:career@cutoffrecycle.co.tz?subject=Application for ${encodeURIComponent(job.title)}`}
                   className="w-full bg-brand-green text-white py-4 px-6 rounded-full font-medium hover:bg-brand-green/90 transition-colors flex items-center justify-center gap-2 group"
                 >
-                  <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span>✉</span>
                   Apply Now
                 </a>
 
