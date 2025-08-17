@@ -3,44 +3,82 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import HeroSection from '../components/HeroSection';
 
-const JobCard = ({ title, department, location, type }) => (
+const JobCard = ({ title, department, location, type, id }) => (
   <motion.div 
-    whileHover={{ scale: 1.02 }}
-    className="p-6 bg-white rounded-lg shadow-md border border-neutral-gray hover:border-brand-green transition-all"
+    whileHover={{ scale: 1.02, y: -5 }}
+    className="group p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-brand-green/20 transition-all duration-300"
   >
-    <h3 className="text-xl font-semibold text-text-dark mb-2">{title}</h3>
-    <div className="flex flex-wrap gap-3 mt-4">
-      <span className="px-3 py-1 bg-brand-green-ultra-light text-brand-green rounded-full text-sm">
+    <div className="flex items-start justify-between mb-4">
+      <h3 className="text-xl font-semibold text-text-dark group-hover:text-brand-green transition-colors duration-300 leading-tight pr-4">
+        {title}
+      </h3>
+      <div className="flex-shrink-0 w-2 h-2 bg-brand-green rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2"></div>
+    </div>
+    
+    <div className="flex flex-wrap gap-2 mb-6">
+      <span className="px-3 py-1.5 bg-brand-green/10 text-brand-green rounded-full text-xs font-medium border border-brand-green/20">
         {department}
       </span>
-      <span className="px-3 py-1 bg-neutral-gray text-text-light rounded-full text-sm">
+      <span className="px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">
         {location}
       </span>
-      <span className="px-3 py-1 bg-neutral-gray text-text-light rounded-full text-sm">
+      <span className="px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">
         {type}
       </span>
     </div>
-    <button className="mt-4 px-6 py-2 border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white transition-all rounded-full">
-      Apply Now
-    </button>
+    
+    <Link href={`/careers/${id}`}>
+      <button className="w-full px-6 py-3 border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300 rounded-full font-medium group-hover:shadow-md">
+        View Details & Apply
+      </button>
+    </Link>
   </motion.div>
 );
 
-const CultureCard = ({ icon, title, description }) => (
-  <div className="p-6 bg-white rounded-lg text-center">
-    <div className="w-16 h-16 mx-auto mb-4 relative">
-      <Image
-        src={icon}
-        alt={title}
-        fill
-        className="object-contain"
-      />
+const CultureCard = ({ icon, title, description, index }) => (
+  <motion.div 
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: index * 0.2, duration: 0.6 }}
+    className="group relative overflow-hidden"
+  >
+    <div className="relative p-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-brand-green/20 h-full">
+      {/* Decorative gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+      
+      {/* Icon container */}
+      <div className="relative z-10 mb-6">
+        <div className="w-20 h-20 mx-auto relative">
+          <div className="absolute inset-0 bg-brand-green/10 rounded-2xl group-hover:bg-brand-green/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"></div>
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Image
+              src={icon}
+              alt={title}
+              width={40}
+              height={40}
+              className="object-contain group-hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+        </div>
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10 text-center">
+        <h3 className="text-2xl font-bold text-text-dark mb-4 group-hover:text-brand-green transition-colors duration-300">
+          {title}
+        </h3>
+        <p className="text-gray-600 leading-relaxed text-base">
+          {description}
+        </p>
+      </div>
+      
+      {/* Bottom accent */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-brand-green to-brand-green/60 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     </div>
-    <h3 className="text-xl font-semibold text-text-dark mb-3">{title}</h3>
-    <p className="text-text-light">{description}</p>
-  </div>
+  </motion.div>
 );
 
 export default function CareersPage() {
@@ -48,6 +86,7 @@ export default function CareersPage() {
   
   const jobs = [
     {
+      id: 'hair-collection-manager',
       title: "Hair Collection Manager",
       department: "Operations",
       location: "Arusha, Tanzania",
@@ -55,6 +94,7 @@ export default function CareersPage() {
       category: "operations"
     },
     {
+      id: 'sales-manager',
       title: "Sales Manager",
       department: "Sales",
       location: "Arusha, Tanzania",
@@ -62,6 +102,7 @@ export default function CareersPage() {
       category: "sales"
     },
     {
+      id: 'marketing-manager',
       title: "Marketing Manager",
       department: "Marketing",
       location: "Arusha, Tanzania",
@@ -69,6 +110,7 @@ export default function CareersPage() {
       category: "marketing"
     },
     {
+      id: 'compliance-manager',
       title: "Compliance Manager",
       department: "Legal & Compliance",
       location: "Arusha, Tanzania",
@@ -76,6 +118,7 @@ export default function CareersPage() {
       category: "operations"
     },
     {
+      id: 'operations-manager',
       title: "Operations Manager",
       department: "Operations",
       location: "Arusha, Tanzania",
@@ -83,6 +126,7 @@ export default function CareersPage() {
       category: "operations"
     },
     {
+      id: 'finance-accounts-manager',
       title: "Finance and Accounts Manager",
       department: "Finance",
       location: "Arusha, Tanzania",
@@ -90,6 +134,7 @@ export default function CareersPage() {
       category: "finance"
     },
     {
+      id: 'production-manager',
       title: "Production Manager",
       department: "Production",
       location: "Arusha, Tanzania",
@@ -97,6 +142,7 @@ export default function CareersPage() {
       category: "operations"
     },
     {
+      id: 'data-analyst',
       title: "Data Analyst (Monitoring & Evaluation Manager)",
       department: "Analytics",
       location: "Arusha, Tanzania",
@@ -104,6 +150,7 @@ export default function CareersPage() {
       category: "analytics"
     },
     {
+      id: 'people-culture-manager',
       title: "People & Culture Manager",
       department: "Human Resources",
       location: "Arusha, Tanzania",
@@ -111,6 +158,7 @@ export default function CareersPage() {
       category: "hr"
     },
     {
+      id: 'digital-design-web-specialist',
       title: "Digital Design and Web Specialist",
       department: "Digital",
       location: "Arusha, Tanzania",
@@ -118,6 +166,7 @@ export default function CareersPage() {
       category: "marketing"
     },
     {
+      id: 'social-media-manager',
       title: "Social Media Manager",
       department: "Marketing",
       location: "Arusha, Tanzania",
@@ -125,6 +174,7 @@ export default function CareersPage() {
       category: "marketing"
     },
     {
+      id: 'digital-content-creator',
       title: "Digital Content Creator",
       department: "Marketing",
       location: "Arusha, Tanzania",
@@ -132,6 +182,7 @@ export default function CareersPage() {
       category: "marketing"
     },
     {
+      id: 'reception-admin-assistant',
       title: "Reception & Office Administrative Assistant",
       department: "Administration",
       location: "Arusha, Tanzania",
@@ -144,17 +195,17 @@ export default function CareersPage() {
     {
       icon: "/new/science.png",
       title: "Sustainability First",
-      description: "We're committed to creating a more sustainable future through innovative hair recycling."
+      description: "We're committed to creating a more sustainable future through innovative hair recycling and environmental stewardship in everything we do."
     },
     {
       icon: "/new/people.png",
       title: "Inclusive Community",
-      description: "We celebrate diversity and create an environment where everyone can thrive."
+      description: "We celebrate diversity and create an environment where everyone can thrive, fostering collaboration and mutual respect across all levels."
     },
     {
       icon: "/new/farm.png",
       title: "Impact Driven",
-      description: "Every action we take is measured by its positive impact on the environment and society."
+      description: "Every action we take is measured by its positive impact on the environment and society, creating meaningful change for future generations."
     }
   ];
 
@@ -176,7 +227,7 @@ export default function CareersPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-neutral-gray">
+    <main className="min-h-screen bg-gray-50">
       {/* Hero Section using imported component */}
       <HeroSection
         title="Join Our Mission to Revolutionize Hair Recycling"
@@ -187,40 +238,54 @@ export default function CareersPage() {
         className="min-h-[70vh]"
       />
 
-      {/* Culture Section */}
-      <section id="culture" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title text-center mb-12">Our Culture</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+      {/* Culture Section - Updated Design */}
+      <section id="culture" className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-text-dark mb-4">
+                Our <span className="text-brand-green">Culture</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Built on values that drive meaningful change and foster an environment where innovation thrives
+              </p>
+            </motion.div>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {cultureValues.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-              >
-                <CultureCard {...value} />
-              </motion.div>
+              <CultureCard key={index} {...value} index={index} />
             ))}
           </div>
         </div>
       </section>
 
       {/* Open Positions Section */}
-      <section id="positions" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title text-center mb-12">Open Positions</h2>
+      <section id="positions" className="py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-text-dark mb-4">
+              Open <span className="text-brand-green">Positions</span>
+            </h2>
+            <p className="text-xl text-gray-600">
+              Discover opportunities to make a difference while advancing your career
+            </p>
+          </div>
           
           {/* Job Categories Filter */}
-          <div className="flex justify-center gap-4 mb-12 flex-wrap">
+          <div className="flex justify-center gap-3 mb-16 flex-wrap">
             {['all', 'operations', 'marketing', 'sales', 'finance', 'hr', 'analytics', 'administration'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border-2
                   ${activeTab === tab 
-                    ? 'bg-brand-green text-white' 
-                    : 'bg-neutral-gray text-text-light hover:bg-brand-green-ultra-light hover:text-brand-green'
+                    ? 'bg-brand-green text-white border-brand-green shadow-lg' 
+                    : 'bg-white text-gray-600 border-gray-200 hover:bg-brand-green/5 hover:text-brand-green hover:border-brand-green/30'
                   }`}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -229,51 +294,77 @@ export default function CareersPage() {
           </div>
 
           {/* Job Listings */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {filteredJobs.map((job, index) => (
               <motion.div
-                key={index}
+                key={job.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <JobCard {...job} />
               </motion.div>
             ))}
           </div>
+          
+          {filteredJobs.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">No positions available in this category at the moment.</p>
+            </div>
+          )}
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-brand-green-ultra-light">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title text-center mb-12">Why Join Us?</h2>
+      <section className="py-24 bg-gradient-to-br from-brand-green/5 via-white to-brand-green/10">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-text-dark mb-4">
+              Why Choose <span className="text-brand-green">CutOff Recycle?</span>
+            </h2>
+            <p className="text-xl text-gray-600">
+              More than just a job - it's an opportunity to be part of something bigger
+            </p>
+          </div>
+          
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="text-center p-6"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <h3 className="text-xl font-semibold text-text-dark mb-4">Meaningful Impact</h3>
-              <p className="text-text-light">Be part of a mission-driven company that's making a real difference in environmental sustainability.</p>
+              <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-8 h-8 bg-brand-green rounded-lg"></div>
+              </div>
+              <h3 className="text-2xl font-bold text-text-dark mb-4">Meaningful Impact</h3>
+              <p className="text-gray-600 leading-relaxed">Be part of a mission-driven company that's making a real difference in environmental sustainability and community development.</p>
             </motion.div>
+            
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-center p-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <h3 className="text-xl font-semibold text-text-dark mb-4">Growth & Development</h3>
-              <p className="text-text-light">Continuous learning opportunities and career advancement in a rapidly growing industry.</p>
+              <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-8 h-8 bg-brand-green rounded-lg"></div>
+              </div>
+              <h3 className="text-2xl font-bold text-text-dark mb-4">Growth & Development</h3>
+              <p className="text-gray-600 leading-relaxed">Continuous learning opportunities and career advancement in a rapidly growing industry with global impact potential.</p>
             </motion.div>
+            
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-center p-6"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <h3 className="text-xl font-semibold text-text-dark mb-4">Inclusive Culture</h3>
-              <p className="text-text-light">Work in a diverse, supportive environment that values every team member's unique perspective.</p>
+              <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-8 h-8 bg-brand-green rounded-lg"></div>
+              </div>
+              <h3 className="text-2xl font-bold text-text-dark mb-4">Inclusive Culture</h3>
+              <p className="text-gray-600 leading-relaxed">Work in a diverse, supportive environment that values every team member's unique perspective and fosters innovation.</p>
             </motion.div>
           </div>
         </div>
