@@ -84,112 +84,9 @@ const CultureCard = ({ icon, title, description, index }) => (
 export default function CareersPage() {
   const [activeTab, setActiveTab] = useState('all');
   
-  const jobs = [
-    {
-      id: 'hair-collection-manager',
-      title: "Hair Collection Manager",
-      department: "Operations",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "operations"
-    },
-    {
-      id: 'sales-manager',
-      title: "Sales Manager",
-      department: "Sales",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "sales"
-    },
-    {
-      id: 'marketing-manager',
-      title: "Marketing Manager",
-      department: "Marketing",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "marketing"
-    },
-    {
-      id: 'compliance-manager',
-      title: "Compliance Manager",
-      department: "Legal & Compliance",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "operations"
-    },
-    {
-      id: 'operations-manager',
-      title: "Operations Manager",
-      department: "Operations",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "operations"
-    },
-    {
-      id: 'finance-accounts-manager',
-      title: "Finance and Accounts Manager",
-      department: "Finance",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "finance"
-    },
-    {
-      id: 'production-manager',
-      title: "Production Manager",
-      department: "Production",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "operations"
-    },
-    {
-      id: 'data-analyst',
-      title: "Data Analyst (Monitoring & Evaluation Manager)",
-      department: "Analytics",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "analytics"
-    },
-    {
-      id: 'people-culture-manager',
-      title: "People & Culture Manager",
-      department: "Human Resources",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "hr"
-    },
-    {
-      id: 'digital-design-web-specialist',
-      title: "Digital Design and Web Specialist",
-      department: "Digital",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "marketing"
-    },
-    {
-      id: 'social-media-manager',
-      title: "Social Media Manager",
-      department: "Marketing",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "marketing"
-    },
-    {
-      id: 'digital-content-creator',
-      title: "Digital Content Creator",
-      department: "Marketing",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "marketing"
-    },
-    {
-      id: 'reception-admin-assistant',
-      title: "Reception & Office Administrative Assistant",
-      department: "Administration",
-      location: "Arusha, Tanzania",
-      type: "Full-time",
-      category: "administration"
-    }
-  ];
+  const { getAllJobs, getCategories } = require('@/app/data/jobs');
+  const jobs = getAllJobs();
+  const categories = ['all', ...getCategories()];
 
   const cultureValues = [
     {
@@ -230,9 +127,9 @@ export default function CareersPage() {
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section using imported component */}
       <HeroSection
-        title="Join Our Mission to Revolutionize Hair Recycling"
+        title="Join Our Mission"
         subtitle="Be part of a team that's transforming the beauty industry while making a positive impact on the environment."
-        backgroundImage="/new/teachers.jpg"
+        backgroundImage="/new/teachers.png"
         ctaButtons={heroCtaButtons}
         showPattern={true}
         className="min-h-[70vh]"
@@ -278,7 +175,7 @@ export default function CareersPage() {
           
           {/* Job Categories Filter */}
           <div className="flex justify-center gap-3 mb-16 flex-wrap">
-            {['all', 'operations', 'marketing', 'sales', 'finance', 'hr', 'analytics', 'administration'].map((tab) => (
+            {categories.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
