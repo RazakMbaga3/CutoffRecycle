@@ -11,12 +11,11 @@ export default function HairValueCampaign() {
       title: 'Environment',
       description: 'Sustainable and innovative waste management reducing landfill burden, littering and waste burning.',
       stats: [
-        { value: 4, suffix: ' tons', description: 'Hair waste diverted from landfills' },
-        { value: 12, suffix: ' tons', description: 'CO₂ emissions prevented' }
+        { value: 4, suffix: ' tons', description: 'Hair waste diverted from landfills' }
       ],
       Icon: FaLeaf,
       image: "/Images/envi.webp",
-      gradient: 'from-emerald-500 to-green-600'
+      gradient: 'from-[#1f4074] to-[#50ad32]'
     },
     {
       title: 'Community',
@@ -27,7 +26,7 @@ export default function HairValueCampaign() {
       ],
       Icon: FaPeopleCarry,
       image: "/Images/nywele.webp",
-      gradient: 'from-blue-500 to-indigo-600'
+      gradient: 'from-[#50ad32] to-[#1f4074]'
     },
     {
       title: 'Agriculture',
@@ -38,7 +37,7 @@ export default function HairValueCampaign() {
       ],
       Icon: FaSeedling,
       image: "/Images/faida.webp",
-      gradient: 'from-amber-500 to-orange-600'
+      gradient: 'from-[#1f4074] via-[#50ad32] to-[#1f4074]'
     }
   ];
 
@@ -54,7 +53,7 @@ export default function HairValueCampaign() {
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900"
           >
             Creating{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#000000] to-[#be8b4d]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1f4074] to-[#50ad32]">
               Value
             </span>{" "}
             Through Impact
@@ -76,6 +75,7 @@ export default function HairValueCampaign() {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -5 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
               className="group relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500"
@@ -92,37 +92,60 @@ export default function HairValueCampaign() {
 
               {/* Impact Statistics */}
               <div className="p-6">
-                <div className="grid grid-cols-2 gap-4">
+                <div className={`${card.title === 'Environment' ? '' : 'grid grid-cols-2'} gap-4`}>
                   {card.stats.map((stat, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, scale: 0.5 }}
                       whileInView={{ opacity: 1, scale: 1 }}
+                      whileHover={{ 
+                        scale: 1.02,
+                        transition: { duration: 0.2 }
+                      }}
                       transition={{ 
-                        duration: 0.5, 
+                        duration: 0.7, 
                         delay: index * 0.2 + i * 0.1,
                         type: "spring",
-                        stiffness: 100
+                        stiffness: 100,
+                        bounce: 0.3
                       }}
                       viewport={{ once: true }}
-                      className="text-center p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
+                      className={`relative overflow-hidden rounded-xl shadow-lg 
+                        bg-gradient-to-br from-white to-[#1f4074]/5
+                        ${card.title === 'Environment' ? 'py-4 px-6' : 'p-6'}`}
                     >
-                      <div className="text-3xl font-bold bg-gradient-to-r text-transparent bg-clip-text from-gray-900 to-gray-600">
-                        <CountUp
-                          end={stat.value}
-                          suffix={stat.suffix}
-                          duration={2.5}
-                          enableScrollSpy
-                          scrollSpyOnce
-                        />
-                      </div>
-                      <p className="text-sm text-gray-600 mt-2">{stat.description}</p>
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: (index * 0.2 + i * 0.1) + 0.3 }}
+                        viewport={{ once: true }}
+                        className="relative z-10"
+                      >
+                        <div className={`flex ${card.title === 'Environment' ? 'flex-row items-center gap-3' : 'flex-col items-center mb-2'}`}>
+                          <div className={`font-bold text-[#1f4074] ${card.title === 'Environment' ? 'text-3xl md:text-4xl' : 'text-4xl md:text-5xl'}`}>
+                            <CountUp
+                              end={stat.value}
+                              suffix={stat.suffix}
+                              duration={2.5}
+                              enableScrollSpy
+                              scrollSpyOnce
+                            />
+                          </div>
+                          <p className={`font-medium ${card.title === 'Environment' ? 'text-base text-[#1f4074]/80 m-0' : 'text-sm text-gray-800 text-center mt-1'}`}>
+                            {stat.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                      
+                      {/* Decorative Elements */}
+                      <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 rounded-full bg-white/30 blur-2xl"></div>
+                      <div className="absolute bottom-0 left-0 -mb-4 -ml-4 w-20 h-20 rounded-full bg-white/30 blur-xl"></div>
                     </motion.div>
                   ))}
                 </div>
 
                 {/* Image Section */}
-                <div className="mt-6 relative h-48 rounded-lg overflow-hidden">
+                <div className="mt-6 relative aspect-square rounded-lg overflow-hidden">
                   <Image
                     src={card.image}
                     alt={card.title}
