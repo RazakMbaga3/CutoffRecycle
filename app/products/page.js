@@ -253,9 +253,23 @@ export default function Products() {
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-green/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                 
                 {/* YouTube Embed with Click-to-Open */}
-                <div className="relative w-full h-full cursor-pointer" onClick={() => window.open('https://youtu.be/zlGR3JMr86o', '_blank')}>
+                <div className="relative w-full h-full">
+                  {/* Video thumbnail with play button */}
+                  <div 
+                    className="absolute inset-0 z-10 cursor-pointer flex items-center justify-center"
+                    onClick={() => window.open('https://youtu.be/zlGR3JMr86o', '_blank')}
+                  >
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                    <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300"></div>
+                  </div>
+                  
+                  {/* YouTube iframe */}
                   <iframe
-                    className="w-full h-full pointer-events-none"
+                    className="w-full h-full"
                     src="https://www.youtube.com/embed/zlGR3JMr86o?rel=0&modestbranding=1&showinfo=0"
                     title="Customer Testimonial - Organic Fertilizer Results"
                     frameBorder="0"
