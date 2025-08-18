@@ -12,9 +12,22 @@ const nextConfig = {
     minimumCacheTTL: 60,
   },
   experimental: {
-    optimizeCss: true,
+    optimizeCss: {
+      enabled: true,
+      cssModules: true,
+      // Add specific options for critters
+      critters: {
+        preload: 'media',
+        pruneSource: true,
+        reduceInlineStyles: true,
+      },
+    },
     optimizePackageImports: ['framer-motion', 'react-icons'],
   },
+  // Add general performance optimizations
+  poweredByHeader: false,
+  compress: true,
+  reactStrictMode: true,
 }
 
 export default nextConfig
