@@ -1,9 +1,17 @@
 "use client";
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import CountUp from 'react-countup';
+import { LazyMotion, domAnimation, motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import { FaLeaf, FaPeopleCarry, FaSeedling } from 'react-icons/fa';
+
+// Lazy load CountUp for non-critical animations
+const CountUp = dynamic(() => import('react-countup'), { ssr: false });
+
+function LoadingFallback() {
+  return <div className="animate-pulse bg-gray-200 h-96 rounded-lg"></div>;
+}
 
 export default function HairValueCampaign() {
   const valueCards = [
@@ -42,9 +50,11 @@ export default function HairValueCampaign() {
   ];
 
   return (
-    <section className="py-16 bg-[#F9F9F9]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <Suspense fallback={<LoadingFallback />}>
+      <LazyMotion features={domAnimation}>
+        <section className="py-16 bg-[#F9F9F9]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -152,6 +162,9 @@ export default function HairValueCampaign() {
                     fill
                     className="object-cover transform group-hover:scale-110 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index === 0}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    quality={75}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 </div>
@@ -161,5 +174,7 @@ export default function HairValueCampaign() {
         </div>
       </div>
     </section>
-  );
+        </LazyMotion>
+      </Suspense>
+    );
 }
