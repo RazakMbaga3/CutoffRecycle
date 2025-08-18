@@ -4,6 +4,10 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaLeaf, FaPeopleCarry, FaHandHoldingHeart } from 'react-icons/fa';
+import { BiTargetLock } from 'react-icons/bi';
+import { MdOutlineScience, MdGroups, MdTrendingUp } from 'react-icons/md';
+import { RiPlantLine } from 'react-icons/ri';
 import HeroSection from '../components/HeroSection';
 
 const JobCard = ({ title, department, location, type, id }) => (
@@ -38,7 +42,7 @@ const JobCard = ({ title, department, location, type, id }) => (
   </motion.div>
 );
 
-const CultureCard = ({ icon, title, description, index }) => (
+const CultureCard = ({ Icon, title, description, index }) => (
   <motion.div 
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -54,13 +58,7 @@ const CultureCard = ({ icon, title, description, index }) => (
         <div className="w-20 h-20 mx-auto relative">
           <div className="absolute inset-0 bg-brand-green/10 rounded-2xl group-hover:bg-brand-green/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"></div>
           <div className="relative w-full h-full flex items-center justify-center">
-            <Image
-              src={icon}
-              alt={title}
-              width={40}
-              height={40}
-              className="object-contain group-hover:scale-110 transition-transform duration-300"
-            />
+            <Icon className="w-10 h-10 text-brand-green group-hover:scale-110 transition-transform duration-300" />
           </div>
         </div>
       </div>
@@ -90,17 +88,17 @@ export default function CareersPage() {
 
   const cultureValues = [
     {
-      icon: "/new/science.png",
+      Icon: RiPlantLine,
       title: "Sustainability First",
       description: "We're committed to creating a more sustainable future through innovative hair recycling and environmental stewardship in everything we do."
     },
     {
-      icon: "/new/people.png",
+      Icon: MdGroups,
       title: "Inclusive Community",
       description: "We celebrate diversity and create an environment where everyone can thrive, fostering collaboration and mutual respect across all levels."
     },
     {
-      icon: "/new/farm.png",
+      Icon: BiTargetLock,
       title: "Impact Driven",
       description: "Every action we take is measured by its positive impact on the environment and society, creating meaningful change for future generations."
     }
@@ -229,12 +227,12 @@ export default function CareersPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="group text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <div className="w-8 h-8 bg-brand-green rounded-lg"></div>
+              <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-green/20 transition-all duration-300">
+                <FaHandHoldingHeart className="w-8 h-8 text-brand-green group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-2xl font-bold text-text-dark mb-4">Meaningful Impact</h3>
+              <h3 className="text-2xl font-bold text-text-dark mb-4 group-hover:text-brand-green transition-colors duration-300">Meaningful Impact</h3>
               <p className="text-gray-600 leading-relaxed">Be part of a mission-driven company that's making a real difference in environmental sustainability and community development.</p>
             </motion.div>
             
@@ -242,12 +240,12 @@ export default function CareersPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="group text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <div className="w-8 h-8 bg-brand-green rounded-lg"></div>
+              <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-green/20 transition-all duration-300">
+                <MdTrendingUp className="w-8 h-8 text-brand-green group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-2xl font-bold text-text-dark mb-4">Growth & Development</h3>
+              <h3 className="text-2xl font-bold text-text-dark mb-4 group-hover:text-brand-green transition-colors duration-300">Growth & Development</h3>
               <p className="text-gray-600 leading-relaxed">Continuous learning opportunities and career advancement in a rapidly growing industry with global impact potential.</p>
             </motion.div>
             
@@ -255,12 +253,12 @@ export default function CareersPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="group text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <div className="w-8 h-8 bg-brand-green rounded-lg"></div>
+              <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-green/20 transition-all duration-300">
+                <FaPeopleCarry className="w-8 h-8 text-brand-green group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-2xl font-bold text-text-dark mb-4">Inclusive Culture</h3>
+              <h3 className="text-2xl font-bold text-text-dark mb-4 group-hover:text-brand-green transition-colors duration-300">Inclusive Culture</h3>
               <p className="text-gray-600 leading-relaxed">Work in a diverse, supportive environment that values every team member's unique perspective and fosters innovation.</p>
             </motion.div>
           </div>
