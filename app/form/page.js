@@ -6,8 +6,7 @@ import citiesData1 from "../../public/data1.json";
 import citiesData2 from "../../public/data2.json";
 import citiesData3 from "../../public/data3.json";
 
-const allCities = [
-  ...citiesData1,
+const allCities = [...citiesData1,
   ...citiesData2,
   ...citiesData3,
 ];
@@ -17,7 +16,6 @@ const [form, setForm] = useState(null)
 const [name, setName] = useState('')
 const [email, setEmail] = useState('')
 const [phone, setPhone] = useState('')
-const [location, setLocation] = useState('')
 const [collectors, setCollectors] = useState(null)
 const [time, setTime] = useState(null)
 const [query, setQuery] = useState("");
@@ -41,7 +39,7 @@ const [query, setQuery] = useState("");
     setShowDropdown(false);
   };
   return (
-    form ? <div style={{marginTop:'5rem',display:'flex',flexDirection:'column',alignItems:'center'}}>
+    form ? <div style={{marginTop:'5rem',display:'flex',flexDirection:'column',alignItems:'center',height:'70vh',justifyContent:'space-evenly'}}>
       <h1>Become a collector</h1>
       {form == 'center' ? <section>
         <div>
