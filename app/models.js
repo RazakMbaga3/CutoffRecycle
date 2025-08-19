@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const AddressTypeSchema = new mongoose.Schema({line1: String, country: String, city:String,zip: Number})
 const CartItemTypeSchema = new mongoose.Schema({ hair: Number, liquid: Number })
-const PickupOrderTypeSchema = new mongoose.Schema({ location: String, orders:[]}, { strict: false });
+const PickupOrderTypeSchema = new mongoose.Schema({ location: String, orders:[],name:String,number:String,type:String}, { strict: false });
 const HistoryTypeSchema = new mongoose.Schema({price: Number, items: CartItemTypeSchema, date: String})
 const CustomerPaymentTypeSchema = new mongoose.Schema({cardName:String, cardNumber: String, expiryDate: String, cvv: String})
 const CustomerInfoTypeSchema = new mongoose.Schema({address: String, payment: CustomerPaymentTypeSchema})

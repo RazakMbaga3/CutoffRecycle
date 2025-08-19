@@ -21,6 +21,21 @@ export async function GET(req) {
   }
 }
 
+export async function POST(req) {
+    try {
+      await connectDB();
+      const body = await req.json();
+  
+      const newUser = new PickupOrderType(body);
+      const savedUser = await newUser.save();
+  
+      return Response.json(savedUser, { status: 201 });
+    } catch (error) {
+      console.error("Error creating user:", error);
+      return Response.json({ error: "Failed to create user", details: error.message }, { status: 500 });
+    }
+  }
+
 export async function PUT(req) {
   try {
     await connectDB();

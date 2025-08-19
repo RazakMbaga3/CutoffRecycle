@@ -128,6 +128,31 @@ export const AuthProvider = ({ children }) => {
       throw err;
     }
   };
+
+  const addCollector = async (name, email, phone, type) => {
+    try {
+      const newUser = {
+        name,
+        email,
+        phone,
+        type,
+        orders: []
+      };
+  
+      const res = await fetch("/api/pickup", {
+        method: "POST",
+        body: JSON.stringify(newUser),
+      });
+  
+      if (!res.ok) throw new Error("Failed to register user");
+  
+      const savedUser = await res.json();
+      setPickupOrders([...users, savedUser]);
+    } catch (err) {
+      console.error("Signup Error:", err);
+      throw err;
+    }
+  };
   
   // Login an existing user
   const login = async (email, password) => {
@@ -364,7 +389,7 @@ const changePickupOrderStatus = async (location,orderId,status,amount) => {
 };
 
   return (
-    <AuthContext.Provider value={{ users, setUsers, cart, activeUser, activeEmployee, signUp, login, logout, updateUser, updateCustomerData, updateBarberData, addOrder, addPickupOrder, pickupOrders, addItemToCart, changePickupOrderStatus, updateCart, employeeLogin, employees, setPickupOrders}}>
+    <AuthContext.Provider value={{ users, setUsers, cart, activeUser, activeEmployee, signUp, login, logout, updateUser, updateCustomerData, updateBarberData, addOrder, addPickupOrder, pickupOrders, addItemToCart, changePickupOrderStatus, updateCart, employeeLogin, employees, setPickupOrders, addCollector}}>
       {children}
     </AuthContext.Provider>
   );
