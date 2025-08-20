@@ -112,7 +112,7 @@ export default function JobDetails({ params }) {
                 <p className="text-center text-sm text-gray-500 mt-4">
                   Questions? Email us at{' '}
                   <a href="mailto:careers@cutoffrecycle.com" className="text-brand-green hover:text-brand-green-dark">
-                    careers@cutoffrecycle.com
+                    careers@cutoffrecycle.co.tz
                   </a>
                 </p>
               </div>
