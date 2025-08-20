@@ -30,7 +30,7 @@ export default function HairValueCampaign() {
       description: 'Creating new opportunities and empowering local communities',
       stats: [
         { value: 350, suffix: '+', description: 'People earning sustainable income' },
-        { value: 25, suffix: '+', description: 'Collection centers established' }
+        { value: 3, suffix: '+', description: 'Collection centers established' }
       ],
       Icon: FaPeopleCarry,
       image: "/Images/nywele.webp",
@@ -41,7 +41,7 @@ export default function HairValueCampaign() {
       description: 'Enhancing agricultural productivity with organic fertilizer',
       stats: [
         { value: 30, suffix: '%', description: 'Average crop yield increase' },
-        { value: 1000, suffix: '+', description: 'Farmers benefited' }
+        { value: 100, suffix: '+', description: 'Farmers benefited' }
       ],
       Icon: FaSeedling,
       image: "/Images/faida.webp",
