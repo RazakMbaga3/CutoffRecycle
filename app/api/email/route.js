@@ -12,7 +12,7 @@ export async function POST(req) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "new collector cut off recycle", // you can use a custom verified domain too
+        from: "Your Site <onboarding@resend.dev>", // you can use a custom verified domain too
         to: ["haircollection@cutoffrecycle.co.tz"],
         subject: `New ${formType === "center" ? "Collection Center" : "Individual Collector"} Submission`,
         text: `
