@@ -38,6 +38,27 @@ const [query, setQuery] = useState("");
     setQuery(`${city.city}, ${city.country}`);
     setShowDropdown(false);
   };
+  const handleSubmit = async () => {
+  const data = {name,email,phone,location: query,collectors,time,formType: form};
+
+  try {
+    const res = await fetch("/api/email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      alert("Form submitted successfully!");
+    } else {
+      alert("Failed to submit form.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error submitting form.");
+  }
+};
+
   return (
     form ? <div style={{marginTop:'5rem',display:'flex',flexDirection:'column',alignItems:'center',height:'70vh',justifyContent:'space-evenly'}}>
       <h1>Become a collector</h1>
@@ -130,6 +151,7 @@ const [query, setQuery] = useState("");
                     </div>
                 </div>
       </div>
+      <button onClick={handleSubmit} className="px-8 py-4 bg-brand-green text-white font-semibold rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-500 transform hover:-translate-y-1 inline-flex items-center text-lg">Submit</button>
     </div>
     : <div style={{width:'100vw',height:'100vh',display:'flex',alignItems:'center',justifyContent:'space-evenly',flexWrap:'wrap'}}>
         <button className="px-8 py-4 bg-brand-green text-white font-semibold rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-500 transform hover:-translate-y-1 inline-flex items-center text-lg" onClick={()=>setForm('center')}>Collection center</button>
