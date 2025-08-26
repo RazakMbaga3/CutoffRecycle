@@ -86,7 +86,7 @@ const [query, setQuery] = useState("");
           {filteredCities.length > 0 ? (
             filteredCities.map((city) => (
               <li
-                key={city.id}
+                key={`${city.city}-${city.country}`}
                 onClick={() => handleSelect(city)}
                 className="cursor-pointer px-3 py-2 hover:bg-blue-100"
               >
@@ -103,28 +103,28 @@ const [query, setQuery] = useState("");
         <p>About how many collectors do you have</p>
         <div style={{display:'flex'}}>
                     <div>
-                        <input type="radio"id="option1"value="option1"
-                            checked={collectors === "option1"}
-                            onChange={() => setCollectors("option1")}/>
-                        <label htmlFor="option1">0 - 10</label>
+                        <input type="radio"id="0 - 10"value="0 - 10"
+                            checked={collectors === "0 - 10"}
+                            onChange={() => setCollectors("0 - 10")}/>
+                        <label htmlFor="0 - 10">0 - 10</label>
                     </div>
                     <div>
-                        <input type="radio"id="option2"value="option2"
-                            checked={collectors === "option2"}
-                            onChange={() => setCollectors("option2")}/>
-                        <label htmlFor="option2">10 - 20</label>
+                        <input type="radio"id="10 - 20"value="10 - 20"
+                            checked={collectors === "10 - 20"}
+                            onChange={() => setCollectors("10 - 20")}/>
+                        <label htmlFor="10 - 20">10 - 20</label>
                     </div>
                     <div>
-                        <input type="radio"id="option3"value="option3"
-                            checked={collectors === "option3"}
-                            onChange={() => setCollectors("option3")}/>
-                        <label htmlFor="option3">20 - 30</label>
+                        <input type="radio"id="20 - 30"value="20 - 30"
+                            checked={collectors === "20 - 30"}
+                            onChange={() => setCollectors("20 - 30")}/>
+                        <label htmlFor="20 - 30">20 - 30</label>
                     </div>
                     <div>
-                        <input type="radio"id="option4"value="option4"
-                            checked={collectors === "option4"}
-                            onChange={() => setCollectors("option4")}/>
-                        <label htmlFor="option4">More than 30</label>
+                        <input type="radio"id="More than 30"value="More than 30"
+                            checked={collectors === "More than 30"}
+                            onChange={() => setCollectors("More than 30")}/>
+                        <label htmlFor="More than 30">More than 30</label>
                     </div>
                 </div>
       </div>}
@@ -132,22 +132,22 @@ const [query, setQuery] = useState("");
         <p>About how long do you think it will take to ship the hair to our factory in arusha</p>
         <div style={{display:'flex'}}>
                     <div>
-                        <input type="radio"id="option1"value="option1"
-                            checked={time === "option1"}
-                            onChange={() => setTime("option1")}/>
-                        <label htmlFor="option1">less than 2 days</label>
+                        <input type="radio"id="less than 2 days"value="less than 2 days"
+                            checked={time === "less than 2 days"}
+                            onChange={() => setTime("less than 2 days")}/>
+                        <label htmlFor="less than 2 days">less than 2 days</label>
                     </div>
                     <div>
-                        <input type="radio"id="option2"value="option2"
-                            checked={time === "option2"}
-                            onChange={() => setTime("option2")}/>
-                        <label htmlFor="option2">2 - 5 days</label>
+                        <input type="radio"id="2 - 5 days"value="2 - 5 days"
+                            checked={time === "2 - 5 days"}
+                            onChange={() => setTime("2 - 5 days")}/>
+                        <label htmlFor="2 - 5 days">2 - 5 days</label>
                     </div>
                     <div>
-                        <input type="radio"id="option3"value="option3"
-                            checked={time === "option3"}
-                            onChange={() => setTime("option3")}/>
-                        <label htmlFor="option3">more than 5 days</label>
+                        <input type="radio"id="more than 5 days"value="more than 5 days"
+                            checked={time === "more than 5 days"}
+                            onChange={() => setTime("more than 5 days")}/>
+                        <label htmlFor="more than 5 days">more than 5 days</label>
                     </div>
                 </div>
       </div>

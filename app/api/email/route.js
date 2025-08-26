@@ -12,9 +12,9 @@ export async function POST(req) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Your Site <onboarding@resend.dev>", // you can use a custom verified domain too
+        from: "cut off recycle <onboarding@resend.dev>", // you can use a custom verified domain too
         to: ["haircollection@cutoffrecycle.co.tz"],
-        subject: `New ${formType === "center" ? "Collection Center" : "Individual Collector"} Submission`,
+        subject: `New ${formType === "center" ? "Collection Center" : "Individual Collector"}`,
         text: `
           Name: ${name}
           Email: ${email}
@@ -27,7 +27,7 @@ export async function POST(req) {
     });
 
     if (!res.ok) {
-      throw new Error("Failed to send email");
+      throw new Error("Failed to send email", res.text);
     }
 
     return NextResponse.json({ success: true });
