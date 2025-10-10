@@ -48,7 +48,7 @@ export default function Home() {
       />
       </div>
       <button onClick={handleLogin} className="px-8 py-4 bg-brand-green text-white font-semibold rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-500 transform hover:-translate-y-1 inline-flex items-center text-lg">Login</button>
-      <p>Do you want to become a collector, fill out <Link style={{color:'rgb(80 173 50/1)'}} href="/form">this form</Link> and we will get back to you</p>
+      <p>Do you want to become a collector, fill out <Link style={{color:'rgb(80 173 50/1)'}} href="/soon">this form</Link> and we will get back to you</p>
     </div>
       </main>
     </div>
